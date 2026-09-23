@@ -20,9 +20,11 @@ create table public.questions (
 
   constraint questions_domain_chk
     check (domain in (
-      'implement-manage',
-      'ingest-transform',
-      'monitor-optimize'
+      'plan-manage',
+      'genai-agentic',
+      'computer-vision',
+      'text-analysis',
+      'info-extraction'
     )),
 
   constraint questions_source_chk

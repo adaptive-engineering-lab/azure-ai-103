@@ -6,7 +6,7 @@ const SCHEMA_STUB = { title: 'stub' };
 describe('Author prompt builder — grounded vs. ungrounded', () => {
   it('falls back to "Microsoft documentation" when no source files are provided', () => {
     const prompt = buildPrompt(
-      { type: 'mcq', domain: 'ingest-transform', topic: 'blob-tiers', difficulty: 2, count: 5 },
+      { type: 'mcq', domain: 'genai-agentic', topic: 'blob-tiers', difficulty: 2, count: 5 },
       SCHEMA_STUB,
       [],
       [],
@@ -17,7 +17,7 @@ describe('Author prompt builder — grounded vs. ungrounded', () => {
 
   it('inlines source-file contents and tells Claude they are authoritative', () => {
     const prompt = buildPrompt(
-      { type: 'mcq', domain: 'implement-manage', topic: 'rbac', difficulty: 1, count: 3 },
+      { type: 'mcq', domain: 'plan-manage', topic: 'rbac', difficulty: 1, count: 3 },
       SCHEMA_STUB,
       [],
       [
@@ -35,13 +35,13 @@ describe('Author prompt builder — grounded vs. ungrounded', () => {
 
   it('still injects schema, domain, topic, and difficulty regardless of source mode', () => {
     const prompt = buildPrompt(
-      { type: 'code-review', domain: 'implement-manage', topic: 'evaluation-metrics', difficulty: 3, count: 7 },
+      { type: 'code-review', domain: 'plan-manage', topic: 'evaluation-metrics', difficulty: 3, count: 7 },
       SCHEMA_STUB,
       ['00000000-0000-4000-8000-000000000001'],
       [],
     );
     expect(prompt).toMatch(/Create 7 DP-700 code-review items/);
-    expect(prompt).toMatch(/Domain: implement-manage/);
+    expect(prompt).toMatch(/Domain: plan-manage/);
     expect(prompt).toMatch(/Topic: evaluation-metrics/);
     expect(prompt).toMatch(/Difficulty: 3/);
     expect(prompt).toMatch(/00000000-0000-4000-8000-000000000001/);

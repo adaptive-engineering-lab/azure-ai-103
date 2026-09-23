@@ -4,7 +4,7 @@ import type { ModuleOption } from '../../src/lib/questions/useModules';
 
 /** Minimal module in study order; only the fields the grouping reads. */
 function mod(order: number, pathTitle?: string): ModuleOption {
-  return { topic: `module-${order}`, domain: 'ingest-transform', count: 1, order, pathTitle };
+  return { topic: `module-${order}`, domain: 'genai-agentic', count: 1, order, pathTitle };
 }
 
 /** The orders of the modules that would render a path heading. */

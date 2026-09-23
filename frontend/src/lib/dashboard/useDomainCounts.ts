@@ -12,11 +12,8 @@ export interface DomainCounts {
   error: string | null;
 }
 
-const EMPTY: Record<Domain, number> = {
-  'implement-manage': 0,
-  'ingest-transform': 0,
-  'monitor-optimize': 0,
-};
+// Built from DOMAINS so adding an exam domain needs no edit here.
+const EMPTY = Object.fromEntries(DOMAINS.map((d) => [d, 0])) as Record<Domain, number>;
 
 const EMPTY_TYPES: Record<ItemType, number> = {
   mcq: 0,

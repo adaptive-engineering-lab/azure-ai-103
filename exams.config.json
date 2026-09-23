@@ -1,63 +1,110 @@
 {
   "exams": [
     {
-      "code": "DP-700",
-      "title": "Implementing Data Engineering Solutions Using Microsoft Fabric",
-      "certificationTitle": "Microsoft Certified: Fabric Data Engineer Associate",
+      "code": "AI-103",
+      "title": "Developing AI Apps and Agents on Azure",
+      "certificationTitle": "Microsoft Certified: Azure AI Apps and Agents Developer Associate",
+      "courseCode": "AI-103T00-A",
+      "courseTitle": "Develop AI apps and agents on Azure",
       "level": "Intermediate",
       "passMark": 700,
-      "productionUrl": "dp-700.yourdomain.com",
-      "skillsMeasuredAsOf": "2026-07-21",
+      "productionUrl": "ai-103.yourdomain.com",
+      "skillsMeasuredAsOf": "2026-04-16",
+      "supersedes": {
+        "code": "AI-102",
+        "retiredOn": "2026-06-30",
+        "note": "Not a revision. AI-103 promotes agentic development to a headline domain, collapses the former NLP and knowledge-mining domains, and drops custom vision and custom language models in favour of Foundry-hosted models and Content Understanding. AI-102 content does not port."
+      },
 
       "domains": [
         {
-          "slug": "implement-manage",
-          "label": "Implement and manage an analytics solution",
-          "weight": "30-35",
+          "slug": "plan-manage",
+          "label": "Plan and manage an Azure AI solution",
+          "weight": "25-30",
           "topics": [
-            "Spark Workspace Settings", "Domain Workspace Settings",
-            "OneLake Workspace Settings", "Apache Airflow Workspace Settings",
-            "Version Control", "Database Projects", "Deployment Pipelines",
-            "Workspace Access Controls", "Item Access Controls",
-            "Row-Level Security", "Column-Level Security", "Object-Level Security",
-            "Folder and File Access Controls", "Dynamic Data Masking",
-            "Sensitivity Labels", "Item Endorsement", "Fabric Audit Logs",
-            "OneLake Security", "Dataflow vs Pipeline vs Notebook",
-            "Schedules and Triggers", "Orchestration Patterns",
-            "Parameters and Dynamic Expressions"
+            "Model Selection", "Small Language Models", "Multimodal Models",
+            "Foundry Tools Selection", "Retrieval and Indexing Choice",
+            "Agent Memory and Knowledge Services", "AI Infrastructure Design",
+            "Deployment Options", "Model and Agent Deployment Configuration",
+            "CI/CD Integration", "Quotas and Rate Limits", "Scaling",
+            "Cost Footprint", "Model Performance Monitoring", "Model Drift",
+            "Safety Events", "Grounding Quality", "Data Ingestion Quality",
+            "Search Index Health", "Managed Identity", "Private Networking",
+            "Keyless Credentials", "Role Policies", "Safety Filters",
+            "Guardrails", "Risk Detection", "Content Moderation",
+            "Evaluators and Safety Evaluations", "Trace Logging",
+            "Provenance Metadata", "Approval Workflows",
+            "Agent Oversight Modes", "Tool-Access Controls"
           ]
         },
         {
-          "slug": "ingest-transform",
-          "label": "Ingest and transform data",
+          "slug": "genai-agentic",
+          "label": "Implement generative AI and agentic solutions",
           "weight": "30-35",
           "topics": [
-            "Full and Incremental Loads", "Dimensional Model Preparation",
-            "Streaming Loading Patterns", "Choosing a Data Store",
-            "Dataflows Gen2 vs Notebooks vs KQL vs T-SQL",
-            "OneLake Shortcuts", "Mirroring", "Pipeline Ingestion",
-            "PySpark Transforms", "SQL Transforms", "KQL Transforms",
-            "Denormalization", "Grouping and Aggregation",
-            "Duplicate Handling", "Missing Data", "Late-Arriving Data",
-            "Choosing a Streaming Engine",
-            "Native Tables vs OneLake Shortcuts", "Query Acceleration",
-            "Eventstreams", "Spark Structured Streaming", "Windowing Functions"
+            "Deploying and Consuming LLMs", "Code Models",
+            "Retrieval-Augmented Generation", "Tool-Augmented Flows",
+            "Multistep Reasoning Pipelines", "Fabrication Detection",
+            "Relevance and Quality Evaluation", "Foundry SDKs and Connectors",
+            "Foundry Project Connection", "Agent Roles and Goals",
+            "Conversation Tracking", "Tool Schemas", "Function Calling",
+            "Conversation Memory", "Knowledge Store Integration",
+            "MCP Tools", "Content Understanding as a Tool",
+            "Custom Functions", "Multi-Agent Orchestration",
+            "Autonomous and Semiautonomous Workflows", "Approval Flow Controls",
+            "Agent Monitoring and Error Analysis", "Prompt Engineering",
+            "Model Parameters", "Model Reflection",
+            "Chain-of-Thought Evaluation", "Self-Critique Loops",
+            "Tracing and Observability", "Token Analytics",
+            "Latency Breakdowns", "Hybrid LLM and Rules Engines"
           ]
         },
         {
-          "slug": "monitor-optimize",
-          "label": "Monitor and optimize an analytics solution",
-          "weight": "30-35",
+          "slug": "computer-vision",
+          "label": "Implement computer vision solutions",
+          "weight": "10-15",
           "topics": [
-            "Monitor Data Ingestion", "Monitor Data Transformation",
-            "Monitor Semantic Model Refresh", "Alerts", "Monitoring Hub",
-            "Activator", "Pipeline Errors", "Dataflow Gen2 Errors",
-            "Notebook Errors", "Eventhouse Errors", "Eventstream Errors",
-            "T-SQL Errors", "OneLake Shortcut Errors",
-            "Lakehouse Table Optimization", "Pipeline Optimization",
-            "Data Warehouse Optimization",
-            "Eventstream and Eventhouse Optimization",
-            "Spark Performance", "Query Performance"
+            "Image Generation from Text", "Reference Media Generation",
+            "Video Generation", "Inpainting", "Mask-Based Edits",
+            "Prompt-Driven Modification", "Generated Video Editing",
+            "Generation and Editing Controls", "Multimodal Visual Analysis",
+            "Image Captioning", "Visual Question Answering",
+            "Alt-Text and Extended Descriptions",
+            "Content Understanding Visual Characteristics",
+            "Video Segment Analysis", "Single-Task and Pro-Mode Pipelines",
+            "Object and Region Identification", "Unsafe Visual Content Filters",
+            "Indirect Prompt Injection in Images", "Watermarking",
+            "Prohibited Symbol Detection", "Brand Usage Enforcement"
+          ]
+        },
+        {
+          "slug": "text-analysis",
+          "label": "Implement text analysis solutions",
+          "weight": "10-15",
+          "topics": [
+            "Entity Extraction", "Topic Extraction", "Summarization",
+            "Structured JSON Output", "Generative Prompting for Analysis",
+            "Sentiment and Tone Detection", "Safety Issue Detection",
+            "Sensitive Content Detection", "Azure Translator",
+            "LLM-Powered Translation", "Compliance Summarization",
+            "Domain Extraction", "Speech-to-Text", "Text-to-Speech",
+            "Speech as an Agent Modality", "Custom Speech Models",
+            "Audio-Input Multimodal Reasoning", "Speech Translation"
+          ]
+        },
+        {
+          "slug": "info-extraction",
+          "label": "Implement information extraction solutions",
+          "weight": "10-15",
+          "topics": [
+            "Document Ingestion and Indexing", "Image and Audio Indexing",
+            "Video Indexing", "Semantic Search", "Hybrid Search",
+            "Vector Search", "Built-In Enrichment Skills",
+            "Custom Enrichment Skills", "Layout Enrichment",
+            "RAG Ingestion Flow", "OCR", "Retrieval as an Agent Tool",
+            "Multimodal Extraction Pipelines", "Layout Analysis",
+            "Field Extraction", "Grounded Representations",
+            "Content Understanding Analyzers", "Structured and Markdown Output"
           ]
         }
       ],
@@ -65,58 +112,90 @@
       "learningPaths": [
         {
           "id": "lp1",
-          "title": "Get started with Microsoft Fabric",
-          "url": "https://learn.microsoft.com/en-us/training/paths/get-started-fabric/",
-          "moduleCount": 8,
-          "domains": ["implement-manage"]
+          "title": "Develop generative AI apps in Azure",
+          "url": "https://learn.microsoft.com/en-us/training/paths/develop-generative-ai-apps/",
+          "moduleCount": 6,
+          "durationMinutes": 412,
+          "domains": ["plan-manage", "genai-agentic"]
         },
         {
           "id": "lp2",
-          "title": "Implement a Lakehouse with Microsoft Fabric",
-          "url": "https://learn.microsoft.com/en-us/training/paths/implement-lakehouse-microsoft-fabric/",
-          "moduleCount": 7,
-          "domains": ["ingest-transform", "implement-manage"]
+          "title": "Develop AI agents on Azure",
+          "url": "https://learn.microsoft.com/en-us/training/paths/develop-ai-agents-azure/",
+          "moduleCount": 9,
+          "durationMinutes": 592,
+          "domains": ["genai-agentic"]
         },
         {
           "id": "lp3",
-          "title": "Ingest data with Microsoft Fabric",
-          "url": "https://learn.microsoft.com/en-us/training/paths/ingest-data-with-microsoft-fabric/",
-          "moduleCount": 4,
-          "domains": ["ingest-transform"]
+          "title": "Develop natural language solutions in Azure",
+          "url": "https://learn.microsoft.com/en-us/training/paths/develop-language-solutions-azure-ai/",
+          "moduleCount": 7,
+          "durationMinutes": 346,
+          "domains": ["text-analysis"]
         },
         {
           "id": "lp4",
-          "title": "Implement Real-Time Intelligence with Microsoft Fabric",
-          "url": "https://learn.microsoft.com/en-us/training/paths/explore-real-time-analytics-microsoft-fabric/",
-          "moduleCount": 5,
-          "domains": ["ingest-transform", "monitor-optimize"]
-        },
-        {
-          "id": "lp5",
-          "title": "Implement a data warehouse with Microsoft Fabric",
-          "url": "https://learn.microsoft.com/en-us/training/paths/work-with-data-warehouses-using-microsoft-fabric/",
-          "moduleCount": 6,
-          "domains": ["ingest-transform", "implement-manage", "monitor-optimize"]
-        },
-        {
-          "id": "lp6",
-          "title": "Manage a Microsoft Fabric environment",
-          "url": "https://learn.microsoft.com/en-us/training/paths/manage-microsoft-fabric-environment/",
-          "moduleCount": 4,
-          "domains": ["monitor-optimize", "implement-manage"]
+          "title": "Extract insights from visual data on Azure",
+          "url": "https://learn.microsoft.com/en-us/training/paths/insight-visual-data/",
+          "moduleCount": 8,
+          "durationMinutes": 426,
+          "domains": ["computer-vision", "info-extraction"]
         }
       ],
+
+      "_modulesNote": "order drives the study-order grouping in the module picker and must match the leading number on the matching bank/knowledge/ filename. slug is the Microsoft Learn module slug, used verbatim in the item's `module:<slug>` tag. domain is the module's default filing, not a constraint — an individual item may be filed elsewhere.",
+
+      "modules": [
+        { "order": 1,  "pathId": "lp1", "domain": "plan-manage",     "slug": "prepare-azure-ai-development",                  "title": "Plan and prepare to develop AI solutions on Azure",                 "durationMinutes": 60 },
+        { "order": 2,  "pathId": "lp1", "domain": "plan-manage",     "slug": "model-catalog-evaluate",                        "title": "Select, deploy, and evaluate Microsoft Foundry models",             "durationMinutes": 63 },
+        { "order": 3,  "pathId": "lp1", "domain": "genai-agentic",   "slug": "foundry-sdk",                                   "title": "Develop a generative AI chat app with Microsoft Foundry",           "durationMinutes": 53 },
+        { "order": 4,  "pathId": "lp1", "domain": "genai-agentic",   "slug": "use-generative-ai-tools",                       "title": "Develop generative AI apps that use tools",                         "durationMinutes": 60 },
+        { "order": 5,  "pathId": "lp1", "domain": "genai-agentic",   "slug": "optimize-generative-ai-model-performance",      "title": "Optimize generative AI model performance with Microsoft Foundry",   "durationMinutes": 131 },
+        { "order": 6,  "pathId": "lp1", "domain": "plan-manage",     "slug": "responsible-ai-studio",                         "title": "Implement a responsible generative AI solution in Microsoft Foundry", "durationMinutes": 45 },
+
+        { "order": 7,  "pathId": "lp2", "domain": "genai-agentic",   "slug": "develop-ai-agents-azure-vs-code",               "title": "Develop AI agents with Microsoft Foundry and Visual Studio Code",   "durationMinutes": 95 },
+        { "order": 8,  "pathId": "lp2", "domain": "genai-agentic",   "slug": "build-agent-with-custom-tools",                 "title": "Integrate custom tools into your agent",                            "durationMinutes": 53 },
+        { "order": 9,  "pathId": "lp2", "domain": "genai-agentic",   "slug": "connect-agent-to-mcp-tools",                    "title": "Integrate MCP Tools with Azure AI Agents",                          "durationMinutes": 51 },
+        { "order": 10, "pathId": "lp2", "domain": "genai-agentic",   "slug": "introduction-foundry-iq",                       "title": "Build knowledge-enhanced AI agents with Foundry IQ",                "durationMinutes": 71 },
+        { "order": 11, "pathId": "lp2", "domain": "genai-agentic",   "slug": "integrate-foundry-agent-with-m365",             "title": "Integrate your agent with Microsoft 365",                           "durationMinutes": 74 },
+        { "order": 12, "pathId": "lp2", "domain": "genai-agentic",   "slug": "build-agent-workflows-microsoft-foundry",       "title": "Build agent-driven workflows using Microsoft Foundry",              "durationMinutes": 64 },
+        { "order": 13, "pathId": "lp2", "domain": "genai-agentic",   "slug": "develop-ai-agent-with-semantic-kernel",         "title": "Develop an AI agent with Microsoft Agent Framework",                "durationMinutes": 55 },
+        { "order": 14, "pathId": "lp2", "domain": "genai-agentic",   "slug": "orchestrate-semantic-kernel-multi-agent-solution", "title": "Orchestrate a multi-agent solution using the Microsoft Agent Framework", "durationMinutes": 73 },
+        { "order": 15, "pathId": "lp2", "domain": "genai-agentic",   "slug": "discover-agents-with-a2a",                      "title": "Discover Azure AI Agents with A2A",                                 "durationMinutes": 56 },
+
+        { "order": 16, "pathId": "lp3", "domain": "text-analysis",   "slug": "analyze-text-ai-language",                      "title": "Analyze text with Azure Language in Foundry Tools",                 "durationMinutes": 46 },
+        { "order": 17, "pathId": "lp3", "domain": "text-analysis",   "slug": "develop-text-analysis-agent-language-mcp",      "title": "Develop a text analysis agent with the Azure Language MCP server",  "durationMinutes": 52 },
+        { "order": 18, "pathId": "lp3", "domain": "text-analysis",   "slug": "develop-generative-ai-audio-apps",              "title": "Develop a speech-capable generative AI application",                "durationMinutes": 43 },
+        { "order": 19, "pathId": "lp3", "domain": "text-analysis",   "slug": "create-speech-enabled-apps",                    "title": "Create speech-enabled apps with Azure Speech in Microsoft Foundry Tools", "durationMinutes": 53 },
+        { "order": 20, "pathId": "lp3", "domain": "text-analysis",   "slug": "develop-speech-agent-speech-mcp",               "title": "Develop a speech agent with the Azure Speech MCP server",           "durationMinutes": 52 },
+        { "order": 21, "pathId": "lp3", "domain": "text-analysis",   "slug": "develop-voice-live-agent",                      "title": "Develop an Azure Speech Voice Live Agent in Microsoft Foundry",     "durationMinutes": 52 },
+        { "order": 22, "pathId": "lp3", "domain": "text-analysis",   "slug": "translate-text-speech",                         "title": "Translate text and speech with Microsoft Foundry Tools",            "durationMinutes": 48 },
+
+        { "order": 23, "pathId": "lp4", "domain": "computer-vision", "slug": "develop-generative-ai-vision-apps",             "title": "Develop a vision-enabled generative AI application",                "durationMinutes": 43 },
+        { "order": 24, "pathId": "lp4", "domain": "computer-vision", "slug": "generate-images-azure-openai",                  "title": "Generate images with AI",                                           "durationMinutes": 33 },
+        { "order": 25, "pathId": "lp4", "domain": "computer-vision", "slug": "generate-video-with-foundry",                   "title": "Generate videos with Microsoft Foundry",                            "durationMinutes": 48 },
+        { "order": 26, "pathId": "lp4", "domain": "computer-vision", "slug": "analyze-images-with-content-understanding",     "title": "Analyze images with Content Understanding",                         "durationMinutes": 43 },
+        { "order": 27, "pathId": "lp4", "domain": "info-extraction", "slug": "analyze-content-ai",                            "title": "Create a multimodal analysis solution with Azure Content Understanding", "durationMinutes": 60 },
+        { "order": 28, "pathId": "lp4", "domain": "info-extraction", "slug": "analyze-content-ai-api",                        "title": "Create an Azure Content Understanding client application",          "durationMinutes": 60 },
+        { "order": 29, "pathId": "lp4", "domain": "info-extraction", "slug": "extract-data-with-document-intelligence",       "title": "Extract data with Azure Document Intelligence",                     "durationMinutes": 71 },
+        { "order": 30, "pathId": "lp4", "domain": "info-extraction", "slug": "ai-knowldge-mining",                            "title": "Create a knowledge mining solution with Azure AI Search",           "durationMinutes": 68 }
+      ],
+
+      "_questionTargetsNote": "perDomain follows the midpoint of each published weight band, normalised to the 200 total, rather than an even split — AI-103 domains are unevenly weighted. See AI103-Game-Spec.md §12.",
 
       "questionTargets": {
         "total": 200,
         "perDomain": {
-          "implement-manage": 67,
-          "ingest-transform": 67,
-          "monitor-optimize": 66
+          "plan-manage": 56,
+          "genai-agentic": 67,
+          "computer-vision": 26,
+          "text-analysis": 26,
+          "info-extraction": 25
         },
         "byType": {
-          "mcq": 160,
-          "code-review": 40
+          "mcq": 140,
+          "code-review": 60
         }
       },
 
@@ -125,8 +204,12 @@
         "codeReview": true
       },
 
+      "codeReview": {
+        "subModes": ["find-the-bug", "what-does-this-do", "fill-the-blank"],
+        "languages": ["python", "json", "yaml", "bash"]
+      },
+
       "difficultyConfig": {
-        "lp3MaxDifficulty": 2,
         "defaultMax": 3
       }
     }

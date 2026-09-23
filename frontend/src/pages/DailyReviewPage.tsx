@@ -1,7 +1,7 @@
 import { type ReactNode, useEffect, useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { fetchQuestionsByIds } from '../lib/questions/fetch';
-import type { Question } from '../lib/questions/types';
+import type { CodeReviewLanguage, Question } from '../lib/questions/types';
 import { useAppStore, type Rating } from '../lib/store';
 import { computeNextReview } from '../lib/spacing';
 import { findDueQuestionIds, DAILY_REVIEW_CAP } from '../lib/dashboard/due';
@@ -282,7 +282,7 @@ function CodeReviewCard({
   onNext,
 }: {
   snippet: string;
-  language: 'python' | 'sql' | 'kql' | 'json';
+  language: CodeReviewLanguage;
   subMode: 'find-the-bug' | 'what-does-this-do' | 'fill-the-blank';
   prompt: string;
   options: Partial<Record<Letter, string>>;

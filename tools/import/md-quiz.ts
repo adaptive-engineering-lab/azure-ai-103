@@ -3,9 +3,9 @@
  *
  * Source format (one file per Microsoft Learn module):
  *
- *   # DP-700 Practice Quiz — <module title>
+ *   # AI-103 Practice Quiz — <module title>
  *   Source module: <learn.microsoft.com URL>
- *   DP-700 domains: **<Domain>** (hint) | **<Domain>** (hint)
+ *   AI-103 domains: **<Domain>** (hint) | **<Domain>** (hint)
  *
  *   ## Section A — Multiple Choice
  *   **1.** <question>
@@ -38,19 +38,33 @@ import { createHash } from 'node:crypto';
 import { readdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { readFileSync } from 'node:fs';
 
 const TOOLS_DIR = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const REPO_ROOT = resolve(TOOLS_DIR, '..');
 const KNOWLEDGE_DIR = resolve(REPO_ROOT, 'bank', 'knowledge');
 const CONTENT_DIR = resolve(REPO_ROOT, 'supabase', 'seed', 'content');
 
-type Domain = 'implement-manage' | 'ingest-transform' | 'monitor-optimize';
+type Domain =
+  | 'plan-manage'
+  | 'genai-agentic'
+  | 'computer-vision'
+  | 'text-analysis'
+  | 'info-extraction';
 
-/** Prose domain names as written in the quiz headers, longest-first. */
+const DEFAULT_DOMAIN: Domain = 'genai-agentic';
+
+/**
+ * Prose domain names as written in the quiz headers. Matched in order, so the
+ * more specific pattern must come first: "Implement generative AI and agentic
+ * solutions" would also satisfy a naive /implement/ test.
+ */
 const DOMAIN_PROSE: ReadonlyArray<[RegExp, Domain]> = [
-  [/implement and manage/i, 'implement-manage'],
-  [/ingest and transform/i, 'ingest-transform'],
-  [/monitor and optimi[sz]e/i, 'monitor-optimize'],
+  [/plan and manage/i, 'plan-manage'],
+  [/generative ai and agentic/i, 'genai-agentic'],
+  [/computer vision/i, 'computer-vision'],
+  [/text analysis/i, 'text-analysis'],
+  [/information extraction/i, 'info-extraction'],
 ];
 
 /**
@@ -79,106 +93,38 @@ interface ModuleInfo {
   primaryPath?: string;
 }
 
-const MODULES: Record<string, ModuleInfo> = {
-  'use-dataflow-gen-2-fabric': {
-    title: 'Ingest Data with Dataflows Gen2 in Microsoft Fabric',
-    paths: ['lp2', 'lp3'],
-    primaryPath: 'lp3',
-  },
-  'use-data-factory-pipelines-fabric': {
-    title: 'Orchestrate processes and data movement with Microsoft Fabric',
-    paths: ['lp2', 'lp3'],
-    primaryPath: 'lp3',
-  },
-  'use-apache-spark-work-files-lakehouse': {
-    title: 'Use Apache Spark in Microsoft Fabric',
-    paths: ['lp2', 'lp3'],
-    primaryPath: 'lp3',
-  },
-  'query-data-kql-database-microsoft-fabric': {
-    title: 'Work with real-time data in an Eventhouse in Microsoft Fabric',
-    paths: ['lp3', 'lp4'],
-    primaryPath: 'lp3',
-  },
-  'introduction-end-analytics-use-microsoft-fabric': {
-    title: 'Introduction to end-to-end analytics using Microsoft Fabric',
-    paths: ['lp1', 'lp2', 'lp5'],
-    primaryPath: 'lp2',
-  },
-  'get-started-lakehouses': {
-    title: 'Get started with lakehouses in Microsoft Fabric',
-    paths: ['lp1', 'lp2'],
-    primaryPath: 'lp2',
-  },
-  'work-delta-lake-tables-fabric': {
-    title: 'Work with Delta Lake tables in Microsoft Fabric',
-    paths: ['lp2'],
-    primaryPath: 'lp2',
-  },
-  'describe-medallion-architecture': {
-    title: 'Organize a Fabric lakehouse using medallion architecture design',
-    paths: ['lp2'],
-    primaryPath: 'lp2',
-  },
-  'get-started-kusto-fabric': {
-    title: 'Get started with Real-Time Intelligence in Microsoft Fabric',
-    paths: ['lp1', 'lp3', 'lp4'],
-    primaryPath: 'lp4',
-  },
-  'explore-event-streams-microsoft-fabric': {
-    title: 'Use real-time eventstreams in Microsoft Fabric',
-    paths: ['lp3', 'lp4'],
-    primaryPath: 'lp4',
-  },
-  'create-real-time-dashboards-microsoft-fabric': {
-    title: 'Create Real-Time Dashboards with Microsoft Fabric',
-    paths: ['lp4'],
-    primaryPath: 'lp4',
-  },
-  // Activator is an RTI capability but Learn files it in none of lp1-lp4, so
-  // it gets no path tags — see the primaryPath note on ModuleInfo.
-  'use-fabric-activator': {
-    title: 'Use Activator in Microsoft Fabric',
-    paths: [],
-  },
-  'monitor-fabric-items': {
-    title: 'Monitor activities in Microsoft Fabric',
-    paths: ['lp6'],
-    primaryPath: 'lp6',
-  },
-  'get-started-data-warehouse': {
-    title: 'Get started with data warehouses in Microsoft Fabric',
-    paths: ['lp1', 'lp5'],
-    primaryPath: 'lp5',
-  },
-  'load-data-into-microsoft-fabric-data-warehouse': {
-    title: 'Load data into a Microsoft Fabric data warehouse',
-    paths: ['lp5'],
-    primaryPath: 'lp5',
-  },
-  'query-data-warehouse-microsoft-fabric': {
-    title: 'Query a data warehouse in Microsoft Fabric',
-    paths: ['lp5'],
-    primaryPath: 'lp5',
-  },
-  'monitor-fabric-data-warehouse': {
-    title: 'Monitor a Microsoft Fabric data warehouse',
-    paths: ['lp5'],
-    primaryPath: 'lp5',
-  },
-  // Also in "Administer and govern Microsoft Fabric", which is not one of ours.
-  'secure-data-warehouse-in-microsoft-fabric': {
-    title: 'Secure a Microsoft Fabric data warehouse',
-    paths: ['lp5'],
-    primaryPath: 'lp5',
-  },
-  // Studied alongside the warehouse path but not a member of it, and not an
-  // exam objective — so no path tags, like the other standalone modules.
-  'get-started-copilot-fabric-data-warehouse': {
-    title: 'Get started with Copilot in Microsoft Fabric for data warehouses',
-    paths: [],
-  },
-};
+/**
+ * Microsoft Learn modules, read from exams.config.json → modules rather than
+ * duplicated here. The config is the single source of truth for taxonomy
+ * (AI103-Game-Spec.md §5.2), so porting to another exam means editing the
+ * config, not this file.
+ *
+ * Each AI-103 module belongs to exactly one of the four course learning paths,
+ * so `paths` and `primaryPath` coincide. The shape keeps both because the
+ * importer's tag output distinguishes them, and a future exam may again have
+ * modules shared across paths.
+ */
+const MODULES: Record<string, ModuleInfo> = loadModules();
+
+function loadModules(): Record<string, ModuleInfo> {
+  const configPath = resolve(REPO_ROOT, 'exams.config.json');
+  const config = JSON.parse(readFileSync(configPath, 'utf8')) as {
+    exams: Array<{ modules?: Array<{ slug: string; title: string; pathId?: string }> }>;
+  };
+  const modules = config.exams[0]?.modules ?? [];
+  if (modules.length === 0) {
+    warn(`${configPath}: no "modules" array; every quiz will fall back to its own heading for a topic`);
+  }
+  const out: Record<string, ModuleInfo> = {};
+  for (const m of modules) {
+    out[m.slug] = {
+      title: m.title,
+      paths: m.pathId ? [m.pathId] : [],
+      ...(m.pathId ? { primaryPath: m.pathId } : {}),
+    };
+  }
+  return out;
+}
 
 /** Pull the module slug out of a learn.microsoft.com/training/modules/<slug>/ URL. */
 function moduleSlugFromUrl(url: string | undefined): string | undefined {
@@ -267,16 +213,16 @@ function capped(value: string, limit: number, label: string): string {
 }
 
 function parseDomain(body: string, file: string): Domain {
-  const line = body.match(/^DP-700 domains?:.*$/m)?.[0];
+  const line = body.match(/^AI-103 domains?:.*$/m)?.[0];
   if (!line) {
-    warn(`${file}: no "DP-700 domain(s):" header line; defaulted to ingest-transform`);
-    return 'ingest-transform';
+    warn(`${file}: no "AI-103 domain(s):" header line; defaulted to ${DEFAULT_DOMAIN}`);
+    return DEFAULT_DOMAIN;
   }
   // Headers may list several domains; the first is the module's primary one.
   const first = line.match(/\*\*(.+?)\*\*/)?.[1] ?? line;
   for (const [re, domain] of DOMAIN_PROSE) if (re.test(first)) return domain;
-  warn(`${file}: unrecognised domain "${plain(first)}"; defaulted to ingest-transform`);
-  return 'ingest-transform';
+  warn(`${file}: unrecognised domain "${plain(first)}"; defaulted to ${DEFAULT_DOMAIN}`);
+  return DEFAULT_DOMAIN;
 }
 
 function parseQuestions(body: string, file: string): ParsedQuestion[] {
@@ -346,7 +292,7 @@ function buildItems(file: string, body: string): BankItem[] {
   const stem = file.replace(/\.md$/, '');
   const domain = parseDomain(body, file);
   const headingTitle = plain(body.match(/^#\s+(.+)$/m)?.[1] ?? stem).replace(
-    /^DP-700 Practice Quiz\s*[—–-]\s*/,
+    /^AI-103 Practice Quiz\s*[—–-]\s*/,
     '',
   );
   const sourceUrl = body.match(/^Source module:\s*(\S+)/m)?.[1];

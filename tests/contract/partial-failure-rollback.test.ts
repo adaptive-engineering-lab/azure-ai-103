@@ -62,11 +62,11 @@ describe('Partial-failure rollback', () => {
 
   it('aborts the whole batch when item #3 violates a CHECK constraint', async () => {
     const items = [
-      buildRow(newIds[0]!, { domain: 'ingest-transform' }),
-      buildRow(newIds[1]!, { domain: 'monitor-optimize' }),
+      buildRow(newIds[0]!, { domain: 'genai-agentic' }),
+      buildRow(newIds[1]!, { domain: 'computer-vision' }),
       buildRow(newIds[2]!, { domain: 'not-a-domain' }), // violates questions_domain_chk
-      buildRow(newIds[3]!, { domain: 'implement-manage' }),
-      buildRow(newIds[4]!, { domain: 'ingest-transform' }),
+      buildRow(newIds[3]!, { domain: 'plan-manage' }),
+      buildRow(newIds[4]!, { domain: 'genai-agentic' }),
     ];
 
     const { error } = await admin.rpc('seed_upsert_questions', { items });

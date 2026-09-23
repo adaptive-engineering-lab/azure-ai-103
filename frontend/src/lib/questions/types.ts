@@ -1,24 +1,30 @@
 export type Domain =
-  | 'implement-manage'
-  | 'ingest-transform'
-  | 'monitor-optimize';
+  | 'plan-manage'
+  | 'genai-agentic'
+  | 'computer-vision'
+  | 'text-analysis'
+  | 'info-extraction';
 
 export const DOMAINS: Domain[] = [
-  'implement-manage',
-  'ingest-transform',
-  'monitor-optimize',
+  'plan-manage',
+  'genai-agentic',
+  'computer-vision',
+  'text-analysis',
+  'info-extraction',
 ];
 
 /**
- * The official domain names, verbatim from the DP-700 study guide
- * (skills measured as of 2026-07-21). Kept in Microsoft's sentence case so
+ * The official domain names, verbatim from the AI-103 study guide
+ * (skills measured as of 2026-04-16). Kept in Microsoft's sentence case so
  * this file can be diffed against the source when the exam is updated.
  * They are long by design — components wrap rather than abbreviate.
  */
 export const DOMAIN_LABELS: Record<Domain, string> = {
-  'implement-manage': 'Implement and manage an analytics solution',
-  'ingest-transform': 'Ingest and transform data',
-  'monitor-optimize': 'Monitor and optimize an analytics solution',
+  'plan-manage': 'Plan and manage an Azure AI solution',
+  'genai-agentic': 'Implement generative AI and agentic solutions',
+  'computer-vision': 'Implement computer vision solutions',
+  'text-analysis': 'Implement text analysis solutions',
+  'info-extraction': 'Implement information extraction solutions',
 };
 
 export type OptionLetter = 'A' | 'B' | 'C' | 'D';
@@ -38,7 +44,14 @@ export interface McqContent {
 }
 
 export type CodeReviewSubMode = 'find-the-bug' | 'what-does-this-do' | 'fill-the-blank';
-export type CodeReviewLanguage = 'python' | 'sql' | 'kql' | 'json';
+/**
+ * AI-103 is an explicitly Python-based exam, and the artifacts it puts in
+ * front of a candidate are SDK calls, JSON schemas, and deployment config.
+ * DP-700's `sql` and `kql` are gone — neither appears in the skills measured.
+ * Keep in sync with exams.config.json → codeReview.languages and with the
+ * Shiki grammar load.
+ */
+export type CodeReviewLanguage = 'python' | 'json' | 'yaml' | 'bash';
 
 export interface CodeReviewContent {
   sub_mode: CodeReviewSubMode;
@@ -71,12 +84,10 @@ export interface BaseQuestion {
  * path there, add it here too.
  */
 export const LEARNING_PATHS: Record<string, string> = {
-  lp1: 'Get started with Microsoft Fabric',
-  lp2: 'Implement a Lakehouse with Microsoft Fabric',
-  lp3: 'Ingest data with Microsoft Fabric',
-  lp4: 'Implement Real-Time Intelligence with Microsoft Fabric',
-  lp5: 'Implement a data warehouse with Microsoft Fabric',
-  lp6: 'Manage a Microsoft Fabric environment',
+  lp1: 'Develop generative AI apps in Azure',
+  lp2: 'Develop AI agents on Azure',
+  lp3: 'Develop natural language solutions in Azure',
+  lp4: 'Extract insights from visual data on Azure',
 };
 
 /**

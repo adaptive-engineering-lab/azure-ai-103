@@ -427,7 +427,7 @@ function makeBlank(type: ItemType): NewQuestionInput {
   if (type === 'mcq') {
     return {
       type: 'mcq',
-      domain: 'ingest-transform',
+      domain: 'genai-agentic',
       topic: '',
       difficulty: 1,
       source: 'bank',
@@ -436,7 +436,7 @@ function makeBlank(type: ItemType): NewQuestionInput {
   }
   return {
     type: 'code-review',
-    domain: 'ingest-transform',
+    domain: 'genai-agentic',
     topic: '',
     difficulty: 1,
     source: 'bank',

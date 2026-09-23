@@ -9,9 +9,11 @@ describe('Dashboard aggregations (feature 007)', () => {
   it('returns all 5 domains even when empty', () => {
     const stats = computeDomainStats({}, {});
     expect(stats.map((s) => s.domain)).toEqual([
-      'implement-manage',
-      'ingest-transform',
-      'monitor-optimize',
+      'plan-manage',
+      'genai-agentic',
+      'computer-vision',
+      'text-analysis',
+      'info-extraction',
     ]);
     expect(stats.every((s) => s.hasEnoughData === false)).toBe(true);
   });
@@ -21,17 +23,17 @@ describe('Dashboard aggregations (feature 007)', () => {
       {
         q1: { questionId: 'q1', timesSeen: 4, timesCorrect: 2, lastRating: 'correct', nextReview: null, updatedAt: '' },
       },
-      { q1: 'ingest-transform' as Domain },
+      { q1: 'genai-agentic' as Domain },
     );
-    expect(stats.find((s) => s.domain === 'ingest-transform')!.hasEnoughData).toBe(false);
+    expect(stats.find((s) => s.domain === 'genai-agentic')!.hasEnoughData).toBe(false);
 
     const stats2 = computeDomainStats(
       {
         q1: { questionId: 'q1', timesSeen: 5, timesCorrect: 2, lastRating: 'correct', nextReview: null, updatedAt: '' },
       },
-      { q1: 'ingest-transform' as Domain },
+      { q1: 'genai-agentic' as Domain },
     );
-    expect(stats2.find((s) => s.domain === 'ingest-transform')!.hasEnoughData).toBe(true);
+    expect(stats2.find((s) => s.domain === 'genai-agentic')!.hasEnoughData).toBe(true);
   });
 
   it('flags weak only when hasEnoughData AND pct < 60', () => {
@@ -39,9 +41,9 @@ describe('Dashboard aggregations (feature 007)', () => {
       {
         q1: { questionId: 'q1', timesSeen: 10, timesCorrect: 5, lastRating: 'almost', nextReview: null, updatedAt: '' },
       },
-      { q1: 'monitor-optimize' as Domain },
+      { q1: 'computer-vision' as Domain },
     );
-    const compute = stats.find((s) => s.domain === 'monitor-optimize')!;
+    const compute = stats.find((s) => s.domain === 'computer-vision')!;
     expect(compute.pct).toBe(50);
     expect(compute.weak).toBe(true);
   });
@@ -51,9 +53,9 @@ describe('Dashboard aggregations (feature 007)', () => {
       {
         q1: { questionId: 'q1', timesSeen: 10, timesCorrect: 6, lastRating: 'correct', nextReview: null, updatedAt: '' },
       },
-      { q1: 'implement-manage' as Domain },
+      { q1: 'plan-manage' as Domain },
     );
-    expect(stats.find((s) => s.domain === 'implement-manage')!.weak).toBe(false);
+    expect(stats.find((s) => s.domain === 'plan-manage')!.weak).toBe(false);
   });
 
   it('calendar has 12*7 = 84 cells', () => {
