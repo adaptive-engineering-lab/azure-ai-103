@@ -759,15 +759,15 @@ derived from `DOMAINS`, so the next port touches one file), the module table
 in `tools/import/md-quiz.ts` (now read from `exams.config.json` rather than
 hardcoded), and the domain fixtures across 11 test files.
 
-**5b — Database**
+**5b — Database** ✅
 - [x] Edit `questions_domain_chk` in `0001_questions.sql` in place (§8)
-- [ ] Fresh Supabase project; `supabase db push --linked`
+- [x] Fresh Supabase project; `supabase db push --linked` — 19/19 applied
+      to `bybzxeiittjhyeattcrt`, constraint verified from `pg_constraint`
 
 **5c — Content**
-- [ ] Empty the seed files from `template/seed-content/`
+- [x] Empty the seed files from `template/seed-content/`
 - [ ] Author `bank/knowledge/` markdown for the 30 modules, numbered 1–30
-- [ ] Rewrite `tools/author/prompts/code-review.md` against the AI-103 trap
-      catalogue (§6.2)
+- [x] Rewrite `tools/author/prompts/code-review.md` (landed in 5d)
 - [ ] Import, validate, seed to 30–50 items; then grow toward 200 (§12)
 
 **5d — Branding and copy** ✅
@@ -805,6 +805,27 @@ orphaned every existing user's progress.
 - [ ] Add the answer-letter distribution contract test (§12, risk 4)
 - [ ] `pnpm -C frontend build`, `pnpm -C frontend test`, `pnpm -C tools test`
 - [ ] Full smoke test per `template/PORTING_CHECKLIST.md` §12
+
+**5f — Deployment prerequisites** (found during 5b, none blocking content work)
+- [ ] `frontend/.env.local` does not exist, so the app cannot reach Supabase
+      locally. Copy `.env.example` and fill `VITE_SUPABASE_ANON_KEY` with the
+      project's publishable key.
+- [ ] Supabase Auth URL configuration for the new project: Site URL and the
+      `/auth/callback` redirect, plus `http://localhost:5173/auth/callback`
+      for local magic-link testing.
+- [ ] `admins` is empty, so `/admin` is unreachable by anyone. Insert a row
+      once the first account exists.
+- [ ] GitHub Actions has registered **neither** workflow on this repo —
+      `gh api .../actions/workflows` returns only the Copilot agent, and the
+      repo has one run in its history. Actions is enabled at repo level, so
+      this needs a look in Settings → Actions before either gate means
+      anything.
+- [ ] `CONTACT_EMAIL` in `frontend/src/lib/legal.ts` is still the RFC 2606
+      placeholder. The privacy policy promises a working route for access,
+      correction and deletion requests.
+- [ ] Vercel project not yet pointed at this repo; env vars must be set for
+      Production and Preview before the first deploy, since Vite bakes them
+      in at build time.
 
 ---
 
