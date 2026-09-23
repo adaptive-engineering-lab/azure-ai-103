@@ -486,8 +486,10 @@ DP-700 files use a `N-DP-700_Topic_Quiz.md` shape; the AI-103 equivalent is
 
 - Always include: domain, topic, difficulty level, exam context ("AI-103")
 - For generation: include existing item IDs to suppress duplicates
-- Temperature: `0.7` for generation, `0.3` for explanation rewrites
 - Always request JSON output for generation
+- **No sampling parameters.** `temperature`, `top_p` and `top_k` are rejected
+  with a 400 on the authoring model (Opus 5); the 2.0 spec named temperatures
+  that no code ever set. Depth is controlled by effort, not temperature.
 - **Pin the SDK generation.** Foundry's Python surface has moved (classic
   `agents.create_agent` → current `agents.create_version` +
   `PromptAgentDefinition`). Prompts must state which generation an item

@@ -50,7 +50,10 @@ export async function draftItems(args: DraftArgs): Promise<DraftReport> {
   const client = new Anthropic({ apiKey: getAnthropicKey() });
   const response = await client.messages.create({
     model: getAnthropicModel(),
-    max_tokens: 4096,
+    // A draft run returns `count` complete items, each with a snippet,
+    // four options and an explanation. 4096 truncated mid-array on larger
+    // batches, and a truncated array fails JSON.parse rather than degrading.
+    max_tokens: 16000,
     system: [
       {
         type: 'text',
