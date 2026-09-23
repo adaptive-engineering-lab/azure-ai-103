@@ -2,8 +2,8 @@ import { describe, it, expect } from 'vitest';
 import { NAMESPACE, SCHEMA_VERSION, STATE_KEY, PROBE_KEY } from '../../src/lib/storage/namespace';
 
 describe('Storage namespace contract', () => {
-  it('uses the dp700game prefix', () => {
-    expect(NAMESPACE).toBe('dp700game');
+  it('uses the ai103game prefix', () => {
+    expect(NAMESPACE).toBe('ai103game');
     expect(STATE_KEY.startsWith(NAMESPACE + '.')).toBe(true);
     expect(PROBE_KEY.startsWith(NAMESPACE + '.')).toBe(true);
   });
@@ -13,6 +13,6 @@ describe('Storage namespace contract', () => {
   });
 
   it('uses a versioned state key', () => {
-    expect(STATE_KEY).toBe('dp700game.v1.state');
+    expect(STATE_KEY).toBe('ai103game.v1.state');
   });
 });

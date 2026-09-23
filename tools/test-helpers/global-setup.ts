@@ -58,7 +58,7 @@ export default async function globalSetup(): Promise<() => Promise<void>> {
       problems.push(`${residue.rollbackRows} leftover row(s) with topic='rollback-test'`);
     }
     if (residue.testUsers > 0) {
-      problems.push(`${residue.testUsers} leftover test user(s) @dp700game.test`);
+      problems.push(`${residue.testUsers} leftover test user(s) @ai103game.test`);
     }
 
     if (problems.length > 0) {

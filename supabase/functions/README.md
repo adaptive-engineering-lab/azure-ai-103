@@ -26,7 +26,7 @@ Set on the Supabase project (`supabase secrets set NAME=value`):
 | `STRIPE_SECRET_KEY`     | all three                                     | Stripe Dashboard → Developers   |
 | `STRIPE_WEBHOOK_SECRET` | `stripe-webhook`                              | Stripe Dashboard → Webhooks     |
 | `STRIPE_PRICE_ID`       | `create-checkout-session`                     | Stripe Dashboard → Products     |
-| `APP_URL`               | `create-checkout-session`, portal             | e.g. `https://dp-700.app`       |
+| `APP_URL`               | `create-checkout-session`, portal             | e.g. `https://ai-103.app`       |
 
 `SUPABASE_URL` and `SUPABASE_SERVICE_ROLE_KEY` are populated
 automatically by the platform.

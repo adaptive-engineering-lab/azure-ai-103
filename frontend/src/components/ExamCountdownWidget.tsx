@@ -45,7 +45,7 @@ export default function ExamCountdownWidget() {
             : 'bg-accent/10 text-accent ring-accent/40',
       ].join(' ')}
     >
-      <p className="text-xs uppercase tracking-wider opacity-80">DP-700</p>
+      <p className="text-xs uppercase tracking-wider opacity-80">AI-103</p>
       <p className="mt-1 text-lg font-bold">{label}</p>
       <p className="mt-1 text-xs opacity-80">
         {new Date(`${examDate}T00:00:00`).toLocaleDateString(undefined, {

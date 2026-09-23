@@ -1,11 +1,13 @@
+import { NAMESPACE } from '../storage/namespace';
+
 interface BeforeInstallPromptEvent extends Event {
   readonly platforms: string[];
   prompt(): Promise<void>;
   readonly userChoice: Promise<{ outcome: 'accepted' | 'dismissed' }>;
 }
 
-const ENGAGEMENT_KEY = 'dp700game.v1.engagement.ms';
-const PROMPT_DISMISSED_KEY = 'dp700game.v1.installPrompt.dismissedAt';
+const ENGAGEMENT_KEY = `${NAMESPACE}.v1.engagement.ms`;
+const PROMPT_DISMISSED_KEY = `${NAMESPACE}.v1.installPrompt.dismissedAt`;
 const ENGAGEMENT_THRESHOLD_MS = 3 * 60 * 1000;
 const DISMISS_COOLDOWN_MS = 14 * 24 * 60 * 60 * 1000;
 

@@ -59,7 +59,7 @@ export default function WhatsInProPage() {
           No study content is paywalled. Period.
         </p>
         <p className="mt-2 text-xs text-fg-muted">
-          You can pass the DP-700 exam using this app entirely for free. Pro funds the project.
+          You can pass the AI-103 exam using this app entirely for free. Pro funds the project.
         </p>
       </div>
 

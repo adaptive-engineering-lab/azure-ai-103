@@ -23,17 +23,17 @@ export default function HomePage() {
       <div className="grid gap-8 xl:grid-cols-[3fr,2fr] xl:items-start xl:gap-12">
         <div>
           <header className="mb-6">
-            <p className="text-sm font-medium text-accent">DP-700 Study</p>
+            <p className="text-sm font-medium text-accent">AI-103 Study</p>
             <h1 className="mt-1 text-3xl font-bold leading-tight xl:text-4xl">
-              Mobile-first prep for the Fabric Data Engineer exam.
+              Mobile-first prep for the Azure AI Apps and Agents exam.
             </h1>
             <p className="mt-3 text-fg-muted">
-              Quizzes and code-review drills across all three exam domains — with real T-SQL,
-              KQL, and PySpark. Study in short sessions; come back tomorrow.
+              Quizzes and code-review drills across all five exam domains — with real Python
+              SDK code and agent tool schemas. Study in short sessions; come back tomorrow.
             </p>
             {!countsLoading && bankSize > 0 && (
               <p className="mt-3 text-xs text-fg-muted">
-                <span className="font-semibold text-fg">{bankSize}</span> questions across 3 domains
+                <span className="font-semibold text-fg">{bankSize}</span> questions across 5 domains
                 {reviewedCount > 0 && (
                   <>
                     {' · '}

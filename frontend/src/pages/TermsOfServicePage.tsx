@@ -12,14 +12,14 @@ export default function TermsOfServicePage() {
 
       <Section title="1. About">
         <p>
-          DP-700 Study (&ldquo;the Service&rdquo;) is an educational study
-          tool for the Microsoft Certified: Fabric Data Engineer Associate
-          exam (Exam DP-700). It is operated by{' '}
+          AI-103 Study (&ldquo;the Service&rdquo;) is an educational study
+          tool for the Microsoft Certified: Azure AI Apps and Agents
+          Developer Associate exam (Exam AI-103). It is operated by{' '}
           <strong>{OPERATOR_NAME}</strong>, operating from {OPERATOR_JURISDICTION}.
         </p>
         <p className="mt-2">
           The Service is <strong>not affiliated with, endorsed by, or
-          sponsored by Microsoft</strong>. &ldquo;DP-700&rdquo; and
+          sponsored by Microsoft</strong>. &ldquo;AI-103&rdquo; and
           &ldquo;Microsoft&rdquo; are trademarks of their respective owners,
           used here only to identify the exam this material targets.
         </p>
@@ -82,7 +82,7 @@ export default function TermsOfServicePage() {
       <Section title="5. Content accuracy">
         <p>
           Study material is curated and reviewed to align with the
-          DP-700 exam objectives at the time of writing. Microsoft updates
+          AI-103 exam objectives at the time of writing. Microsoft updates
           exam objectives and Azure features regularly; we make no
           guarantee that every item perfectly reflects the current state of
           the exam or the underlying products.

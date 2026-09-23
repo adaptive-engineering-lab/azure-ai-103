@@ -6,7 +6,7 @@
 //
 // Required env (set via `supabase secrets set`):
 //   STRIPE_SECRET_KEY        sk_live_… or sk_test_…
-//   APP_URL                  https://dp-700.example.com
+//   APP_URL                  https://ai-103.example.com
 //   SUPABASE_URL             populated by the platform
 //   SUPABASE_SERVICE_ROLE_KEY populated by the platform
 

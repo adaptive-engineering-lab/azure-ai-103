@@ -1,6 +1,6 @@
-# DP-700 · Authoring Prompt Addendum — Code Review Items
+# AI-103 · Authoring Prompt Addendum — Code Review Items
 
-Append this section to `dp700-question-authoring-prompt.md` (the base authoring prompt).
+Append this section to the base authoring prompt.
 
 ---
 
@@ -18,7 +18,7 @@ Append this section to `dp700-question-authoring-prompt.md` (the base authoring 
   "source": "ai-generated",
   "content": {
     "sub_mode": "<find-the-bug | what-does-this-do | fill-the-blank>",
-    "language": "<python | sql | kql | json>",
+    "language": "<python | json | yaml | bash>",
     "snippet": "<the code block — 8 to 20 lines — escaped as a JSON string>",
     "prompt": "<one sentence — what the learner must do — ≤ 200 chars>",
     "options": {
@@ -33,15 +33,20 @@ Append this section to `dp700-question-authoring-prompt.md` (the base authoring 
 }
 ```
 
-`language` maps to the three languages DP-700 names explicitly, plus JSON for
-pipeline and Dataflow definitions:
+AI-103 states that the candidate has "experience developing apps by using
+Python", and the artifacts the exam puts in front of them are SDK calls and
+the JSON that configures them. `language` maps accordingly:
 
-| Value    | Use for                                                        |
-| -------- | -------------------------------------------------------------- |
-| `python` | PySpark in a Fabric notebook                                     |
-| `sql`    | T-SQL in a Warehouse or SQL analytics endpoint                   |
-| `kql`    | KQL against an Eventhouse / KQL database                         |
-| `json`   | Pipeline activity definitions, Dataflow Gen2 config, deployment  |
+| Value    | Use for                                                             |
+| -------- | ------------------------------------------------------------------- |
+| `python` | Foundry SDK, Agent Framework, Search, Content Understanding clients |
+| `json`   | Tool and function schemas, analyzer definitions, index + skillsets  |
+| `yaml`   | Deployment and CI/CD definitions, prompt templates                  |
+| `bash`   | `az` CLI provisioning, deployment, role assignment                  |
+
+There is no `sql` or `kql`. Neither appears anywhere in the AI-103 skills
+measured; both were DP-700 inheritances and have been removed from the
+`CodeReviewLanguage` union.
 
 ---
 
@@ -55,8 +60,8 @@ pipeline and Dataflow definitions:
    placeholder. Multi-blank snippets are out of scope for v1.
 
 3. **Realistic snippets**: snippets must look like code a learner would
-   actually write in a Fabric notebook, a Warehouse query window, a KQL
-   queryset, or a pipeline JSON definition. Avoid toy examples.
+   actually write against a Foundry project — a real client construction, a
+   real tool definition, a real deployment step. Avoid toy examples.
 
 4. **Plausible distractors**: all four options must be things a learner
    who partially understands the topic would consider. Avoid options that
@@ -71,82 +76,106 @@ pipeline and Dataflow definitions:
 7. **Escape correctly**: the `snippet` field is a JSON string. Use `\n`
    for newlines and `\"` for any double-quotes inside the snippet.
 
-8. **Difficulty calibration for code-review**:
-   - **Level 1**: obvious flaw or simple recall ("what does `OPTIMIZE` do
-     to a Delta table?")
-   - **Level 2**: requires knowing which option fits a scenario
-     (e.g. when `has` beats `contains`, managed vs external table writes)
+8. **Pin the SDK generation.** The Foundry Python surface has moved. The
+   current shape is `project.agents.create_version(agent_name=...,
+   definition=PromptAgentDefinition(...))`; the classic shape is
+   `project_client.agents.create_agent(model=..., name=...,
+   instructions=...)`. Decide which generation a snippet targets and stay in
+   it. A snippet that mixes them has an accidental bug on top of the intended
+   one, which makes the item unanswerable.
+
+9. **Difficulty calibration for code-review**:
+   - **Level 1**: obvious flaw or simple recall (which credential type a
+     managed identity needs; what `temperature` controls)
+   - **Level 2**: requires knowing which option fits a scenario (when an
+     MCP tool needs `require_approval`, when hybrid search beats vector
+     search)
    - **Level 3**: exam trap — the snippet looks correct but violates a
-     non-obvious constraint (e.g. KQL `join` defaulting to `innerunique`,
-     a Warehouse primary key being `NOT ENFORCED`)
+     non-obvious constraint (retrieval results fetched but never placed in
+     the prompt; an embedding dimension that mismatches the index)
 
 ---
 
 ## High-value code-review scenarios (ready to author)
 
-Use these as starting points for `find-the-bug` and `fill-the-blank` items.
-Each maps to a real exam trap. Verify behaviour against current Fabric docs
-before shipping — the platform moves quickly.
+Starting points for `find-the-bug` and `fill-the-blank`. Each maps to a real
+exam trap. **Verify behaviour against current Microsoft Learn documentation
+before shipping** — Foundry moves quickly and several of these surfaces are
+preview. Record the doc date you authored against.
 
-### PySpark and Delta (ingest-transform)
+### Authentication and project setup (plan-manage)
 
-- `spark.read.format("csv").option("header", "true").load(...)` with no
-  `inferSchema` or explicit schema — every column silently lands as string
-- `df.write.format("delta").save(path)` where a managed table was intended —
-  `saveAsTable` registers it in the metastore, `save` leaves it external
-- Schema evolution write without `.option("mergeSchema", "true")` — fails
-  when a new column appears
-- `partitionBy` on a high-cardinality column such as an order ID — produces
-  the small-file problem rather than helping
-- `createOrReplaceTempView` expected to survive into the next session —
-  temp views are session-scoped
+- `AzureKeyCredential(os.environ["FOUNDRY_KEY"])` used for a workload
+  deployed with a managed identity — the keyless objective wants
+  `DefaultAzureCredential`, and a static key is a rotation liability
+- A key committed into the snippet as a literal rather than resolved from
+  configuration at all
+- `AIProjectClient` pointed at the resource endpoint rather than the
+  project endpoint (`.../api/projects/<project>`)
+- A model *name* passed where a *deployment* name is required
+- `allow_preview=True` omitted on a call that uses a preview-only surface
 
-### Spark performance (monitor-optimize)
+### Agents and tools (genai-agentic)
 
-- `df.count()` called repeatedly inside a loop on an uncached dataframe —
-  the whole lineage recomputes each time; needs `.cache()` and an action
-- `collect()` on a full dataframe to "check the data" — pulls everything to
-  the driver; use `limit()` then `show()`
-- A Delta table written by many small appends with no `OPTIMIZE` — read
-  performance degrades until the files are compacted
-- `VACUUM` with a retention below the default without
-  `spark.databricks.delta.retentionDurationCheck.enabled` set — breaks
-  time travel
+- Classic `agents.create_agent(...)` mixed with current
+  `PromptAgentDefinition` — the two generations do not compose
+- A function tool whose JSON schema declares a parameter the Python
+  function does not accept, so every call fails at invocation
+- A function-tool `parameters` block missing `"type": "object"`
+- `MCPTool(..., require_approval="never")` in a scenario that explicitly
+  calls for a human-in-the-loop gate
+- `allowed_tools` left unset on an MCP server, exposing every tool the
+  server publishes rather than the intended subset
+- Tool registered on the client but never passed in `tools=`, so the model
+  never sees it and silently answers from parametric knowledge
+- A multi-agent orchestration that never awaits the delegated agent's
+  result before composing the final answer
 
-### KQL and Eventhouse (ingest-transform / monitor-optimize)
+### Retrieval and grounding (info-extraction)
 
-- `join` written without a `kind`, expecting SQL semantics — KQL defaults to
-  `innerunique`, which de-duplicates the left side. The classic trap.
-- `contains` used on an indexed string column where `has` is correct —
-  `has` matches whole terms and uses the index; `contains` scans substrings
-- `| where` placed after `| summarize` — filters the aggregate instead of
-  the source rows, doing far more work than needed
-- `bin()` omitted from a time-series `summarize`, so no windowing occurs
-- A materialized view defined over a non-deterministic aggregation — must
-  use `arg_max`, `take_any`, or another supported aggregation
+- Search executed and results assigned to a variable that is never
+  interpolated into the prompt — the answer is ungrounded while the code
+  appears to do RAG
+- Vector field dimensions that disagree with the embedding model's output
+  size, so index creation or upload fails
+- Hybrid search requested without a semantic configuration attached
+- `top_k` large enough to blow the model's context window with no
+  truncation or reranking step
+- Chunking applied after embedding rather than before
+- A skillset output never mapped to an index field, so enrichment runs and
+  is discarded
 
-### Warehouse T-SQL (implement-manage / monitor-optimize)
+### Vision and multimodal (computer-vision)
 
-- `PRIMARY KEY` declared without `NONCLUSTERED NOT ENFORCED` — Fabric
-  Warehouse only supports unenforced constraints, and duplicate rows will
-  still load
-- `SELECT TOP 10` with no `ORDER BY`, expected to be deterministic
-- `SELECT ... INTO` used to create a table — use `CREATE TABLE AS SELECT`
-- A cross-warehouse query written with two-part naming — needs three-part
-  `database.schema.table`
-- A row-level security predicate function missing `WITH SCHEMABINDING`
-- Dynamic data masking applied while the querying principal holds `UNMASK`,
-  so the data comes back in the clear
+- An image passed as a raw path where the API expects base64 or a URL
+- A content filter configured on the resource but never attached to the
+  deployment the code actually calls
+- Alt-text generation that ignores the accessibility guidance to describe
+  function rather than mere appearance
+- Image input accepted from an untrusted source with no indirect
+  prompt-injection mitigation, where embedded text in the image can steer
+  the model
 
-### Pipelines and Dataflows (implement-manage / monitor-optimize)
+### Text and speech (text-analysis)
 
-- An activity dependency set to `Succeeded` where the intent was a
-  failure-handling branch — that branch never runs; use `Failed`
-- Dynamic content written as `@pipeline().parameters.p` inside a larger
-  string without the `@{...}` interpolation form
-- A Copy activity referencing `@activity('Prev').output.value` when the
-  previous activity is a Copy, which does not expose `value`
-- No retry or timeout configured on a flaky external source
+- Language detection result never used, so a downstream call runs with a
+  hardcoded locale
+- Synchronous iteration over a streamed speech response
+- A missing `await` in the async client, so a coroutine is truthy and the
+  code proceeds on a never-resolved result
+- PII detection invoked but the redacted text discarded in favour of the
+  original
+
+### Deployment and configuration (plan-manage, `yaml` / `bash`)
+
+- `az` role assignment granting a broader role than the task needs
+  (Contributor where a data-plane reader role suffices)
+- A deployment that sets capacity/quota without accounting for the rate
+  limit the scenario states
+- CI workflow that builds with secrets injected at runtime when the client
+  bakes them at build time, so the deployed bundle has empty config
+- Private networking configured while the client still resolves the public
+  endpoint
 
 ---
 
@@ -156,7 +185,8 @@ before shipping — the platform moves quickly.
 Domain    : <domain slug>
 Topic(s)  : <topic strings from allowed list>
 Sub-mode  : <find-the-bug | what-does-this-do | fill-the-blank>
-Language  : <python | sql | kql | json>
+Language  : <python | json | yaml | bash>
+SDK gen   : <current (create_version) | classic (create_agent)>
 Difficulty: <1 | 2 | 3>
 Count     : <N items>
 
@@ -173,7 +203,9 @@ Knowledge-bank files to use as source:
 
 Before committing, verify:
 
-- [ ] Snippet is realistic (looks like real PySpark / T-SQL / KQL / pipeline JSON)
+- [ ] Snippet is realistic (looks like real Foundry SDK / tool schema / deployment config)
+- [ ] Snippet stays within one SDK generation (no `create_agent` + `PromptAgentDefinition` mix)
+- [ ] API shape checked against current Microsoft Learn docs, and the doc date recorded
 - [ ] `find-the-bug`: exactly one flaw, unambiguously identified by the correct option
 - [ ] `fill-the-blank`: exactly one `___BLANK___`, correct option is the only valid completion
 - [ ] All four options are plausible to a learner who partially knows the topic
@@ -184,3 +216,4 @@ Before committing, verify:
 - [ ] Difficulty level matches the calibration guide above
 - [ ] `language` field matches the actual snippet content
 - [ ] Tags include the `sub_mode` value (e.g. `"find-the-bug"`)
+- [ ] Correct-answer letter chosen to keep the bank's A/B/C/D spread even (AI103-Game-Spec.md §12)

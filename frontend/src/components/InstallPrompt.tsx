@@ -43,7 +43,7 @@ export function InstallPrompt() {
       className="fixed inset-x-2 bottom-20 z-30 mx-auto max-w-screen-md rounded-lg bg-bg-elevated p-4 shadow-lg ring-1 ring-divider"
     >
       <h2 id="install-title" className="text-base font-bold">
-        Install DP-700 Study?
+        Install AI-103 Study?
       </h2>
       <p className="mt-1 text-sm text-fg-muted">
         Add to your home screen for one-tap launch and offline study.

@@ -40,7 +40,7 @@ describe('Author prompt builder — grounded vs. ungrounded', () => {
       ['00000000-0000-4000-8000-000000000001'],
       [],
     );
-    expect(prompt).toMatch(/Create 7 DP-700 code-review items/);
+    expect(prompt).toMatch(/Create 7 AI-103 code-review items/);
     expect(prompt).toMatch(/Domain: plan-manage/);
     expect(prompt).toMatch(/Topic: evaluation-metrics/);
     expect(prompt).toMatch(/Difficulty: 3/);
