@@ -6,7 +6,7 @@
   "buildCommand": "cd frontend && npx --yes pnpm@10.33.0 build",
   "outputDirectory": "frontend/dist",
 
-  "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }],
+  "rewrites": [{ "source": "/((?!_vercel/|assets/).*)", "destination": "/index.html" }],
 
   "headers": [
     {
