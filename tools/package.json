@@ -1,5 +1,5 @@
 {
-  "name": "dp700-game-tools",
+  "name": "ai103-game-tools",
   "version": "0.1.0",
   "private": true,
   "type": "module",
@@ -13,7 +13,7 @@
     "import:md": "tsx import/md-quiz.ts"
   },
   "dependencies": {
-    "@anthropic-ai/sdk": "^0.30.0",
+    "@anthropic-ai/sdk": "^0.128.0",
     "@supabase/supabase-js": "^2.45.0",
     "ajv": "^8.17.1",
     "ajv-formats": "^3.0.1",

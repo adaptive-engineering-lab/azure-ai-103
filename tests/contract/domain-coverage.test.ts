@@ -1,7 +1,13 @@
 import { describe, it, expect, beforeAll } from 'vitest';
 import { anonClient } from '../../tools/test-helpers/clients.js';
 
-const DOMAINS = ['implement-manage', 'ingest-transform', 'monitor-optimize'] as const;
+const DOMAINS = [
+  'plan-manage',
+  'genai-agentic',
+  'computer-vision',
+  'text-analysis',
+  'info-extraction',
+] as const;
 
 const TYPES = ['mcq', 'code-review'] as const;
 

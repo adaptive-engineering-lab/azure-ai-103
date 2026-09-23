@@ -6,15 +6,15 @@ describe('Admin item validation (feature 013, FR-007)', () => {
     const result = validateItem('mcq', {
       id: '00000000-0000-4000-8000-000000000001',
       type: 'mcq',
-      domain: 'ingest-transform',
-      topic: 'blob',
+      domain: 'genai-agentic',
+      topic: 'foundry-sdk',
       difficulty: 1,
       source: 'bank',
       content: {
-        question: 'True or false? OneLake is built on ADLS Gen2.',
+        question: 'True or false? A Foundry project scopes model deployments and connections.',
         options: { A: 'True', B: 'False' },
         correct: 'A',
-        explanation: 'It is.',
+        explanation: 'It does.',
       },
     });
     expect(result.valid).toBe(true);
@@ -24,8 +24,8 @@ describe('Admin item validation (feature 013, FR-007)', () => {
     const result = validateItem('mcq', {
       id: '00000000-0000-4000-8000-000000000002',
       type: 'mcq',
-      domain: 'implement-manage',
-      topic: 'rbac',
+      domain: 'plan-manage',
+      topic: 'prepare-azure-ai-development',
       difficulty: 2,
       source: 'bank',
       content: {
@@ -66,7 +66,7 @@ describe('Admin item validation (feature 013, FR-007)', () => {
     const result = validateItem('mcq', {
       id: '00000000-0000-4000-8000-000000000004',
       type: 'mcq',
-      domain: 'ingest-transform',
+      domain: 'genai-agentic',
       topic: 't',
       difficulty: 1,
       source: 'bank',

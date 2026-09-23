@@ -10,10 +10,10 @@ import { check } from 'k6';
  * would turn a cached load into a full re-download for every user.
  *
  * Run:
- *   APP_URL=https://azure-dp-700.vercel.app k6 run tests/load/static-shell.js
+ *   APP_URL=https://azure-ai-103.vercel.app k6 run tests/load/static-shell.js
  */
 
-const APP_URL = (__ENV.APP_URL || 'https://azure-dp-700.vercel.app').replace(/\/$/, '');
+const APP_URL = (__ENV.APP_URL || 'https://azure-ai-103.vercel.app').replace(/\/$/, '');
 
 export const options = {
   stages: [

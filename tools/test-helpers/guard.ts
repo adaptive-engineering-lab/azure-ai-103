@@ -100,7 +100,7 @@ export async function findResidue(): Promise<Residue> {
     const users = data?.users ?? [];
     if (users.length === 0) break;
     testUsers += users.filter(
-      (u) => u.email?.startsWith('test+') && u.email.endsWith('@dp700game.test'),
+      (u) => u.email?.startsWith('test+') && u.email.endsWith('@ai103game.test'),
     ).length;
     if (users.length < 200) break;
     page += 1;

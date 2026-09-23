@@ -1,3 +1,4 @@
+import { BRANDING } from '../lib/branding';
 import { Link } from 'react-router-dom';
 import { useAuth } from '../lib/auth/AuthProvider';
 import { useEntitlement } from '../lib/entitlement';
@@ -59,7 +60,7 @@ export default function WhatsInProPage() {
           No study content is paywalled. Period.
         </p>
         <p className="mt-2 text-xs text-fg-muted">
-          You can pass the DP-700 exam using this app entirely for free. Pro funds the project.
+          You can pass the {BRANDING.examCode} exam using this app entirely for free. Pro funds the project.
         </p>
       </div>
 

@@ -5,7 +5,7 @@ function makeItem(id: string, overrides: Partial<QuestionItem> = {}): QuestionIt
   return {
     id,
     type: 'mcq',
-    domain: 'ingest-transform',
+    domain: 'genai-agentic',
     topic: 'blob',
     difficulty: 1,
     source: 'bank',

@@ -13,13 +13,29 @@ export class EnvError extends Error {
 }
 
 function require(name: string): string {
-  const v = process.env[name];
-  if (!v || v.length === 0) {
-    throw new EnvError(
-      `Missing required environment variable ${name}. Copy tools/.env.example to tools/.env.local and fill it in.`,
-    );
+  return requireOneOf(name);
+}
+
+/**
+ * Resolve the first of several accepted names that is actually set.
+ *
+ * Supabase renamed its API keys: `service_role` became the secret key
+ * (`sb_secret_…`) and `anon` became the publishable key (`sb_publishable_…`).
+ * Both formats are accepted by the same header, so a project issued new-style
+ * keys works unchanged — only the variable name differs. Accepting either
+ * spelling means a freshly created project's credentials drop straight in.
+ *
+ * The preferred (new) name is listed first and wins when both are set.
+ */
+function requireOneOf(...names: string[]): string {
+  for (const name of names) {
+    const v = process.env[name];
+    if (v && v.length > 0) return v;
   }
-  return v;
+  const list = names.join(' or ');
+  throw new EnvError(
+    `Missing required environment variable ${list}. Copy tools/.env.example to tools/.env.local and fill it in.`,
+  );
 }
 
 export interface SeedEnv {
@@ -32,8 +48,8 @@ export interface SeedEnv {
 export function loadSeedEnv(): SeedEnv {
   return {
     supabaseUrl: require('SUPABASE_URL'),
-    serviceRoleKey: require('SUPABASE_SERVICE_ROLE_KEY'),
-    anonKey: require('SUPABASE_ANON_KEY'),
+    serviceRoleKey: requireOneOf('SUPABASE_SECRET_KEY', 'SUPABASE_SERVICE_ROLE_KEY'),
+    anonKey: requireOneOf('SUPABASE_PUBLISHABLE_KEY', 'SUPABASE_ANON_KEY'),
     dryRun: process.env.DRY_RUN === '1',
   };
 }

@@ -12,9 +12,11 @@ import { anonClient } from '../../tools/test-helpers/clients.js';
  */
 
 const DOMAINS = [
-  'implement-manage',
-  'ingest-transform',
-  'monitor-optimize',
+  'plan-manage',
+  'genai-agentic',
+  'computer-vision',
+  'text-analysis',
+  'info-extraction',
 ] as const;
 
 const SAMPLES = 20;

@@ -9,6 +9,7 @@ import type {
 } from '../lib/questions/types';
 import { useAppStore } from '../lib/store';
 import { computeNextReview } from '../lib/spacing';
+import { NAMESPACE } from '../lib/storage/namespace';
 import { ROUTES } from '../lib/routes';
 import { SourceLine } from '../components/SourceLine';
 import SnippetView from '../components/SnippetView';
@@ -22,7 +23,7 @@ const SUB_MODE_LABEL: Record<CodeReviewSubMode, string> = {
   'fill-the-blank': 'Fill the blank',
 };
 
-const RESUME_KEY = 'dp700game.v1.codeReview.session';
+const RESUME_KEY = `${NAMESPACE}.v1.codeReview.session`;
 const RESUME_TTL_MS = 24 * 60 * 60 * 1000;
 
 interface Answer {

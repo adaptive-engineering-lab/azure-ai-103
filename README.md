@@ -1,8 +1,8 @@
-# DP-700 Study
+# AI-103 Study
 
-A mobile-first study app for the **Microsoft Certified: Fabric Data Engineer Associate** exam (Exam DP-700). Multiple-choice quizzes and code-review drills across all three exam domains, with spaced repetition, a daily review queue, progress dashboards, and a cosmetic Pro tier — built as a Progressive Web App that works offline once installed.
+A mobile-first study app for the **Microsoft Certified: Azure AI Apps and Agents Developer Associate** exam (Exam AI-103). Multiple-choice quizzes and code-review drills across all five exam domains, with spaced repetition, a daily review queue, progress dashboards, and a cosmetic Pro tier — built as a Progressive Web App that works offline once installed.
 
-Live: [azure-dp-700.vercel.app](https://azure-dp-700.vercel.app/)
+Live: [azure-ai-103.vercel.app](https://azure-ai-103.vercel.app/)
 
 ---
 
@@ -41,7 +41,7 @@ A learner opens the site, picks a study mode, and starts answering questions. Th
 Two study modes share one question bank:
 
 - **Quiz** — multiple choice with optional 45-second exam timer. Most items have four options; true/false items carry two.
-- **Code Review** — short PySpark / T-SQL / KQL snippets (8–20 lines) with three sub-modes: find-the-bug, what-does-this-do, fill-the-blank.
+- **Code Review** — short Python SDK / JSON schema / deployment-config snippets (8–20 lines) with three sub-modes: find-the-bug, what-does-this-do, fill-the-blank.
 
 A third surface, **Daily Review**, pulls items that spaced repetition has scheduled for today and dispatches each one to the matching study UI. One session, both modes, one click from the home screen.
 
@@ -170,7 +170,7 @@ Hosting:
 ├── specs/                      # Spec-Kit feature specs (0XX-name/)
 │   └── 001-supabase-schema-and-seed/  # plan.md, spec.md, tasks.md, contracts/
 │
-├── exams.config.json           # DP-700 domain/topic taxonomy + question targets
+├── exams.config.json           # AI-103 taxonomy: domains, topics, modules, question targets
 ├── vercel.json                 # Production deploy config + SPA fallback
 ├── .lighthouserc.json          # PR-gated Lighthouse audit config
 ├── .github/workflows/          # data-layer.yml + lighthouse.yml
@@ -190,7 +190,7 @@ The shared bank. Public read-only via the anon key.
 ```sql
 id            uuid     primary key
 type          text     check in ('mcq', 'code-review')
-domain        text     check in (5 DP-700 domain slugs)
+domain        text     check in (5 AI-103 domain slugs)
 topic         text
 difficulty    smallint check in (1, 2, 3)
 source        text     check in ('bank', 'ai-generated')
@@ -322,7 +322,7 @@ A single Zustand store ([`lib/store/index.ts`](frontend/src/lib/store/index.ts))
 - **`progress`** — `Record<questionId, { timesSeen, timesCorrect, lastRating, nextReview, updatedAt }>`.
 - **`sessions`** — array of recent session summaries (capped at 500).
 
-The store uses `zustand/middleware`'s `persist` adapter to write to `localStorage` under the key `dp700game.v1.state`. A schema-version migration runs on hydration ([`lib/storage/migrate.ts`](frontend/src/lib/storage/migrate.ts)) so old shapes never crash a returning user.
+The store uses `zustand/middleware`'s `persist` adapter to write to `localStorage` under the key `ai103game.v1.state`. A schema-version migration runs on hydration ([`lib/storage/migrate.ts`](frontend/src/lib/storage/migrate.ts)) so old shapes never crash a returning user.
 
 Cross-tab sync: [`App.tsx`](frontend/src/App.tsx) attaches a `window.addEventListener('storage', ...)` listener that calls `useAppStore.persist.rehydrate()` when another tab writes the same state key. Effect: complete a session in tab A, see the streak / XP update in tab B within one event loop.
 
@@ -497,11 +497,11 @@ The bank lives as two JSON files under [`supabase/seed/content/`](supabase/seed/
 
 ```
 supabase/seed/content/
-├── mcq.json          (86 items)
+├── mcq.json          (0 items)
 └── code-review.json  (0 items)
 ```
 
-86 items total, generated from the practice-quiz markdown in `bank/knowledge/` by `pnpm -C tools import:md`. Target per DP-700 exam weight is 200 (see `exams.config.json`).
+The bank is empty: the DP-700 items were discarded with the port and the AI-103 set has not been authored yet. Items are generated from the practice-quiz markdown in `bank/knowledge/` by `pnpm -C tools import:md`. Target is 200, split by AI-103 exam weight (see `exams.config.json`).
 
 Every item declares:
 
@@ -509,7 +509,7 @@ Every item declares:
 {
   "id": "<uuid>",
   "type": "mcq|code-review",
-  "domain": "<one of 3 DP-700 domain slugs>",
+  "domain": "<one of 5 AI-103 domain slugs>",
   "topic": "<topic from exams.config.json>",
   "difficulty": 1|2|3,
   "source": "bank" | "ai-generated",
@@ -622,7 +622,7 @@ If a Pro user's entitlement lapses while Solar or Forest is active, the provider
 Supabase Auth, magic-link email only (no password).
 
 - Sign-in page at `/sign-in` calls `signInWithOtp({ email, options: { emailRedirectTo: '<origin>/auth/callback' } })`.
-- The redirect URL `https://azure-dp-700.vercel.app/auth/callback` is on Supabase's allow list (Project Settings → Authentication → URL Configuration).
+- The redirect URL `https://azure-ai-103.vercel.app/auth/callback` is on Supabase's allow list (Project Settings → Authentication → URL Configuration).
 - After clicking the link, the user lands on `/auth/callback`, which calls `supabase.auth.exchangeCodeForSession(...)`, persists the session in localStorage, and redirects home.
 - [`AuthProvider`](frontend/src/lib/auth/AuthProvider.tsx) wraps the app, exposes `{ user, status, signOut }`, and triggers the guest→authed migration on transitions.
 
@@ -654,7 +654,7 @@ The foundation is merged and verified locally; **going live requires operator st
      STRIPE_SECRET_KEY=sk_test_... \
      STRIPE_WEBHOOK_SECRET=whsec_... \
      STRIPE_PRICE_ID=price_... \
-     APP_URL=https://azure-dp-700.vercel.app
+     APP_URL=https://azure-ai-103.vercel.app
    ```
 3. Deploy the Edge Functions:
    ```
@@ -709,7 +709,7 @@ specs/00X-<feature-name>/
 └── checklists/   # requirements traceability
 ```
 
-13 specs landed for the DP-700 fork (001 through 013, plus 011-pro-surfaces). Most `tasks.md` files end with a `STATUS YYYY-MM-DD` section documenting which tasks landed in compact form versus the original per-file breakdown — useful for understanding intent vs reality.
+13 specs landed for the DP-700 build this codebase was ported from (001 through 013, plus 011-pro-surfaces). They document the engine, which the AI-103 port inherits unchanged; the port itself is tracked as Phase 5 in `AI103-Game-Spec.md` §13. Most `tasks.md` files end with a `STATUS YYYY-MM-DD` section documenting which tasks landed in compact form versus the original per-file breakdown — useful for understanding intent vs reality.
 
 The `/speckit-*` slash commands (`/speckit-tasks`, `/speckit-implement`, `/speckit-analyze`) are how this codebase was driven from specs to code.
 
@@ -728,7 +728,7 @@ The `/speckit-*` slash commands (`/speckit-tasks`, `/speckit-implement`, `/speck
 
 ```bash
 git clone <this repo>
-cd dp-700
+cd azure-ai-103
 
 # Frontend deps
 pnpm -C frontend install
@@ -828,8 +828,8 @@ az-103 in West EU (Ireland) is the production project. Hosting on the free tier 
 
 Auth provider config (Project Settings → Authentication):
 
-- **Site URL**: `https://azure-dp-700.vercel.app/`
-- **Redirect URLs**: `https://azure-dp-700.vercel.app/auth/callback` (add `http://localhost:5173/auth/callback` to test the magic-link flow locally).
+- **Site URL**: `https://azure-ai-103.vercel.app/`
+- **Redirect URLs**: `https://azure-ai-103.vercel.app/auth/callback` (add `http://localhost:5173/auth/callback` to test the magic-link flow locally).
 - **Email provider**: Default (Supabase-hosted). Customize the magic-link email template under Authentication → Email Templates if you want branding.
 
 ### CI
@@ -879,7 +879,7 @@ Only needed if you're drafting new bank items with the CLI.
 STRIPE_SECRET_KEY=sk_test_...
 STRIPE_WEBHOOK_SECRET=whsec_...
 STRIPE_PRICE_ID=price_...
-APP_URL=https://azure-dp-700.vercel.app
+APP_URL=https://azure-ai-103.vercel.app
 # SUPABASE_URL + SUPABASE_SERVICE_ROLE_KEY are auto-populated.
 ```
 
@@ -925,7 +925,7 @@ If you want to use this codebase, open an issue on the repository.
 
 ## Acknowledgements
 
-- Forked from an earlier AZ-104 study app and adapted to DP-700.
+- Forked from an earlier AZ-104 study app, adapted to DP-700, then ported to AI-103.
 - Spec-Kit methodology + the `/speckit-*` slash commands drove the implementation.
-- Question content references public Microsoft Learn documentation for Azure ML and Azure AI Foundry.
+- Question content references public Microsoft Learn documentation for Microsoft Foundry and the Azure AI services.
 - Built with Claude assisting on every spec, draft, and review.

@@ -10,7 +10,7 @@ export interface ModuleOption {
   count: number;
   /**
    * Study order, from the leading number on the source markdown filename
-   * (`3-DP-700_Apache-Spark_Quiz.md` → 3). Undefined when the file was not
+   * (`3-AI-103_Foundry-SDK_Quiz.md` → 3). Undefined when the file was not
    * numbered.
    */
   order?: number;

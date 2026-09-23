@@ -28,7 +28,7 @@ SUPABASE_ANON_KEY="$SUPABASE_PUBLISHABLE_KEY" \
   k6 run tests/load/bank-read.js
 
 # App shell + CDN cache headers + SPA deep-link rewrite
-APP_URL=https://azure-dp-700.vercel.app k6 run tests/load/static-shell.js
+APP_URL=https://azure-ai-103.vercel.app k6 run tests/load/static-shell.js
 ```
 
 ## What each one is for

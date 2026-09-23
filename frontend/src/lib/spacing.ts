@@ -1,7 +1,7 @@
 import type { Rating } from './store';
 
 /**
- * Simplified SM-2 per DP700-Game-Spec.md §9 + feature 008.
+ * Simplified SM-2 per AI103-Game-Spec.md §9 + feature 008.
  * Correct: doubles previous interval (initial 3 days).
  * Almost:  1 day.
  * Missed:  1 day, interval streak resets.

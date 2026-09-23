@@ -1,39 +1,39 @@
 <!--
 SYNC IMPACT REPORT
 ==================
-Version change: 1.0.0 → 2.0.0
-Bump rationale: MAJOR. The "Technology & Platform Constraints" section
-previously listed Anthropic Claude (via /api/ai edge function) as a
-load-bearing runtime dependency, and Principle III governed runtime
-AI behavior. Both are now removed: AI is a maintainer-side authoring
-tool only. Removing a load-bearing stack item and redefining a
-principle in a backward-incompatible way is, per the governance
-policy, a MAJOR bump.
+Version change: 2.0.0 → 3.0.0
+Bump rationale: MAJOR. The product is retargeted from Exam DP-700
+(Fabric Data Engineer Associate) to Exam AI-103 (Azure AI Apps and
+Agents Developer Associate). Principle II fixed the domain set to the
+three official DP-700 domains; it is now the five official AI-103
+domains. Redefining a principle in a backward-incompatible way is,
+per the governance policy, a MAJOR bump.
 
 Modified principles:
-- III. "AI as a Bounded, Cost-Aware Layer" → "AI as an Authoring Tool,
-  Not a Runtime Dependency"
+- II. "Domain-Aligned Content Integrity" — domain set rebound to the
+  five AI-103 domains; the retired flashcard and product-ID item types
+  dropped from the enumeration (see spec §6.4).
 
 Other principles unchanged in title and intent.
 
 Sections updated:
-- Technology & Platform Constraints: removed Vercel Edge Functions and
-  Anthropic Claude runtime entries; added explicit prohibition on
-  runtime AI calls.
-- Development Workflow & Quality Gates: telemetry list trimmed (no
-  AI call counts / cache hit rate to track).
+- Title: "DP-700 Learning Game Constitution" → "AI-103 Learning Game
+  Constitution".
 
 Templates: no template edits required. CLAUDE.md unchanged.
 
-Spec sync: DP700-Game-Spec.md updated in same change set
-(§3.2 backend table, §6.1/§6.2 AI Enhancement blocks, §7 rewritten as
-"AI-Assisted Content Authoring (Offline)", §13 Phase 3 repurposed).
+Spec sync: DP700-Game-Spec.md replaced by AI103-Game-Spec.md in the
+same change set. Section numbering deliberately preserved so the §8,
+§9, and §13 citations in this file and in frontend/src/lib/spacing.ts
+remain valid; those citations were repointed to the new filename.
+The archived feature specs under specs/ still cite the old filename
+and are correct to do so — they document the DP-700 build.
 
-Deferred / TODOs: §15 open questions still being walked through
-interactively; will land in spec as decisions are made.
+Deferred / TODOs: none. The AI-103 taxonomy is settled in spec §5.2;
+implementation is tracked as spec §13 Phase 5.
 -->
 
-# DP-700 Learning Game Constitution
+# AI-103 Learning Game Constitution
 
 ## Core Principles
 
@@ -52,10 +52,11 @@ breaks the habit-forming loop the product depends on.
 
 ### II. Domain-Aligned Content Integrity
 
-Every question, flashcard, and product-ID item MUST carry an explicit
-`domain`, `topic`, `difficulty`, and `source` field as defined in the spec's
-data model. The domain set is fixed to the three official DP-700 exam
-domains; new domains require a constitution amendment. AI-generated content
+Every question item MUST carry an explicit `domain`, `topic`,
+`difficulty`, and `source` field as defined in the spec's data model. The
+domain set is fixed to the five official AI-103 exam domains
+(`plan-manage`, `genai-agentic`, `computer-vision`, `text-analysis`,
+`info-extraction`); new domains require a constitution amendment. AI-generated content
 MUST be tagged `source: "ai-generated"` and MUST NOT be promoted into the
 seeded bank without human review.
 
@@ -68,7 +69,7 @@ weak-area dashboard, and the level-progression gates.
 The production runtime MUST NOT make outbound calls to any AI provider.
 Claude is used **only** by the maintainer, offline, to draft and refine
 question-bank entries. All AI-authored items MUST be validated against
-the JSON schemas in DP700-Game-Spec.md §8, reviewed by a human, tagged
+the JSON schemas in AI103-Game-Spec.md §8, reviewed by a human, tagged
 `source: "ai-generated"`, and committed to the seed bank before reaching
 users. Any future proposal to add a runtime AI feature ("Explain more",
 on-demand generation, weak-area summaries) requires an amendment of
@@ -129,7 +130,7 @@ requires a MAJOR version bump of this constitution:
 ## Development Workflow & Quality Gates
 
 - **Phased delivery**: Work proceeds in the four phases defined in
-  DP700-Game-Spec.md §13. A later phase MUST NOT consume scope from
+  AI103-Game-Spec.md §13. A later phase MUST NOT consume scope from
   an earlier phase without rebaselining the spec.
 - **Specs precede code**: Every feature branch MUST originate from a
   spec under `specs/###-feature-name/` produced by `/speckit-specify`,
@@ -169,4 +170,4 @@ reviewer MUST approve the amendment in addition to any code review.
 feature against the Constitution Check gate using the principles
 above. Unjustified violations block plan acceptance.
 
-**Version**: 2.0.0 | **Ratified**: 2026-05-11 | **Last Amended**: 2026-05-11
+**Version**: 3.0.0 | **Ratified**: 2026-05-11 | **Last Amended**: 2026-09-23

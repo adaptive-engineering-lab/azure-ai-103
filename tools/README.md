@@ -1,6 +1,6 @@
 # `tools/` — Seed and Test Tooling
 
-Node 20 + TypeScript scripts that operate on the DP-700 game's Supabase data layer.
+Node 20 + TypeScript scripts that operate on the AI-103 game's Supabase data layer.
 
 This directory holds the **maintainer-side** code. It is never bundled into the frontend, never deployed, and never invoked by end users.
 

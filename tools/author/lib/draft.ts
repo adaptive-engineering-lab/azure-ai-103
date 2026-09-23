@@ -17,7 +17,7 @@ export interface DraftArgs {
   difficulty: 1 | 2 | 3;
   count: number;
   /**
-   * One or more markdown source files (e.g., from bank/knowledge/dp700/) whose
+   * One or more markdown source files (e.g., from bank/knowledge/) whose
    * contents are inlined into the prompt. When present, Claude is
    * instructed to use ONLY these files as the source of facts.
    */
@@ -33,7 +33,7 @@ export interface DraftReport {
   groundedIn: string[];
 }
 
-const SYSTEM_PROMPT_BASE = `You author DP-700 exam-prep study items as JSON. You receive a JSON Schema, a topic context, and a list of UUIDs that already exist in the bank. Return ONLY a JSON array of items that conform to the schema, never include UUIDs from the existing list, and never wrap your response in markdown.`;
+const SYSTEM_PROMPT_BASE = `You author AI-103 exam-prep study items as JSON. You receive a JSON Schema, a topic context, and a list of UUIDs that already exist in the bank. Return ONLY a JSON array of items that conform to the schema, never include UUIDs from the existing list, and never wrap your response in markdown.`;
 
 const SYSTEM_PROMPT_GROUNDED = `${SYSTEM_PROMPT_BASE}
 
@@ -50,7 +50,10 @@ export async function draftItems(args: DraftArgs): Promise<DraftReport> {
   const client = new Anthropic({ apiKey: getAnthropicKey() });
   const response = await client.messages.create({
     model: getAnthropicModel(),
-    max_tokens: 4096,
+    // A draft run returns `count` complete items, each with a snippet,
+    // four options and an explanation. 4096 truncated mid-array on larger
+    // batches, and a truncated array fails JSON.parse rather than degrading.
+    max_tokens: 16000,
     system: [
       {
         type: 'text',
@@ -148,7 +151,7 @@ export function buildPrompt(
       ? ''
       : '\n\nSOURCE FILES (authoritative; every fact must trace to these):\n\n' +
         sources.map((s) => `=== ${s.filename} ===\n${s.contents}`).join('\n\n');
-  return `Create ${args.count} DP-700 ${args.type} items.
+  return `Create ${args.count} AI-103 ${args.type} items.
 
 Domain: ${args.domain}
 Topic: ${args.topic}

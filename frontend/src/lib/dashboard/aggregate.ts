@@ -1,7 +1,5 @@
-import type { Domain } from '../questions/types';
+import { DOMAINS, type Domain } from '../questions/types';
 import type { GuestProgressMap, GuestSession } from '../store';
-
-const DOMAINS: Domain[] = ['implement-manage', 'ingest-transform', 'monitor-optimize'];
 
 export interface DomainStat {
   domain: Domain;
@@ -19,11 +17,10 @@ export function computeDomainStats(
   progress: GuestProgressMap,
   questionDomains: Record<string, Domain>,
 ): DomainStat[] {
-  const tally: Record<Domain, { seen: number; correct: number }> = {
-    'implement-manage': { seen: 0, correct: 0 },
-    'ingest-transform': { seen: 0, correct: 0 },
-    'monitor-optimize': { seen: 0, correct: 0 },
-  };
+  // Built from DOMAINS so adding an exam domain needs no edit here.
+  const tally = Object.fromEntries(
+    DOMAINS.map((d) => [d, { seen: 0, correct: 0 }]),
+  ) as Record<Domain, { seen: number; correct: number }>;
   for (const p of Object.values(progress)) {
     const dom = questionDomains[p.questionId];
     if (!dom) continue;

@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { BRANDING } from '../lib/branding';
 import { CONTACT_EMAIL, OPERATOR_JURISDICTION, OPERATOR_NAME } from '../lib/legal';
 import { ROUTES } from '../lib/routes';
 
@@ -12,7 +13,7 @@ export default function PrivacyPolicyPage() {
 
       <Section title="1. Who we are">
         <p>
-          DP-700 Study (the &ldquo;Service&rdquo;) is operated by{' '}
+          {BRANDING.appName} (the &ldquo;Service&rdquo;) is operated by{' '}
           <strong>{OPERATOR_NAME}</strong>, operating from{' '}
           {OPERATOR_JURISDICTION}. You can reach us at{' '}
           <a href={`mailto:${CONTACT_EMAIL}`} className="text-accent underline">

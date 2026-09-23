@@ -68,7 +68,7 @@ describe('Admin RLS (T040 / spec 013 / FR-001..FR-003)', () => {
     return {
       id,
       type: 'mcq',
-      domain: 'ingest-transform',
+      domain: 'genai-agentic',
       topic: 'admin-rls-test',
       difficulty: 1,
       source: 'bank',

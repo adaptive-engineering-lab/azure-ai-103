@@ -18,6 +18,14 @@ export function getAnthropicKey(): string {
   return v;
 }
 
+/**
+ * Authoring model. Opus 5 runs adaptive thinking by default when `thinking`
+ * is omitted, which is what we want for item drafting — the work is
+ * reasoning-heavy and runs offline, so quality matters far more than latency.
+ *
+ * Note that Opus 5 rejects `temperature`, `top_p` and `top_k` with a 400.
+ * Nothing here sets them; do not add them back.
+ */
 export function getAnthropicModel(): string {
-  return process.env.ANTHROPIC_MODEL ?? 'claude-sonnet-4-6';
+  return process.env.ANTHROPIC_MODEL ?? 'claude-opus-5';
 }

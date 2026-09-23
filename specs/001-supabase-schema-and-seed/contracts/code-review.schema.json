@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://dp700game.local/contracts/code-review.schema.json",
+  "$id": "https://ai103game.local/contracts/code-review.schema.json",
   "title": "Code Review Item",
   "type": "object",
   "required": [
@@ -29,7 +29,7 @@
       "additionalProperties": false,
       "properties": {
         "sub_mode":    { "enum": ["find-the-bug", "what-does-this-do", "fill-the-blank"] },
-        "language":    { "enum": ["python", "sql", "kql", "json"] },
+        "language":    { "enum": ["python", "json", "yaml", "bash"] },
         "snippet":     { "type": "string", "minLength": 1, "maxLength": 2000 },
         "prompt":      { "type": "string", "minLength": 1, "maxLength": 200 },
         "options": {
@@ -57,9 +57,11 @@
   "$defs": {
     "domain": {
       "enum": [
-        "implement-manage",
-        "ingest-transform",
-        "monitor-optimize"
+        "plan-manage",
+        "genai-agentic",
+        "computer-vision",
+        "text-analysis",
+        "info-extraction"
       ]
     },
     "source": { "enum": ["bank", "ai-generated"] }
