@@ -94,6 +94,7 @@ aspirational.*
 | Animations | Framer Motion 11 | Transitions and score reveals; disabled under `prefers-reduced-motion` |
 | Syntax highlighting | Shiki 4 | Real grammars for `python`, `json`, `yaml`, `bash` — code-review snippets are highlighted, not plain text |
 | Validation | Ajv 8 + ajv-formats | Schema validation in the admin editor and the seed CLI |
+| Branding | `src/lib/branding.ts` | Single source for every exam-name mention; shared by the bundle and `vite.config.ts` |
 | PWA | vite-plugin-pwa (Workbox) | Precached shell + offline sessions |
 
 The Shiki grammar set changes for AI-103: DP-700 loaded `python`, `sql`,
@@ -767,14 +768,35 @@ hardcoded), and the domain fixtures across 11 test files.
       catalogue (§6.2)
 - [ ] Import, validate, seed to 30–50 items; then grow toward 200 (§12)
 
-**5d — Branding and copy**
-- [ ] `frontend/index.html` title and description
-- [ ] `frontend/vite.config.ts` PWA manifest name / short_name / description
-- [ ] `HomePage.tsx` hero copy — note it says "three exam domains"
-- [ ] `PrivacyPolicyPage.tsx`, `TermsOfServicePage.tsx` exam name
-- [ ] `frontend/package.json` name (`dp700-game-frontend`)
-- [ ] localStorage namespace (§15.1)
-- [ ] Sweep remaining user-facing `DP-700` strings outside `specs/`
+**5d — Branding and copy** ✅
+- [x] `frontend/index.html` title and description
+- [x] `frontend/vite.config.ts` PWA manifest name / short_name / description
+- [x] `HomePage.tsx` hero copy — it said "three exam domains"
+- [x] `PrivacyPolicyPage.tsx`, `TermsOfServicePage.tsx` exam name
+- [x] `frontend/package.json` and `tools/package.json` names
+- [x] localStorage namespace (§15.1)
+- [x] Sweep remaining user-facing `DP-700` strings outside `specs/`
+- [x] Rewrite `tools/author/prompts/code-review.md` for AI-103 (moved up from
+      5c — the Fabric trap catalogue was actively misleading)
+
+Branding is no longer a set of literals to sweep. Every user-facing mention of
+the exam now resolves from `frontend/src/lib/branding.ts`, which exports a
+pure `resolveBranding(env)` plus committed AI-103 defaults. It has two callers
+in two runtimes — the browser bundle via `import.meta.env`, and
+`vite.config.ts` via `loadEnv()` — which is what keeps the PWA manifest, the
+HTML head and the React tree from drifting apart.
+
+The `VITE_EXAM_CODE` / `VITE_EXAM_TITLE` / `VITE_CERT_TITLE` variables in
+`.env.example` documented themselves as driving the titles and meta tags but
+were read by nothing; they are now real, optional, and fall back to the
+defaults so an unset variable renders correct branding rather than a blank
+title. `index.html` gets its title, description and storage key injected by a
+`transformIndexHtml` plugin, which also removes the last hand-synced copy of
+the localStorage key.
+
+The namespace itself is deliberately *not* derived from the exam code: it is a
+storage contract, and deriving it would mean renaming the exam silently
+orphaned every existing user's progress.
 
 **5e — Verification**
 - [ ] Re-check the five-axis radar at 375px (§10.2)

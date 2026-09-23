@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { BRANDING } from '../lib/branding';
 import { ROUTES } from '../lib/routes';
 import { StreakBadge } from '../components/StreakBadge';
 import { XpBadge } from '../components/XpBadge';
@@ -23,9 +24,9 @@ export default function HomePage() {
       <div className="grid gap-8 xl:grid-cols-[3fr,2fr] xl:items-start xl:gap-12">
         <div>
           <header className="mb-6">
-            <p className="text-sm font-medium text-accent">AI-103 Study</p>
+            <p className="text-sm font-medium text-accent">{BRANDING.appName}</p>
             <h1 className="mt-1 text-3xl font-bold leading-tight xl:text-4xl">
-              Mobile-first prep for the Azure AI Apps and Agents exam.
+              Mobile-first prep for the {BRANDING.certTitle.replace(/ Associate$/, '')} exam.
             </h1>
             <p className="mt-3 text-fg-muted">
               Quizzes and code-review drills across all five exam domains — with real Python

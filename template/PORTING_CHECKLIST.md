@@ -77,46 +77,66 @@ Easiest. Edit the migration in place before first `supabase db push`:
 
 ## 5. Branding
 
-### `frontend/index.html`
+### Exam identity (one place)
 
-- [ ] Update `<title>` and `<meta name="description">`:
+Every user-facing mention of the exam — page title, meta description, PWA
+manifest, home hero, install prompt, countdown widget, Pro page, and both
+legal pages — resolves from
+[`frontend/src/lib/branding.ts`](../frontend/src/lib/branding.ts). You do not
+edit those files any more.
 
-  ```html
-  <title>AZ-900 Study</title>
-  <meta name="description" content="Mobile-first AZ-900 exam prep — flashcards, quizzes, and code-review drills across all exam domains." />
+Pick one of two routes:
+
+- [ ] **Per-deployment (no code change).** Set these in `frontend/.env.local`
+      and in the Vercel project, then rebuild. They are read at build time.
+
+  ```bash
+  VITE_EXAM_CODE=AZ-900
+  VITE_EXAM_TITLE=Microsoft Azure Fundamentals
+  VITE_CERT_TITLE=Azure Fundamentals
   ```
+
+- [ ] **Committed default (for a permanent fork).** Change
+      `BRANDING_DEFAULTS` in `branding.ts`. This is what renders when no
+      environment variable is set, so a fork that will only ever be one exam
+      should change it here and leave the variables unset.
+
+`appName`, `shortName` and the meta/manifest description are derived from
+`examCode`, so a one-line change re-skins the whole app. Verify with:
+
+```bash
+pnpm -C frontend build && grep -o '<title>[^<]*</title>' frontend/dist/index.html
+```
 
 ### `frontend/vite.config.ts`
 
-- [ ] Update the PWA manifest fields:
+- [ ] Nothing to change for naming — the manifest and the HTML `<title>`,
+      description, and storage key are injected from `branding.ts` and
+      `storage/namespace.ts` by the `brandedHtml` plugin.
+- [ ] (Optional) `theme_color` / `background_color` if you want a different
+      launcher tint.
 
-  ```ts
-  manifest: {
-    name: 'AZ-900 Study',
-    short_name: 'AZ-900',
-    description: 'Mobile-first AZ-900 exam prep — flashcards, quizzes, and code-review drills.',
-    theme_color: '#0078D4',          // optionally change per exam
-    background_color: '#0f172a',
-    // ...
-  }
-  ```
+### `frontend/src/lib/storage/namespace.ts`
+
+- [ ] Change `NAMESPACE` (e.g. `dp700game` → `az900game`).
+
+  This is deliberately **not** derived from the exam code: it is a storage
+  contract, and deriving it would mean a rename silently orphaned every
+  existing user's saved progress. Change it only on a fresh deployment, or
+  write a migration.
 
 ### `frontend/src/pages/HomePage.tsx`
 
-- [ ] Update the hero copy:
+- [ ] The eyebrow and headline read from `BRANDING`, so only the standing
+      tagline needs a look — it names the domain count and the languages the
+      code-review drills use, which are exam-specific:
 
   ```tsx
-  <p className="text-sm font-medium text-accent">AZ-900 Study</p>
-  <h1 className="...">
-    Mobile-first prep for the Azure Fundamentals exam.
-  </h1>
   <p className="mt-3 text-fg-muted">
-    Flashcards, quizzes, and code-review drills across all three exam domains.
-    Study in short sessions; come back tomorrow.
+    Quizzes and code-review drills across all three exam domains — with real
+    PowerShell and ARM templates. Study in short sessions; come back tomorrow.
   </p>
   ```
-
-  (Domain count + tagline depend on the exam.)
 
 ### `frontend/src/pages/LearnIndexPage.tsx`
 
