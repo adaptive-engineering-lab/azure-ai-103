@@ -11,5 +11,12 @@
     "noEmit": true,
     "types": ["node"]
   },
-  "include": ["seed/**/*", "test-helpers/**/*", "vitest.config.ts"]
+  "include": [
+    "env-files.ts",
+    "seed/**/*",
+    "author/**/*",
+    "import/**/*",
+    "test-helpers/**/*",
+    "vitest.config.ts"
+  ]
 }

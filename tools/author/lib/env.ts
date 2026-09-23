@@ -1,12 +1,12 @@
-import 'dotenv/config';
-import { config as loadDotenv } from 'dotenv';
-import { existsSync } from 'node:fs';
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { loadEnvFiles } from '../../env-files.js';
 
-const TOOLS_DIR = resolve(dirname(fileURLToPath(import.meta.url)), '..', '..');
-const ENV_LOCAL = resolve(TOOLS_DIR, '.env.local');
-if (existsSync(ENV_LOCAL)) loadDotenv({ path: ENV_LOCAL, override: true });
+const HERE = dirname(fileURLToPath(import.meta.url));
+const REPO_ROOT = resolve(HERE, '..', '..', '..');
+
+// Same cascade as the seed tooling. See env-files.ts.
+loadEnvFiles(HERE, REPO_ROOT);
 
 export class AuthorEnvError extends Error {
   readonly exitCode = 20;

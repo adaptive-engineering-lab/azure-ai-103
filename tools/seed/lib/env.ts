@@ -1,12 +1,13 @@
-import 'dotenv/config';
-import { config as loadDotenv } from 'dotenv';
-import { existsSync } from 'node:fs';
-import { resolve, dirname } from 'node:path';
+import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { describeLoaded, loadEnvFiles } from '../../env-files.js';
 
-const TOOLS_DIR = resolve(dirname(fileURLToPath(import.meta.url)), '..', '..');
-const ENV_LOCAL = resolve(TOOLS_DIR, '.env.local');
-if (existsSync(ENV_LOCAL)) loadDotenv({ path: ENV_LOCAL, override: true });
+const HERE = dirname(fileURLToPath(import.meta.url));
+const REPO_ROOT = resolve(HERE, '..', '..', '..');
+
+// Walk from this module up to the repo root, so a .env at the root, in
+// tools/, or beside this file all work. See env-files.ts.
+const LOADED = loadEnvFiles(HERE, REPO_ROOT);
 
 export class EnvError extends Error {
   readonly exitCode = 20;
@@ -34,7 +35,9 @@ function requireOneOf(...names: string[]): string {
   }
   const list = names.join(' or ');
   throw new EnvError(
-    `Missing required environment variable ${list}. Copy tools/.env.example to tools/.env.local and fill it in.`,
+    `Missing required environment variable ${list}. ` +
+      `Copy tools/.env.example to tools/.env.local and fill it in ` +
+      `(${describeLoaded(LOADED)}).`,
   );
 }
 
