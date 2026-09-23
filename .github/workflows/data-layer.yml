@@ -40,6 +40,12 @@ jobs:
         working-directory: tools
         run: pnpm install --frozen-lockfile
 
+      # Pure logic, no database. Runs before the stack boots so a broken rule
+      # fails in seconds rather than after a full Supabase start.
+      - name: Unit tests
+        working-directory: tools
+        run: pnpm test:unit
+
       - name: Set up Supabase CLI
         uses: supabase/setup-cli@v1
         with:

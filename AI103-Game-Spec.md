@@ -802,7 +802,13 @@ orphaned every existing user's progress.
 
 **5e — Verification**
 - [ ] Re-check the five-axis radar at 375px (§10.2)
-- [ ] Add the answer-letter distribution contract test (§12, risk 4)
+- [x] Add the answer-letter distribution contract test (§12, risk 4). The
+      rule lives in `tools/seed/lib/answer-distribution.ts`, unit tested
+      against synthetic skews (including a DP-700-shaped one) in
+      `tools/unit/`; the contract test applies it to the seeded bank. Both
+      gates stay quiet below a minimum sample so they never sit red on a
+      small bank. Runs in CI via a new `pnpm test:unit`, which needs no
+      database.
 - [ ] `pnpm -C frontend build`, `pnpm -C frontend test`, `pnpm -C tools test`
 - [ ] Full smoke test per `template/PORTING_CHECKLIST.md` §12
 

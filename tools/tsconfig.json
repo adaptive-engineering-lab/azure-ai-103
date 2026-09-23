@@ -14,9 +14,11 @@
   "include": [
     "env-files.ts",
     "seed/**/*",
+    "unit/**/*",
     "author/**/*",
     "import/**/*",
     "test-helpers/**/*",
-    "vitest.config.ts"
+    "vitest.config.ts",
+    "vitest.unit.config.ts"
   ]
 }

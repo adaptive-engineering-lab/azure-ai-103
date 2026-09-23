@@ -8,6 +8,7 @@
     "seed:validate": "tsx seed/validate.ts",
     "author": "tsx author/cli.ts",
     "test": "vitest run",
+    "test:unit": "vitest run --config vitest.unit.config.ts",
     "test:watch": "vitest",
     "lint": "eslint .",
     "import:md": "tsx import/md-quiz.ts"
