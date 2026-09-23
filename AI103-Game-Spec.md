@@ -810,22 +810,23 @@ orphaned every existing user's progress.
 - [ ] `frontend/.env.local` does not exist, so the app cannot reach Supabase
       locally. Copy `.env.example` and fill `VITE_SUPABASE_ANON_KEY` with the
       project's publishable key.
-- [ ] Supabase Auth URL configuration for the new project: Site URL and the
-      `/auth/callback` redirect, plus `http://localhost:5173/auth/callback`
-      for local magic-link testing.
+- [ ] Supabase Auth URLs are still at their defaults: Site URL is
+      `http://localhost:3000` and the redirect allow-list is **empty**, so
+      magic-link sign-in will fail on the deployed app. Needs the Vercel
+      origin plus `http://localhost:5173/auth/callback` for local testing.
 - [ ] `admins` is empty, so `/admin` is unreachable by anyone. Insert a row
       once the first account exists.
-- [ ] GitHub Actions has registered **neither** workflow on this repo —
-      `gh api .../actions/workflows` returns only the Copilot agent, and the
-      repo has one run in its history. Actions is enabled at repo level, so
-      this needs a look in Settings → Actions before either gate means
-      anything.
+- [ ] Both workflows are now registered, but neither has ever executed —
+      the repo's only run is the Copilot review. `data-layer.yml` should have
+      fired on the `tools/**` push in c1d5493. Confirm a run happens (and
+      passes) before treating either as a gate.
 - [ ] `CONTACT_EMAIL` in `frontend/src/lib/legal.ts` is still the RFC 2606
       placeholder. The privacy policy promises a working route for access,
       correction and deletion requests.
-- [ ] Vercel project not yet pointed at this repo; env vars must be set for
-      Production and Preview before the first deploy, since Vite bakes them
-      in at build time.
+- [x] Vercel deployed at azure-ai-103-eight.vercel.app: branding injected
+      end to end, PWA manifest correct, deep links rewrite, Supabase reachable
+      (`questions` query returns 200), no secrets in the bundle, console
+      clean after the `vercel.json` rewrite fix in 8c5384a.
 
 ---
 
