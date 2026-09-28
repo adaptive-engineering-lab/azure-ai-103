@@ -1,1 +1,2684 @@
-[]
+[
+  {
+    "id": "8d2589b6-f010-584d-97a0-7804160d741a",
+    "type": "mcq",
+    "domain": "plan-manage",
+    "topic": "Plan and prepare to develop AI solutions on Azure",
+    "difficulty": 1,
+    "source": "bank",
+    "tags": [
+      "plan-manage",
+      "plan-and-prepare-to-develop-ai-solutions-on-azure",
+      "level-1",
+      "order:1",
+      "module:prepare-azure-ai-development",
+      "path:lp1",
+      "primary-path:lp1"
+    ],
+    "content": {
+      "question": "What differentiates Foundry Tools from building a custom generative AI agent for the same task (e.g., sentiment analysis)?",
+      "options": {
+        "A": "Foundry Tools always cost more than agent-based solutions",
+        "B": "Foundry Tools provide prebuilt, task-specific APIs that are more cost-effective and predictable than relying on generative AI agents alone",
+        "C": "Foundry Tools require you to train your own model first",
+        "D": "Foundry Tools can only be accessed through the Azure portal UI"
+      },
+      "correct": "B",
+      "explanation": "Foundry Tools exist precisely because off-the-shelf, task-specific APIs are often more cost-effective and predictable than routing everything through a generative AI agent. (A) is unsupported and generally backwards. (C) is wrong — they're prebuilt, no training required. (D) is wrong — they're consumed via tool-specific endpoints/APIs/SDKs, not just the portal."
+    }
+  },
+  {
+    "id": "af60a948-8f3d-5841-8b9b-ee0b457132d0",
+    "type": "mcq",
+    "domain": "plan-manage",
+    "topic": "Plan and prepare to develop AI solutions on Azure",
+    "difficulty": 1,
+    "source": "bank",
+    "tags": [
+      "plan-manage",
+      "plan-and-prepare-to-develop-ai-solutions-on-azure",
+      "level-1",
+      "order:1",
+      "module:prepare-azure-ai-development",
+      "path:lp1",
+      "primary-path:lp1"
+    ],
+    "content": {
+      "question": "In Microsoft Foundry's resource hierarchy, what is the relationship between a Foundry resource and Foundry projects?",
+      "options": {
+        "A": "One project can span multiple Foundry resources",
+        "B": "A resource and a project are two names for the same object",
+        "C": "A Foundry resource can support one or more child projects, with one designated as the default",
+        "D": "Each Foundry resource can have exactly one project"
+      },
+      "correct": "C",
+      "explanation": "A single Foundry resource can host multiple child projects, one of which is the default. (A) reverses the relationship — a project belongs to one resource. (B) conflates two distinct objects. (D) is a common exam trap; it's \"one or more,\" not \"exactly one.\""
+    }
+  },
+  {
+    "id": "963f6bd2-488a-598d-ac29-3d0ac9f7663e",
+    "type": "mcq",
+    "domain": "plan-manage",
+    "topic": "Plan and prepare to develop AI solutions on Azure",
+    "difficulty": 1,
+    "source": "bank",
+    "tags": [
+      "plan-manage",
+      "plan-and-prepare-to-develop-ai-solutions-on-azure",
+      "level-1",
+      "order:1",
+      "module:prepare-azure-ai-development",
+      "path:lp1",
+      "primary-path:lp1"
+    ],
+    "content": {
+      "question": "Which two endpoints can you use to interact with models deployed in a Foundry project?",
+      "options": {
+        "A": "The project endpoint (Foundry APIs/SDKs) and the Azure OpenAI endpoint (OpenAI APIs/SDKs)",
+        "B": "The Azure Portal endpoint and the GitHub endpoint",
+        "C": "The Content Understanding endpoint and the Translator endpoint",
+        "D": "Only the Azure OpenAI endpoint — Foundry doesn't expose its own endpoint"
+      },
+      "correct": "A",
+      "explanation": "The project endpoint uses Foundry-specific APIs/SDKs; the Azure OpenAI endpoint uses OpenAI-compatible APIs/SDKs for models that support that syntax. (B) and (C) name unrelated services. (D) is false — the project endpoint is a primary access path."
+    }
+  },
+  {
+    "id": "56b11903-acd3-5b97-be64-fee9e82d8c0f",
+    "type": "mcq",
+    "domain": "plan-manage",
+    "topic": "Plan and prepare to develop AI solutions on Azure",
+    "difficulty": 1,
+    "source": "bank",
+    "tags": [
+      "plan-manage",
+      "plan-and-prepare-to-develop-ai-solutions-on-azure",
+      "level-1",
+      "order:1",
+      "module:prepare-azure-ai-development",
+      "path:lp1",
+      "primary-path:lp1"
+    ],
+    "content": {
+      "question": "What is Foundry IQ used for?",
+      "options": {
+        "A": "Creating a single, central MCP-based knowledge connection so agents can draw on multiple knowledge sources",
+        "B": "Deploying LLMs to production environments",
+        "C": "Monitoring token usage and cost across a project",
+        "D": "Managing CI/CD pipelines for model deployment"
+      },
+      "correct": "A",
+      "explanation": "Foundry IQ centralizes multiple knowledge sources behind a single MCP-based connection so agents don't need a separate integration per source. (B), (C), (D) describe other parts of Foundry (deployment, monitoring, CI/CD) unrelated to knowledge integration."
+    }
+  },
+  {
+    "id": "71358146-9ff6-56e8-9cea-aab28fa6a799",
+    "type": "mcq",
+    "domain": "plan-manage",
+    "topic": "Plan and prepare to develop AI solutions on Azure",
+    "difficulty": 1,
+    "source": "bank",
+    "tags": [
+      "plan-manage",
+      "plan-and-prepare-to-develop-ai-solutions-on-azure",
+      "level-1",
+      "order:1",
+      "module:prepare-azure-ai-development",
+      "path:lp1",
+      "primary-path:lp1"
+    ],
+    "content": {
+      "question": "An agent in Microsoft Foundry is defined by combining which three elements?",
+      "options": {
+        "A": "A model, a dataset, and a UI",
+        "B": "A prompt, a temperature setting, and a max token limit",
+        "C": "A resource group, a region, and a SKU",
+        "D": "An LLM, instructions, and tools"
+      },
+      "correct": "D",
+      "explanation": "Agent = LLM + instructions (defines responsibilities) + tools (finds knowledge/automates tasks). The other options invent unrelated triads — a classic \"sounds plausible\" distractor pattern."
+    }
+  },
+  {
+    "id": "75566d2f-ffef-5751-9d0c-7e0b5de479c0",
+    "type": "mcq",
+    "domain": "plan-manage",
+    "topic": "Plan and prepare to develop AI solutions on Azure",
+    "difficulty": 1,
+    "source": "bank",
+    "tags": [
+      "plan-manage",
+      "plan-and-prepare-to-develop-ai-solutions-on-azure",
+      "level-1",
+      "order:1",
+      "module:prepare-azure-ai-development",
+      "path:lp1",
+      "primary-path:lp1"
+    ],
+    "content": {
+      "question": "What is the correct chronological order of names for what is now called \"Foundry Tools\"?",
+      "options": {
+        "A": "Azure AI Services → Azure Cognitive Services → Foundry Tools",
+        "B": "Azure Applied AI Services → Foundry Tools (no other prior name)",
+        "C": "Azure Cognitive Services → Azure AI Services → Foundry Tools",
+        "D": "Azure ML Services → Azure AI Services → Foundry Tools"
+      },
+      "correct": "C",
+      "explanation": "Order matters here: Cognitive Services (original name) → Azure AI Services (rename) → Foundry Tools (current name). Expect the exam to test this renaming lineage since older docs/SDKs still reference the earlier names."
+    }
+  },
+  {
+    "id": "5df3d22c-a99d-5909-8227-25d665aeb991",
+    "type": "mcq",
+    "domain": "plan-manage",
+    "topic": "Plan and prepare to develop AI solutions on Azure",
+    "difficulty": 1,
+    "source": "bank",
+    "tags": [
+      "plan-manage",
+      "plan-and-prepare-to-develop-ai-solutions-on-azure",
+      "level-1",
+      "order:1",
+      "module:prepare-azure-ai-development",
+      "path:lp1",
+      "primary-path:lp1"
+    ],
+    "content": {
+      "question": "You need to extract structured fields (totals, line items, dates) from a scanned invoice. Which Foundry Tool is purpose-built for this, as distinct from the more general multimodal Content Understanding tool?",
+      "options": {
+        "A": "Azure Language",
+        "B": "Azure Document Intelligence",
+        "C": "Azure Translator",
+        "D": "Azure Speech"
+      },
+      "correct": "B",
+      "explanation": "Document Intelligence is specifically for extracting fields from structured/semi-structured documents like invoices, receipts, and forms. Content Understanding is the broader multimodal sibling (documents and images, video, audio) — the exam will likely test you distinguishing these two. (A), (C), (D) are unrelated modalities."
+    }
+  },
+  {
+    "id": "307eb2be-cc94-58f7-982a-51a639fcd800",
+    "type": "mcq",
+    "domain": "plan-manage",
+    "topic": "Plan and prepare to develop AI solutions on Azure",
+    "difficulty": 1,
+    "source": "bank",
+    "tags": [
+      "plan-manage",
+      "plan-and-prepare-to-develop-ai-solutions-on-azure",
+      "level-1",
+      "order:1",
+      "module:prepare-azure-ai-development",
+      "path:lp1",
+      "primary-path:lp1"
+    ],
+    "content": {
+      "question": "Which tool simplifies browsing Foundry project resources, deploying models, and testing agents directly inside an editor?",
+      "options": {
+        "A": "Foundry Toolkit extension for Visual Studio Code",
+        "B": "GitHub Copilot",
+        "C": "Azure CLI",
+        "D": "IntelliCode"
+      },
+      "correct": "A",
+      "explanation": "The Foundry Toolkit extension for VS Code is purpose-built for this workflow (browsing resources, deploying models, testing in playgrounds, generating integration code). GitHub Copilot (B) is a general coding assistant, not Foundry-specific."
+    }
+  },
+  {
+    "id": "89d1d594-9317-5ee7-ae3f-9bb5610beb76",
+    "type": "mcq",
+    "domain": "plan-manage",
+    "topic": "Plan and prepare to develop AI solutions on Azure",
+    "difficulty": 1,
+    "source": "bank",
+    "tags": [
+      "plan-manage",
+      "plan-and-prepare-to-develop-ai-solutions-on-azure",
+      "level-1",
+      "order:1",
+      "module:prepare-azure-ai-development",
+      "path:lp1",
+      "primary-path:lp1"
+    ],
+    "content": {
+      "question": "True or false? Foundry Tools SDKs are the only way to access Foundry Tools functionality — there's no REST API option.",
+      "options": {
+        "A": "True",
+        "B": "False"
+      },
+      "correct": "B",
+      "explanation": "The module explicitly states Foundry Tools can also be consumed via REST APIs, not just SDKs."
+    }
+  },
+  {
+    "id": "91d3c6c5-5ff7-5733-bc86-3818ac7729d0",
+    "type": "mcq",
+    "domain": "plan-manage",
+    "topic": "Plan and prepare to develop AI solutions on Azure",
+    "difficulty": 1,
+    "source": "bank",
+    "tags": [
+      "plan-manage",
+      "plan-and-prepare-to-develop-ai-solutions-on-azure",
+      "level-1",
+      "order:1",
+      "module:prepare-azure-ai-development",
+      "path:lp1",
+      "primary-path:lp1"
+    ],
+    "content": {
+      "question": "True or false? A \"classic\" (hub-based) Foundry project uses a different architecture from the newer project structure this module describes, and Microsoft still documents it separately.",
+      "options": {
+        "A": "True",
+        "B": "False"
+      },
+      "correct": "A",
+      "explanation": "The module calls out that classic (hub-based) Foundry projects use a different architecture and points to separate documentation for them — a good sign the exam may probe whether you know \"classic\" still exists and differs."
+    }
+  },
+  {
+    "id": "aa140339-3cbf-5158-893a-cb8e52b58d90",
+    "type": "mcq",
+    "domain": "plan-manage",
+    "topic": "Plan and prepare to develop AI solutions on Azure",
+    "difficulty": 1,
+    "source": "bank",
+    "tags": [
+      "plan-manage",
+      "plan-and-prepare-to-develop-ai-solutions-on-azure",
+      "level-1",
+      "order:1",
+      "module:prepare-azure-ai-development",
+      "path:lp1",
+      "primary-path:lp1"
+    ],
+    "content": {
+      "question": "True or false? Per Microsoft's responsible AI principles, \"Transparency\" means users should be informed of a model's limitations and, where relevant, given information about confidence in its predictions.",
+      "options": {
+        "A": "True",
+        "B": "False"
+      },
+      "correct": "A",
+      "explanation": "This is the textbook description of Transparency: understandability, awareness of limitations, and confidence-score communication. (Don't confuse with Accountability, which is about who is answerable for the system, not what users are told.)"
+    }
+  },
+  {
+    "id": "e3cae1a0-72bd-5f7c-b551-f83c19db3a00",
+    "type": "mcq",
+    "domain": "plan-manage",
+    "topic": "Plan and prepare to develop AI solutions on Azure",
+    "difficulty": 1,
+    "source": "bank",
+    "tags": [
+      "plan-manage",
+      "plan-and-prepare-to-develop-ai-solutions-on-azure",
+      "level-1",
+      "order:1",
+      "module:prepare-azure-ai-development",
+      "path:lp1",
+      "primary-path:lp1"
+    ],
+    "content": {
+      "question": "True or false? Agent tools in Foundry can only use Microsoft's built-in functionality (web search, code interpreter) — third-party and custom tools aren't supported. ---",
+      "options": {
+        "A": "True",
+        "B": "False"
+      },
+      "correct": "B",
+      "explanation": "Agents can use built-in tools or connect to custom/third-party tools via Model Context Protocol (MCP) connections — this is a key exam distinction (built-in vs. MCP-based extensibility)."
+    }
+  },
+  {
+    "id": "03e46353-477e-5f67-82a6-e16843e202b5",
+    "type": "mcq",
+    "domain": "plan-manage",
+    "topic": "Plan and prepare to develop AI solutions on Azure",
+    "difficulty": 2,
+    "source": "bank",
+    "tags": [
+      "plan-manage",
+      "plan-and-prepare-to-develop-ai-solutions-on-azure",
+      "level-2",
+      "order:1",
+      "module:prepare-azure-ai-development",
+      "path:lp1",
+      "primary-path:lp1"
+    ],
+    "content": {
+      "question": "You're building a customer-support agent that must: (1) answer questions using your company's internal knowledge base, (2) call a custom REST API to check order status, and (3) reason across multi-turn conversations. Which combination of Foundry concepts best supports this?",
+      "options": {
+        "A": "Deploy an LLM only — a single model call handles everything, no agent needed",
+        "B": "Use only Azure Translator to standardize language before calling the LLM",
+        "C": "Use Azure Document Intelligence exclusively to cover all three requirements",
+        "D": "Build an agent combining an LLM + instructions + tools (a custom function/API tool plus a Foundry IQ knowledge connection), with conversation tracking"
+      },
+      "correct": "D",
+      "explanation": "All three requirements map directly onto agent components: tools (custom API call), knowledge (Foundry IQ connection to the internal knowledge base), and conversation-tracking as an explicit agent capability. (A) ignores that multi-turn state and tool-calling require an agent, not a bare model call. (B) and (C) each only solve a narrow slice of the problem."
+    }
+  },
+  {
+    "id": "e08819e4-fa5e-5b40-961d-be7fae17c791",
+    "type": "mcq",
+    "domain": "plan-manage",
+    "topic": "Plan and prepare to develop AI solutions on Azure",
+    "difficulty": 2,
+    "source": "bank",
+    "tags": [
+      "plan-manage",
+      "plan-and-prepare-to-develop-ai-solutions-on-azure",
+      "level-2",
+      "order:1",
+      "module:prepare-azure-ai-development",
+      "path:lp1",
+      "primary-path:lp1"
+    ],
+    "content": {
+      "question": "Your team wants predictable, low-cost sentiment analysis on thousands of customer reviews without building or maintaining a custom LLM prompting pipeline. Which approach best fits the guidance in this module?",
+      "options": {
+        "A": "Build a multi-agent generative AI system with self-critique loops",
+        "B": "Use Azure Content Understanding pro-mode pipelines",
+        "C": "Use Azure Language (a Foundry Tool) for sentiment analysis instead of relying on generative AI agents alone",
+        "D": "Fine-tune a large multimodal model"
+      },
+      "correct": "C",
+      "explanation": "This is the exact use case Foundry Tools are positioned for — predictable, cost-effective, prebuilt functionality (Azure Language) instead of an LLM/agent pipeline for a well-defined, high-volume task. (A) and (D) are needlessly complex/expensive for straightforward sentiment analysis. (B) is the wrong tool family — Content Understanding targets multimodal extraction, not text sentiment specifically."
+    }
+  },
+  {
+    "id": "894d39b8-3d69-5d9c-8be1-b70a213df713",
+    "type": "mcq",
+    "domain": "genai-agentic",
+    "topic": "Select, deploy, and evaluate Microsoft Foundry models",
+    "difficulty": 1,
+    "source": "bank",
+    "tags": [
+      "genai-agentic",
+      "select-deploy-and-evaluate-microsoft-foundry-models",
+      "level-1",
+      "order:2",
+      "module:model-catalog-evaluate",
+      "path:lp1",
+      "primary-path:lp1"
+    ],
+    "content": {
+      "question": "Which model type is best suited for a scenario that needs to run on edge devices, prioritizing speed and cost over handling the most complex reasoning tasks?",
+      "options": {
+        "A": "Large Language Model (LLM)",
+        "B": "Small Language Model (SLM)",
+        "C": "Reasoning model",
+        "D": "Embedding model"
+      },
+      "correct": "B",
+      "explanation": "SLMs (like Phi-4, Llama 3 8B) trade deep reasoning power for efficiency, cost-effectiveness, and the ability to run on lower-end/edge hardware. LLMs (A) are the opposite trade-off. (C) and (D) are task-specific categories, not a speed/cost-vs-capability axis."
+    }
+  },
+  {
+    "id": "1c98e684-66df-5bd7-b11e-da5a28e0d578",
+    "type": "mcq",
+    "domain": "genai-agentic",
+    "topic": "Select, deploy, and evaluate Microsoft Foundry models",
+    "difficulty": 1,
+    "source": "bank",
+    "tags": [
+      "genai-agentic",
+      "select-deploy-and-evaluate-microsoft-foundry-models",
+      "level-1",
+      "order:2",
+      "module:model-catalog-evaluate",
+      "path:lp1",
+      "primary-path:lp1"
+    ],
+    "content": {
+      "question": "Which model category converts text into numerical representations, enabling semantic search and Retrieval Augmented Generation (RAG)?",
+      "options": {
+        "A": "Embedding models",
+        "B": "Reasoning models",
+        "C": "Chat completion models",
+        "D": "Image analysis models"
+      },
+      "correct": "A",
+      "explanation": "Embedding models (e.g., Ada, Cohere) convert text into numerical vector representations used for semantic search, recommendations, and RAG retrieval — not for generating conversational text."
+    }
+  },
+  {
+    "id": "00a0698f-fc3f-5647-b2f2-6982ac78f23b",
+    "type": "mcq",
+    "domain": "genai-agentic",
+    "topic": "Select, deploy, and evaluate Microsoft Foundry models",
+    "difficulty": 1,
+    "source": "bank",
+    "tags": [
+      "genai-agentic",
+      "select-deploy-and-evaluate-microsoft-foundry-models",
+      "level-1",
+      "order:2",
+      "module:model-catalog-evaluate",
+      "path:lp1",
+      "primary-path:lp1"
+    ],
+    "content": {
+      "question": "In the Foundry model catalog's Quality index, what does a higher value indicate?",
+      "options": {
+        "A": "Lower cost per token",
+        "B": "Better compliance with safety policy",
+        "C": "Faster response latency",
+        "D": "Stronger overall performance averaged across reasoning, knowledge, QA, math, and coding benchmarks"
+      },
+      "correct": "D",
+      "explanation": "The Quality index averages accuracy scores across multiple benchmark datasets (reasoning, knowledge, QA, math, coding) into a single normalized 0–1 value. It says nothing directly about cost (A) or latency (C) — those are separate benchmark categories entirely."
+    }
+  },
+  {
+    "id": "e3fe443d-cbb2-5d21-b97a-b7f153529f83",
+    "type": "mcq",
+    "domain": "genai-agentic",
+    "topic": "Select, deploy, and evaluate Microsoft Foundry models",
+    "difficulty": 1,
+    "source": "bank",
+    "tags": [
+      "genai-agentic",
+      "select-deploy-and-evaluate-microsoft-foundry-models",
+      "level-1",
+      "order:2",
+      "module:model-catalog-evaluate",
+      "path:lp1",
+      "primary-path:lp1"
+    ],
+    "content": {
+      "question": "Which benchmark dataset(s) specifically measure code generation capability?",
+      "options": {
+        "A": "GPQA",
+        "B": "HumanEval+ and MBPP+",
+        "C": "MATH",
+        "D": "IFEval"
+      },
+      "correct": "B",
+      "explanation": "HumanEval+ and MBPP+ are the code-generation-specific datasets. GPQA (A) is graduate-level multi-discipline QA, MATH (C) is mathematical reasoning, and IFEval (D) tests instruction-following — a good reminder to memorize which dataset maps to which skill, since \"which benchmark tests X\" is a classic recall question."
+    }
+  },
+  {
+    "id": "62e6a8dc-81ff-5490-a08e-09dc6aa101da",
+    "type": "mcq",
+    "domain": "genai-agentic",
+    "topic": "Select, deploy, and evaluate Microsoft Foundry models",
+    "difficulty": 1,
+    "source": "bank",
+    "tags": [
+      "genai-agentic",
+      "select-deploy-and-evaluate-microsoft-foundry-models",
+      "level-1",
+      "order:2",
+      "module:model-catalog-evaluate",
+      "path:lp1",
+      "primary-path:lp1"
+    ],
+    "content": {
+      "question": "For the HarmBench safety benchmark, which statement is correct?",
+      "options": {
+        "A": "A lower Attack Success Rate (ASR) indicates a safer, more robust model",
+        "B": "A higher Attack Success Rate (ASR) indicates a safer model",
+        "C": "ASR measures cost per token",
+        "D": "ASR only applies to embedding models"
+      },
+      "correct": "A",
+      "explanation": "Lower ASR = safer/more robust, since ASR measures how often adversarial prompts successfully elicit unsafe content. This is a common gotcha because with most \"quality\" metrics higher = better, but ASR is an attack-success metric, so the direction flips."
+    }
+  },
+  {
+    "id": "b37d6ef7-6909-5024-b67a-334a7b01e98d",
+    "type": "mcq",
+    "domain": "genai-agentic",
+    "topic": "Select, deploy, and evaluate Microsoft Foundry models",
+    "difficulty": 1,
+    "source": "bank",
+    "tags": [
+      "genai-agentic",
+      "select-deploy-and-evaluate-microsoft-foundry-models",
+      "level-1",
+      "order:2",
+      "module:model-catalog-evaluate",
+      "path:lp1",
+      "primary-path:lp1"
+    ],
+    "content": {
+      "question": "On the WMDP (Weapons of Mass Destruction Proxy) benchmark, what does a higher score indicate about a model?",
+      "options": {
+        "A": "The model is safer overall",
+        "B": "The model demonstrates more knowledge of potentially dangerous capabilities (biosecurity/cybersecurity/chemical security) — a red flag, not a positive",
+        "C": "The model is cheaper to run at scale",
+        "D": "The model has stronger general reasoning ability"
+      },
+      "correct": "B",
+      "explanation": "WMDP is unusual: a higher score means the model knows more about dangerous capabilities (bio/cyber/chemical security) — which is undesirable from a safety standpoint. This inverted-direction benchmark is a prime exam trap; don't assume \"higher is better\" applies universally across all benchmark categories."
+    }
+  },
+  {
+    "id": "50229a92-23ec-53ec-826c-e6c251600d1f",
+    "type": "mcq",
+    "domain": "genai-agentic",
+    "topic": "Select, deploy, and evaluate Microsoft Foundry models",
+    "difficulty": 1,
+    "source": "bank",
+    "tags": [
+      "genai-agentic",
+      "select-deploy-and-evaluate-microsoft-foundry-models",
+      "level-1",
+      "order:2",
+      "module:model-catalog-evaluate",
+      "path:lp1",
+      "primary-path:lp1"
+    ],
+    "content": {
+      "question": "How does Microsoft Foundry calculate a model's \"Estimated cost\" benchmark?",
+      "options": {
+        "A": "Output tokens only",
+        "B": "A 1:1 ratio of input to output tokens",
+        "C": "A 3:1 ratio of input tokens to output tokens",
+        "D": "Input tokens only"
+      },
+      "correct": "C",
+      "explanation": "Estimated cost combines input and output token pricing using a 3:1 input:output ratio to produce one comparable number. Memorize this ratio specifically — a question could ask you to interpret or recompute an estimated cost figure."
+    }
+  },
+  {
+    "id": "e5f3166a-109c-5488-b2d2-b281f37e5b72",
+    "type": "mcq",
+    "domain": "genai-agentic",
+    "topic": "Select, deploy, and evaluate Microsoft Foundry models",
+    "difficulty": 1,
+    "source": "bank",
+    "tags": [
+      "genai-agentic",
+      "select-deploy-and-evaluate-microsoft-foundry-models",
+      "level-1",
+      "order:2",
+      "module:model-catalog-evaluate",
+      "path:lp1",
+      "primary-path:lp1"
+    ],
+    "content": {
+      "question": "Which deployment type is intended specifically for fine-tuned model evaluation only, not general production traffic?",
+      "options": {
+        "A": "Global Standard",
+        "B": "Standard",
+        "C": "Developer",
+        "D": "Global Batch"
+      },
+      "correct": "C",
+      "explanation": "Developer deployments exist specifically to evaluate fine-tuned models, not to serve production traffic — a subtle but testable distinction versus Standard/Global Standard, which are general-purpose."
+    }
+  },
+  {
+    "id": "b2d36189-3b39-58e8-93a6-37e88609811c",
+    "type": "mcq",
+    "domain": "genai-agentic",
+    "topic": "Select, deploy, and evaluate Microsoft Foundry models",
+    "difficulty": 1,
+    "source": "bank",
+    "tags": [
+      "genai-agentic",
+      "select-deploy-and-evaluate-microsoft-foundry-models",
+      "level-1",
+      "order:2",
+      "module:model-catalog-evaluate",
+      "path:lp1",
+      "primary-path:lp1"
+    ],
+    "content": {
+      "question": "Which deployment type offers roughly a 50% discount for large asynchronous jobs completed within 24 hours?",
+      "options": {
+        "A": "Global Provisioned",
+        "B": "Regional Provisioned",
+        "C": "Data Zone Standard",
+        "D": "Global Batch"
+      },
+      "correct": "D",
+      "explanation": "Global Batch deployments give ~50% cost savings for large asynchronous jobs processed within a 24-hour window — trading turnaround time for cost, a good fit for non-interactive batch workloads."
+    }
+  },
+  {
+    "id": "ca627dd8-a246-5806-9f1c-c003d339f178",
+    "type": "mcq",
+    "domain": "genai-agentic",
+    "topic": "Select, deploy, and evaluate Microsoft Foundry models",
+    "difficulty": 1,
+    "source": "bank",
+    "tags": [
+      "genai-agentic",
+      "select-deploy-and-evaluate-microsoft-foundry-models",
+      "level-1",
+      "order:2",
+      "module:model-catalog-evaluate",
+      "path:lp1",
+      "primary-path:lp1"
+    ],
+    "content": {
+      "question": "Which authentication method does Microsoft recommend for production scenarios when an application accesses a deployed model?",
+      "options": {
+        "A": "Microsoft Entra ID authentication",
+        "B": "Authentication key only",
+        "C": "Shared Access Signature (SAS) tokens",
+        "D": "Anonymous access"
+      },
+      "correct": "A",
+      "explanation": "Microsoft Entra ID authentication is recommended for production; authentication keys are supported but treated as the less secure alternative. (C) isn't a Foundry deployment auth mechanism; (D) is never appropriate."
+    }
+  },
+  {
+    "id": "b9077d05-2671-5a72-9be9-183d48e25c5a",
+    "type": "mcq",
+    "domain": "genai-agentic",
+    "topic": "Select, deploy, and evaluate Microsoft Foundry models",
+    "difficulty": 1,
+    "source": "bank",
+    "tags": [
+      "genai-agentic",
+      "select-deploy-and-evaluate-microsoft-foundry-models",
+      "level-1",
+      "order:2",
+      "module:model-catalog-evaluate",
+      "path:lp1",
+      "primary-path:lp1"
+    ],
+    "content": {
+      "question": "True or false? Groundedness Pro provides a binary (grounded / not grounded) assessment, which is useful when you need a clear factual-accuracy signal.",
+      "options": {
+        "A": "True",
+        "B": "False"
+      },
+      "correct": "A",
+      "explanation": "Groundedness Pro specifically offers a binary grounded/not-grounded verdict, distinct from scalar groundedness scoring, and is useful where you need a hard pass/fail for factual accuracy."
+    }
+  },
+  {
+    "id": "fe184a19-11df-5df8-8e76-d673879dcd93",
+    "type": "mcq",
+    "domain": "genai-agentic",
+    "topic": "Select, deploy, and evaluate Microsoft Foundry models",
+    "difficulty": 1,
+    "source": "bank",
+    "tags": [
+      "genai-agentic",
+      "select-deploy-and-evaluate-microsoft-foundry-models",
+      "level-1",
+      "order:2",
+      "module:model-catalog-evaluate",
+      "path:lp1",
+      "primary-path:lp1"
+    ],
+    "content": {
+      "question": "True or false? NLP metrics like BLEU, ROUGE, and METEOR all require ground truth/reference text, which makes them especially well suited to open-ended, free-form generation tasks where many valid responses exist.",
+      "options": {
+        "A": "True",
+        "B": "False"
+      },
+      "correct": "B",
+      "explanation": "NLP metrics do require ground truth, but that's exactly why they're less suitable for open-ended generation — there's no single \"correct\" reference text to compare against when many valid responses exist. The module explicitly states this limitation."
+    }
+  },
+  {
+    "id": "74f849de-1cb7-556b-bab0-1d77a6f300bd",
+    "type": "mcq",
+    "domain": "genai-agentic",
+    "topic": "Select, deploy, and evaluate Microsoft Foundry models",
+    "difficulty": 1,
+    "source": "bank",
+    "tags": [
+      "genai-agentic",
+      "select-deploy-and-evaluate-microsoft-foundry-models",
+      "level-1",
+      "order:2",
+      "module:model-catalog-evaluate",
+      "path:lp1",
+      "primary-path:lp1"
+    ],
+    "content": {
+      "question": "True or false? The Foundry Evaluation feature lets you base an evaluation on a Model, an Agent, or a pre-generated Dataset.",
+      "options": {
+        "A": "True",
+        "B": "False"
+      },
+      "correct": "A",
+      "explanation": "The three evaluation bases in Foundry are Model (system generates outputs during eval), Agent (evaluating agent responses), and Dataset (evaluating pre-generated outputs already present in the data)."
+    }
+  },
+  {
+    "id": "803dff1c-dd63-5b55-ba7d-343cd6c9ee35",
+    "type": "mcq",
+    "domain": "genai-agentic",
+    "topic": "Select, deploy, and evaluate Microsoft Foundry models",
+    "difficulty": 1,
+    "source": "bank",
+    "tags": [
+      "genai-agentic",
+      "select-deploy-and-evaluate-microsoft-foundry-models",
+      "level-1",
+      "order:2",
+      "module:model-catalog-evaluate",
+      "path:lp1",
+      "primary-path:lp1"
+    ],
+    "content": {
+      "question": "True or false? Defect rate for the protected material and indirect-attack (jailbreak) safety metrics is calculated as (true instances / total instances) × 100.",
+      "options": {
+        "A": "True",
+        "B": "False"
+      },
+      "correct": "A",
+      "explanation": "This is the exact formula given for protected material and indirect attack (jailbreak) defect rate — worth memorizing verbatim since it could appear as a \"which formula\" question."
+    }
+  },
+  {
+    "id": "b1c39d28-7b79-5438-9278-4f257beb113e",
+    "type": "mcq",
+    "domain": "genai-agentic",
+    "topic": "Select, deploy, and evaluate Microsoft Foundry models",
+    "difficulty": 1,
+    "source": "bank",
+    "tags": [
+      "genai-agentic",
+      "select-deploy-and-evaluate-microsoft-foundry-models",
+      "level-1",
+      "order:2",
+      "module:model-catalog-evaluate",
+      "path:lp1",
+      "primary-path:lp1"
+    ],
+    "content": {
+      "question": "True or false? ROUGE emphasizes precision over recall, which is why it's the preferred metric for evaluating machine translation quality.",
+      "options": {
+        "A": "True",
+        "B": "False"
+      },
+      "correct": "B",
+      "explanation": "ROUGE emphasizes recall over precision (good for summarization, where covering key points matters most). BLEU is the metric more associated with machine translation, using n-gram comparison. Mixing up ROUGE vs. BLEU's primary use case is a very testable confusion."
+    }
+  },
+  {
+    "id": "cb51b2f9-fb0a-5cf5-8b8e-0db8f5238883",
+    "type": "mcq",
+    "domain": "genai-agentic",
+    "topic": "Select, deploy, and evaluate Microsoft Foundry models",
+    "difficulty": 1,
+    "source": "bank",
+    "tags": [
+      "genai-agentic",
+      "select-deploy-and-evaluate-microsoft-foundry-models",
+      "level-1",
+      "order:2",
+      "module:model-catalog-evaluate",
+      "path:lp1",
+      "primary-path:lp1"
+    ],
+    "content": {
+      "question": "True or false? When your application maps to a specific use case like coding or math, you should still prefer the general Quality index over the relevant scenario leaderboard, since it aggregates results across more benchmarks. ---",
+      "options": {
+        "A": "True",
+        "B": "False"
+      },
+      "correct": "B",
+      "explanation": "It is the other way round. The module recommends starting with the relevant scenario leaderboard (reasoning, coding, math, QA, groundedness) when your application maps to a specific use case, and falling back to the general-purpose Quality index only when it does not. Breadth of aggregation is not the deciding factor — task fit is."
+    }
+  },
+  {
+    "id": "4cdb47f3-43e2-54dc-943e-4c06f877053c",
+    "type": "mcq",
+    "domain": "genai-agentic",
+    "topic": "Select, deploy, and evaluate Microsoft Foundry models",
+    "difficulty": 2,
+    "source": "bank",
+    "tags": [
+      "genai-agentic",
+      "select-deploy-and-evaluate-microsoft-foundry-models",
+      "level-2",
+      "order:2",
+      "module:model-catalog-evaluate",
+      "path:lp1",
+      "primary-path:lp1"
+    ],
+    "content": {
+      "question": "Your application is a customer-facing chatbot serving EU users. Your organization requires that data remain within an EU data zone at all times, and you want predictable pay-per-token billing rather than reserved throughput capacity. Which deployment type best fits?",
+      "options": {
+        "A": "Global Standard",
+        "B": "Global Batch",
+        "C": "Regional Provisioned",
+        "D": "Data Zone Standard"
+      },
+      "correct": "D",
+      "explanation": "Data Zone Standard keeps data within a specific data zone (matching the EU compliance requirement) while still billing pay-per-token (matching \"predictable, not reserved-throughput\" billing). Global Standard (A) doesn't guarantee data-zone residency; Regional Provisioned (C) uses reserved PTUs, not pay-per-token; Global Batch (B) is for async batch jobs, not a live chatbot."
+    }
+  },
+  {
+    "id": "f85a4bfb-cca1-5eba-86f7-9fae958d1c86",
+    "type": "mcq",
+    "domain": "genai-agentic",
+    "topic": "Select, deploy, and evaluate Microsoft Foundry models",
+    "difficulty": 2,
+    "source": "bank",
+    "tags": [
+      "genai-agentic",
+      "select-deploy-and-evaluate-microsoft-foundry-models",
+      "level-2",
+      "order:2",
+      "module:model-catalog-evaluate",
+      "path:lp1",
+      "primary-path:lp1"
+    ],
+    "content": {
+      "question": "You're evaluating a RAG-based support agent and want an automated metric that tells you whether the agent's answers are actually derived from the retrieved documents (rather than the model speculating), with a clear binary pass/fail signal suitable for a factual-accuracy audit. Which metric fits best?",
+      "options": {
+        "A": "Fluency",
+        "B": "Coherence",
+        "C": "Groundedness Pro",
+        "D": "BLEU"
+      },
+      "correct": "C",
+      "explanation": "Groundedness Pro is purpose-built for exactly this: verifying responses are based on provided context rather than the model speculating, with a binary output suitable for an audit trail. Fluency (A) and Coherence (B) assess writing quality, not factual grounding. BLEU (D) needs reference text and isn't designed to assess groundedness against retrieved context."
+    }
+  },
+  {
+    "id": "53602168-fa2b-53cd-a6f1-f3c5ffb0872a",
+    "type": "mcq",
+    "domain": "genai-agentic",
+    "topic": "Develop a generative AI chat app with Microsoft Foundry",
+    "difficulty": 1,
+    "source": "bank",
+    "tags": [
+      "genai-agentic",
+      "develop-a-generative-ai-chat-app-with-microsoft-foundry",
+      "level-1",
+      "order:3",
+      "module:foundry-sdk",
+      "path:lp1",
+      "primary-path:lp1"
+    ],
+    "content": {
+      "question": "Which SDK is required in addition to the Foundry SDK (azure-ai-projects) if you want to chat with models via a Foundry project endpoint?",
+      "options": {
+        "A": "Azure Identity SDK",
+        "B": "OpenAI SDK",
+        "C": "Azure CLI",
+        "D": "Azure Storage SDK"
+      },
+      "correct": "B",
+      "explanation": "The module explicitly notes that when using the Foundry SDK for chat, you also need the OpenAI SDK package, because the Foundry SDK's chat client functionality is derived from it. Azure Identity (A) is needed for authentication, not chat itself."
+    }
+  },
+  {
+    "id": "a79fdd49-c0b2-55a2-8de4-879f68f807fa",
+    "type": "mcq",
+    "domain": "genai-agentic",
+    "topic": "Develop a generative AI chat app with Microsoft Foundry",
+    "difficulty": 1,
+    "source": "bank",
+    "tags": [
+      "genai-agentic",
+      "develop-a-generative-ai-chat-app-with-microsoft-foundry",
+      "level-1",
+      "order:3",
+      "module:foundry-sdk",
+      "path:lp1",
+      "primary-path:lp1"
+    ],
+    "content": {
+      "question": "What format does the Foundry project endpoint follow?",
+      "options": {
+        "A": "https://{resource-name}.openai.azure.com/openai/v1",
+        "B": "https://ai.azure.com/api/{resource-name}",
+        "C": "https://{resource-name}.services.ai.azure.com/api/projects/<project-name>",
+        "D": "https://{project-name}.foundry.azure.com"
+      },
+      "correct": "C",
+      "explanation": "The project endpoint format is https://{resource-name}.services.ai.azure.com/api/projects/<project-name>. (A) is the Azure OpenAI endpoint format instead — a classic \"which endpoint\" mix-up the exam could test."
+    }
+  },
+  {
+    "id": "bfd468e4-170d-5336-8587-6bca3566381c",
+    "type": "mcq",
+    "domain": "genai-agentic",
+    "topic": "Develop a generative AI chat app with Microsoft Foundry",
+    "difficulty": 1,
+    "source": "bank",
+    "tags": [
+      "genai-agentic",
+      "develop-a-generative-ai-chat-app-with-microsoft-foundry",
+      "level-1",
+      "order:3",
+      "module:foundry-sdk",
+      "path:lp1",
+      "primary-path:lp1"
+    ],
+    "content": {
+      "question": "Which method on an AIProjectClient object returns an OpenAI-compatible client you can use to chat with a model?",
+      "options": {
+        "A": "get_openai_client()",
+        "B": "get_chat_client()",
+        "C": "create_chat_session()",
+        "D": "connect()"
+      },
+      "correct": "A",
+      "explanation": "get_openai_client() on the AIProjectClient returns an OpenAI-compatible client object you use to submit prompts and get responses. The other method names are invented distractors."
+    }
+  },
+  {
+    "id": "83ad88b1-4c85-589f-8ae4-53793784f4ab",
+    "type": "mcq",
+    "domain": "genai-agentic",
+    "topic": "Develop a generative AI chat app with Microsoft Foundry",
+    "difficulty": 1,
+    "source": "bank",
+    "tags": [
+      "genai-agentic",
+      "develop-a-generative-ai-chat-app-with-microsoft-foundry",
+      "level-1",
+      "order:3",
+      "module:foundry-sdk",
+      "path:lp1",
+      "primary-path:lp1"
+    ],
+    "content": {
+      "question": "Which of these is a Foundry-native capability, accessible via AIProjectClient, that has no direct OpenAI SDK equivalent?",
+      "options": {
+        "A": "Sending a chat prompt",
+        "B": "Retrieving resource connections and managing datasets/indexes",
+        "C": "Setting the temperature parameter",
+        "D": "Streaming a response"
+      },
+      "correct": "B",
+      "explanation": "Foundry-native operations without an OpenAI equivalent include retrieving resource connections, accessing project configuration, enabling tracing, and managing datasets/indexes. (A), (C), (D) are all inference-time chat operations available through the OpenAI-compatible client, not Foundry-exclusive features."
+    }
+  },
+  {
+    "id": "dd6c97fb-9715-5a4c-bb6b-8c91e6bfe101",
+    "type": "mcq",
+    "domain": "genai-agentic",
+    "topic": "Develop a generative AI chat app with Microsoft Foundry",
+    "difficulty": 1,
+    "source": "bank",
+    "tags": [
+      "genai-agentic",
+      "develop-a-generative-ai-chat-app-with-microsoft-foundry",
+      "level-1",
+      "order:3",
+      "module:foundry-sdk",
+      "path:lp1",
+      "primary-path:lp1"
+    ],
+    "content": {
+      "question": "Which authentication method does Microsoft recommend for production applications, regardless of whether you use the Foundry SDK or the OpenAI SDK?",
+      "options": {
+        "A": "API key stored directly in code",
+        "B": "A shared connection string",
+        "C": "Anonymous access",
+        "D": "Microsoft Entra ID"
+      },
+      "correct": "D",
+      "explanation": "Microsoft Entra ID is the recommended production authentication method across both SDK choices; API keys and token-based auth are supported but are the less-preferred alternatives."
+    }
+  },
+  {
+    "id": "156ee1d9-a67b-580b-91bd-762a1bc43865",
+    "type": "mcq",
+    "domain": "genai-agentic",
+    "topic": "Develop a generative AI chat app with Microsoft Foundry",
+    "difficulty": 1,
+    "source": "bank",
+    "tags": [
+      "genai-agentic",
+      "develop-a-generative-ai-chat-app-with-microsoft-foundry",
+      "level-1",
+      "order:3",
+      "module:foundry-sdk",
+      "path:lp1",
+      "primary-path:lp1"
+    ],
+    "content": {
+      "question": "What does the Responses API combine into a single, unified experience?",
+      "options": {
+        "A": "ChatCompletions and Assistants API patterns",
+        "B": "Translator and Speech APIs",
+        "C": "Content Understanding and Document Intelligence",
+        "D": "Evaluation and Benchmarking APIs"
+      },
+      "correct": "A",
+      "explanation": "The Responses API unifies patterns from the previously separate ChatCompletions and Assistants APIs into one stateful, multi-turn experience."
+    }
+  },
+  {
+    "id": "74070031-f5c1-5d2b-bf12-33afef4aa667",
+    "type": "mcq",
+    "domain": "genai-agentic",
+    "topic": "Develop a generative AI chat app with Microsoft Foundry",
+    "difficulty": 1,
+    "source": "bank",
+    "tags": [
+      "genai-agentic",
+      "develop-a-generative-ai-chat-app-with-microsoft-foundry",
+      "level-1",
+      "order:3",
+      "module:foundry-sdk",
+      "path:lp1",
+      "primary-path:lp1"
+    ],
+    "content": {
+      "question": "Which parameter links two responses.create() calls together so conversation context is automatically maintained?",
+      "options": {
+        "A": "conversation_id",
+        "B": "session_token",
+        "C": "previous_response_id",
+        "D": "context_window"
+      },
+      "correct": "C",
+      "explanation": "previous_response_id links a new responses.create() call to a prior response, so the model has access to the earlier turn's context automatically — no manual message-list management required (contrast with A8)."
+    }
+  },
+  {
+    "id": "e286ca64-fc5d-54a1-889c-d6ea04d3ad0b",
+    "type": "mcq",
+    "domain": "genai-agentic",
+    "topic": "Develop a generative AI chat app with Microsoft Foundry",
+    "difficulty": 1,
+    "source": "bank",
+    "tags": [
+      "genai-agentic",
+      "develop-a-generative-ai-chat-app-with-microsoft-foundry",
+      "level-1",
+      "order:3",
+      "module:foundry-sdk",
+      "path:lp1",
+      "primary-path:lp1"
+    ],
+    "content": {
+      "question": "In the ChatCompletions API, how must you maintain conversational context across multiple turns?",
+      "options": {
+        "A": "By manually appending each user and assistant message to a messages list and resending the full list every turn",
+        "B": "Automatically — the API tracks it for you",
+        "C": "By passing a previous_response_id",
+        "D": "You cannot maintain context with ChatCompletions"
+      },
+      "correct": "A",
+      "explanation": "Unlike the Responses API, ChatCompletions has no built-in state tracking — your code must append each new user/assistant message to a messages list and resend the entire list on every call."
+    }
+  },
+  {
+    "id": "bff26781-9393-5e99-83d4-e9ffc65d4c2c",
+    "type": "mcq",
+    "domain": "genai-agentic",
+    "topic": "Develop a generative AI chat app with Microsoft Foundry",
+    "difficulty": 1,
+    "source": "bank",
+    "tags": [
+      "genai-agentic",
+      "develop-a-generative-ai-chat-app-with-microsoft-foundry",
+      "level-1",
+      "order:3",
+      "module:foundry-sdk",
+      "path:lp1",
+      "primary-path:lp1"
+    ],
+    "content": {
+      "question": "When streaming a Responses API call, which event type indicates the stream has finished and lets you capture the final response ID?",
+      "options": {
+        "A": "response.output_text.delta",
+        "B": "response.completed",
+        "C": "response.started",
+        "D": "response.error"
+      },
+      "correct": "B",
+      "explanation": "The response.completed event signals the stream has finished, and its payload includes the response object (with .id) you can capture for later use — e.g., as a previous_response_id. response.output_text.delta (A) fires repeatedly during streaming for incremental text, not completion."
+    }
+  },
+  {
+    "id": "33a73c58-73e1-5075-aa9b-160ccb2c160c",
+    "type": "mcq",
+    "domain": "genai-agentic",
+    "topic": "Develop a generative AI chat app with Microsoft Foundry",
+    "difficulty": 1,
+    "source": "bank",
+    "tags": [
+      "genai-agentic",
+      "develop-a-generative-ai-chat-app-with-microsoft-foundry",
+      "level-1",
+      "order:3",
+      "module:foundry-sdk",
+      "path:lp1",
+      "primary-path:lp1"
+    ],
+    "content": {
+      "question": "True or false? The Responses API is stateful, while the ChatCompletions API requires you to manage conversation history manually.",
+      "options": {
+        "A": "True",
+        "B": "False"
+      },
+      "correct": "A",
+      "explanation": "This is the core distinguishing feature between the two APIs: Responses tracks state via previous_response_id; ChatCompletions requires you to manually rebuild and resend the message history each turn."
+    }
+  },
+  {
+    "id": "dc613d7a-8cdc-5d32-87df-bf126c139434",
+    "type": "mcq",
+    "domain": "genai-agentic",
+    "topic": "Develop a generative AI chat app with Microsoft Foundry",
+    "difficulty": 1,
+    "source": "bank",
+    "tags": [
+      "genai-agentic",
+      "develop-a-generative-ai-chat-app-with-microsoft-foundry",
+      "level-1",
+      "order:3",
+      "module:foundry-sdk",
+      "path:lp1",
+      "primary-path:lp1"
+    ],
+    "content": {
+      "question": "True or false? Using the Responses API's previous_response_id tracking means token usage no longer grows as a conversation gets longer, since the SDK automatically compresses history.",
+      "options": {
+        "A": "True",
+        "B": "False"
+      },
+      "correct": "B",
+      "explanation": "The module is explicit that the SDK helps manage state but does not make token usage cheaper — the full context (instructions, current prompt, conversation history, tool schemas/outputs, retrieved documents) is still concatenated and sent on every request. Longer conversations still cost more tokens."
+    }
+  },
+  {
+    "id": "212f4aef-4a1b-53f9-a069-9c5c3b9b7498",
+    "type": "mcq",
+    "domain": "genai-agentic",
+    "topic": "Develop a generative AI chat app with Microsoft Foundry",
+    "difficulty": 1,
+    "source": "bank",
+    "tags": [
+      "genai-agentic",
+      "develop-a-generative-ai-chat-app-with-microsoft-foundry",
+      "level-1",
+      "order:3",
+      "module:foundry-sdk",
+      "path:lp1",
+      "primary-path:lp1"
+    ],
+    "content": {
+      "question": "True or false? Foundry direct models (e.g., Microsoft Phi, DeepSeek) can only be accessed through the ChatCompletions API, not the Responses API.",
+      "options": {
+        "A": "True",
+        "B": "False"
+      },
+      "correct": "B",
+      "explanation": "The Responses API explicitly supports Foundry direct models (like Microsoft Phi or DeepSeek) when connecting through the project endpoint with the Foundry SDK or AzureOpenAI client — it isn't limited to ChatCompletions."
+    }
+  },
+  {
+    "id": "3da6022b-6875-55a8-bf07-a2d1b09fa251",
+    "type": "mcq",
+    "domain": "genai-agentic",
+    "topic": "Develop a generative AI chat app with Microsoft Foundry",
+    "difficulty": 1,
+    "source": "bank",
+    "tags": [
+      "genai-agentic",
+      "develop-a-generative-ai-chat-app-with-microsoft-foundry",
+      "level-1",
+      "order:3",
+      "module:foundry-sdk",
+      "path:lp1",
+      "primary-path:lp1"
+    ],
+    "content": {
+      "question": "True or false? You should generally prefer the plain OpenAI client object over the AzureOpenAI client object when chatting through the Azure OpenAI v1 endpoint, reserving AzureOpenAI for cases where you need a specific Azure OpenAI API version's functionality.",
+      "options": {
+        "A": "True",
+        "B": "False"
+      },
+      "correct": "A",
+      "explanation": "The module states you should generally use the plain OpenAI client object for the Azure OpenAI v1 endpoint, and only reach for AzureOpenAI (which requires specifying api_version and azure_endpoint) when you need functionality tied to a specific API version."
+    }
+  },
+  {
+    "id": "b4b98f49-f930-5e3f-b470-781db9b0fef0",
+    "type": "mcq",
+    "domain": "genai-agentic",
+    "topic": "Develop a generative AI chat app with Microsoft Foundry",
+    "difficulty": 1,
+    "source": "bank",
+    "tags": [
+      "genai-agentic",
+      "develop-a-generative-ai-chat-app-with-microsoft-foundry",
+      "level-1",
+      "order:3",
+      "module:foundry-sdk",
+      "path:lp1",
+      "primary-path:lp1"
+    ],
+    "content": {
+      "question": "True or false? The Model playground's Code button lets you generate sample code with choices for API (Responses/ChatCompletions), programming language, and SDK. ---",
+      "options": {
+        "A": "True",
+        "B": "False"
+      },
+      "correct": "A",
+      "explanation": "The Code button in the Model playground generates code samples with selectable API, language, and SDK options, pre-populated with your project endpoint, deployment name, and current settings."
+    }
+  },
+  {
+    "id": "d4aed1a9-feae-5dc7-b9ba-3aaa99a3f339",
+    "type": "mcq",
+    "domain": "genai-agentic",
+    "topic": "Develop a generative AI chat app with Microsoft Foundry",
+    "difficulty": 2,
+    "source": "bank",
+    "tags": [
+      "genai-agentic",
+      "develop-a-generative-ai-chat-app-with-microsoft-foundry",
+      "level-2",
+      "order:3",
+      "module:foundry-sdk",
+      "path:lp1",
+      "primary-path:lp1"
+    ],
+    "content": {
+      "question": "You're building a production app that needs to create and manage AI agents, invoke tools with an approval workflow, and run cloud evaluations against a test dataset — all from the same client library. Which SDK should you build around?",
+      "options": {
+        "A": "The OpenAI SDK, for maximum portability",
+        "B": "Neither — you must call the REST APIs directly",
+        "C": "Either — they're functionally identical",
+        "D": "The Foundry SDK, since it exposes agent management, tool-approval workflows, and cloud evaluations that the OpenAI SDK doesn't provide"
+      },
+      "correct": "D",
+      "explanation": "Agent management, tool invocation/approval workflows, and cloud evaluations are explicitly listed as reasons to use the Foundry SDK — the OpenAI SDK doesn't provide these Foundry-specific, project-level features. This is a strong signal for \"which SDK\" scenario questions: look for agents/evaluations/tracing/governance keywords pointing to Foundry SDK, versus portability/compatibility keywords pointing to OpenAI SDK."
+    }
+  },
+  {
+    "id": "18d3fe72-8f93-5949-a1cf-266819ec7084",
+    "type": "mcq",
+    "domain": "genai-agentic",
+    "topic": "Develop a generative AI chat app with Microsoft Foundry",
+    "difficulty": 2,
+    "source": "bank",
+    "tags": [
+      "genai-agentic",
+      "develop-a-generative-ai-chat-app-with-microsoft-foundry",
+      "level-2",
+      "order:3",
+      "module:foundry-sdk",
+      "path:lp1",
+      "primary-path:lp1"
+    ],
+    "content": {
+      "question": "Your team maintains an existing app already built against the OpenAI ChatCompletions API on another platform. You're porting it to use a Foundry-hosted Azure OpenAI model with minimal code changes, and you don't need agents or Foundry-specific project features. Which approach fits best?",
+      "options": {
+        "A": "Rewrite everything using AIProjectClient and Foundry-native APIs",
+        "B": "Use the Responses API exclusively, since ChatCompletions is deprecated",
+        "C": "Use the OpenAI SDK connected to the Azure OpenAI endpoint, keeping the existing ChatCompletions-based code largely intact",
+        "D": "This isn't possible — the OpenAI SDK doesn't work with Azure OpenAI endpoints"
+      },
+      "correct": "C",
+      "explanation": "This scenario is explicitly the OpenAI SDK's strength: full OpenAI API compatibility, minimal dependency on Foundry-specific concepts, and portability of existing ChatCompletions-based code — connected via the Azure OpenAI endpoint instead of the project endpoint. (B) is a trap: ChatCompletions isn't deprecated, just no longer the recommended choice for new development."
+    }
+  },
+  {
+    "id": "552b3be3-c486-5a45-ae85-098e65e359cd",
+    "type": "mcq",
+    "domain": "genai-agentic",
+    "topic": "Develop generative AI apps that use tools",
+    "difficulty": 1,
+    "source": "bank",
+    "tags": [
+      "genai-agentic",
+      "develop-generative-ai-apps-that-use-tools",
+      "level-1",
+      "order:4",
+      "module:use-generative-ai-tools",
+      "path:lp1",
+      "primary-path:lp1"
+    ],
+    "content": {
+      "question": "By default, who decides which tool (if any) to use when multiple tools are provided to a model?",
+      "options": {
+        "A": "The developer must specify the exact tool to use for every prompt",
+        "B": "The model chooses based on the prompt, which you can guide (but not fully dictate) with instructions and tool selection rules",
+        "C": "Tools are always used in the order they're listed in the tools array",
+        "D": "All available tools are always called together on every request"
+      },
+      "correct": "B",
+      "explanation": "The default behavior is model-driven tool selection based on the prompt; you influence (not dictate) this with the Instructions parameter and tool selection rules. (C) and (D) invent behavior not described in the module."
+    }
+  },
+  {
+    "id": "3405f854-a29a-5044-bf54-efb7ae9d4049",
+    "type": "mcq",
+    "domain": "genai-agentic",
+    "topic": "Develop generative AI apps that use tools",
+    "difficulty": 1,
+    "source": "bank",
+    "tags": [
+      "genai-agentic",
+      "develop-generative-ai-apps-that-use-tools",
+      "level-1",
+      "order:4",
+      "module:use-generative-ai-tools",
+      "path:lp1",
+      "primary-path:lp1"
+    ],
+    "content": {
+      "question": "Which tool gives the model a sandboxed Python runtime to generate and execute code?",
+      "options": {
+        "A": "web_search",
+        "B": "function",
+        "C": "file_search",
+        "D": "code_interpreter"
+      },
+      "correct": "D",
+      "explanation": "code_interpreter provides a Python environment where the model can generate and run code dynamically, with access to common libraries."
+    }
+  },
+  {
+    "id": "74fb40e3-5b4f-59db-a770-62d19ff2a1a2",
+    "type": "mcq",
+    "domain": "genai-agentic",
+    "topic": "Develop generative AI apps that use tools",
+    "difficulty": 1,
+    "source": "bank",
+    "tags": [
+      "genai-agentic",
+      "develop-generative-ai-apps-that-use-tools",
+      "level-1",
+      "order:4",
+      "module:use-generative-ai-tools",
+      "path:lp1",
+      "primary-path:lp1"
+    ],
+    "content": {
+      "question": "Which of the following is a documented limitation of the code_interpreter tool?",
+      "options": {
+        "A": "It supports unlimited execution time with no timeout",
+        "B": "It cannot access common libraries like pandas or numpy",
+        "C": "Its sandboxed environment has no external network access",
+        "D": "It always requires a dedicated GPU"
+      },
+      "correct": "C",
+      "explanation": "The sandboxed environment explicitly has no external network access — a key constraint to remember, since it means code_interpreter can't be used to fetch live web data (that's web_search's job). Common libraries (pandas/numpy/matplotlib) are available, ruling out (B); there's no GPU requirement mentioned."
+    }
+  },
+  {
+    "id": "f331ade2-088c-5b14-9d2d-ffa6d42e447d",
+    "type": "mcq",
+    "domain": "genai-agentic",
+    "topic": "Develop generative AI apps that use tools",
+    "difficulty": 1,
+    "source": "bank",
+    "tags": [
+      "genai-agentic",
+      "develop-generative-ai-apps-that-use-tools",
+      "level-1",
+      "order:4",
+      "module:use-generative-ai-tools",
+      "path:lp1",
+      "primary-path:lp1"
+    ],
+    "content": {
+      "question": "Which tool is best suited for answering questions that require fresh information not present in the model's training data, such as very recent news?",
+      "options": {
+        "A": "code_interpreter",
+        "B": "web_search",
+        "C": "file_search",
+        "D": "function"
+      },
+      "correct": "B",
+      "explanation": "web_search exists specifically to ground responses in current, external information beyond the model's static training data — ideal for fast-changing facts like news, pricing, or policy updates."
+    }
+  },
+  {
+    "id": "d1cfd71d-bbab-51bc-9b84-c2c49fe0a32c",
+    "type": "mcq",
+    "domain": "genai-agentic",
+    "topic": "Develop generative AI apps that use tools",
+    "difficulty": 1,
+    "source": "bank",
+    "tags": [
+      "genai-agentic",
+      "develop-generative-ai-apps-that-use-tools",
+      "level-1",
+      "order:4",
+      "module:use-generative-ai-tools",
+      "path:lp1",
+      "primary-path:lp1"
+    ],
+    "content": {
+      "question": "What must you do before you can use the file_search tool to ground responses in your own documents?",
+      "options": {
+        "A": "Create a vector store and upload your files to it",
+        "B": "Nothing — the model automatically indexes any file mentioned in the prompt",
+        "C": "Convert the files to Python objects using code_interpreter",
+        "D": "Register the files as custom functions"
+      },
+      "correct": "A",
+      "explanation": "You must first create a vector store and upload your files to it before file_search can retrieve from them — indexing is a prerequisite step, not automatic."
+    }
+  },
+  {
+    "id": "e0ad612a-946a-5c09-9396-c1c0974dcfd0",
+    "type": "mcq",
+    "domain": "genai-agentic",
+    "topic": "Develop generative AI apps that use tools",
+    "difficulty": 1,
+    "source": "bank",
+    "tags": [
+      "genai-agentic",
+      "develop-generative-ai-apps-that-use-tools",
+      "level-1",
+      "order:4",
+      "module:use-generative-ai-tools",
+      "path:lp1",
+      "primary-path:lp1"
+    ],
+    "content": {
+      "question": "Which parameter would you include in a responses.create() call to see which passages the file_search tool matched, for debugging and traceability?",
+      "options": {
+        "A": "tools=[\"debug\"]",
+        "B": "verbose_search=True",
+        "C": "trace=True",
+        "D": "include=[\"file_search_call.results\"]"
+      },
+      "correct": "D",
+      "explanation": "include=[\"file_search_call.results\"] surfaces the matched passages in the response object, useful for debugging and verifying what grounded the answer."
+    }
+  },
+  {
+    "id": "d51e3eb0-2ba8-598d-b91b-53f8aab35f21",
+    "type": "mcq",
+    "domain": "genai-agentic",
+    "topic": "Develop generative AI apps that use tools",
+    "difficulty": 1,
+    "source": "bank",
+    "tags": [
+      "genai-agentic",
+      "develop-generative-ai-apps-that-use-tools",
+      "level-1",
+      "order:4",
+      "module:use-generative-ai-tools",
+      "path:lp1",
+      "primary-path:lp1"
+    ],
+    "content": {
+      "question": "When the model wants to use the function tool, what actually happens?",
+      "options": {
+        "A": "The model directly executes your application's code",
+        "B": "The model returns a structured function-call request; your application code executes the function and returns the output",
+        "C": "The function runs entirely inside the model's own sandbox, the same as code_interpreter",
+        "D": "Function calling isn't supported by the Responses API"
+      },
+      "correct": "B",
+      "explanation": "This is the core function-calling pattern: the model never runs your code itself — it emits a structured function-call request, your application executes the actual logic, and you return the result. This is the single most important distinction to hold onto for this tool."
+    }
+  },
+  {
+    "id": "d837ff7b-2d06-56ac-a35e-479c3c94e37b",
+    "type": "mcq",
+    "domain": "genai-agentic",
+    "topic": "Develop generative AI apps that use tools",
+    "difficulty": 1,
+    "source": "bank",
+    "tags": [
+      "genai-agentic",
+      "develop-generative-ai-apps-that-use-tools",
+      "level-1",
+      "order:4",
+      "module:use-generative-ai-tools",
+      "path:lp1",
+      "primary-path:lp1"
+    ],
+    "content": {
+      "question": "What must your application send back to the model after running a function it requested?",
+      "options": {
+        "A": "A new system prompt",
+        "B": "Nothing further — the model already has the result",
+        "C": "A function_call_output item containing the call_id and the result",
+        "D": "A new vector store ID"
+      },
+      "correct": "C",
+      "explanation": "You return a function_call_output item that includes the call_id (matching the model's request) and the function's result, so the model can incorporate it into its next response."
+    }
+  },
+  {
+    "id": "1a5340c2-ab99-5e58-9e84-2c8c68174fc8",
+    "type": "mcq",
+    "domain": "genai-agentic",
+    "topic": "Develop generative AI apps that use tools",
+    "difficulty": 1,
+    "source": "bank",
+    "tags": [
+      "genai-agentic",
+      "develop-generative-ai-apps-that-use-tools",
+      "level-1",
+      "order:4",
+      "module:use-generative-ai-tools",
+      "path:lp1",
+      "primary-path:lp1"
+    ],
+    "content": {
+      "question": "For enterprise-scale agent scenarios that need to search across large quantities of data spread across multiple separate data stores, what does the module recommend considering instead of (or in addition to) a single file_search vector store?",
+      "options": {
+        "A": "The Foundry IQ knowledge store solution",
+        "B": "code_interpreter combined with pandas",
+        "C": "web_search only",
+        "D": "A single, very large vector store"
+      },
+      "correct": "A",
+      "explanation": "The module explicitly flags Foundry IQ as the recommended solution for enterprise-scale agents needing to search large quantities of data across multiple data stores — file_search with a single vector store is positioned as the simpler, smaller-scale option."
+    }
+  },
+  {
+    "id": "9c5d1d10-6279-5a4e-a5b1-df44754f902d",
+    "type": "mcq",
+    "domain": "genai-agentic",
+    "topic": "Develop generative AI apps that use tools",
+    "difficulty": 1,
+    "source": "bank",
+    "tags": [
+      "genai-agentic",
+      "develop-generative-ai-apps-that-use-tools",
+      "level-1",
+      "order:4",
+      "module:use-generative-ai-tools",
+      "path:lp1",
+      "primary-path:lp1"
+    ],
+    "content": {
+      "question": "Which best describes a key difference between code_interpreter and the function tool?",
+      "options": {
+        "A": "code_interpreter executes model-generated code in a Microsoft-managed sandbox, while function calls developer-defined code that your own application executes",
+        "B": "They are functionally identical — just different names for the same feature",
+        "C": "function only works with the ChatCompletions API, never the Responses API",
+        "D": "code_interpreter can call external APIs directly, while function cannot"
+      },
+      "correct": "A",
+      "explanation": "code_interpreter = model-generated code, executed in a Microsoft-managed sandbox. function = developer-defined code, executed by your application. Both involve \"running code\" conceptually, but who writes and who executes the code differs completely — a strong candidate for a \"compare these two tools\" exam question."
+    }
+  },
+  {
+    "id": "24505ddc-11be-543c-b321-6435add086e1",
+    "type": "mcq",
+    "domain": "genai-agentic",
+    "topic": "Develop generative AI apps that use tools",
+    "difficulty": 1,
+    "source": "bank",
+    "tags": [
+      "genai-agentic",
+      "develop-generative-ai-apps-that-use-tools",
+      "level-1",
+      "order:4",
+      "module:use-generative-ai-tools",
+      "path:lp1",
+      "primary-path:lp1"
+    ],
+    "content": {
+      "question": "True or false? You can guide (but not fully force) which tool the model chooses by using the Instructions (system prompt) parameter and tool selection rules.",
+      "options": {
+        "A": "True",
+        "B": "False"
+      },
+      "correct": "A",
+      "explanation": "Tool selection is model-driven by default, but you can steer it using the Instructions parameter and configurable tool selection rules — it's guidance, not a hard override."
+    }
+  },
+  {
+    "id": "0f9abe8e-af50-5fcb-ba2e-a8ee5ed9485c",
+    "type": "mcq",
+    "domain": "genai-agentic",
+    "topic": "Develop generative AI apps that use tools",
+    "difficulty": 1,
+    "source": "bank",
+    "tags": [
+      "genai-agentic",
+      "develop-generative-ai-apps-that-use-tools",
+      "level-1",
+      "order:4",
+      "module:use-generative-ai-tools",
+      "path:lp1",
+      "primary-path:lp1"
+    ],
+    "content": {
+      "question": "True or false? The web_search tool guarantees consistent, identical results every time the same query is run, since it always pulls from a fixed snapshot of the web.",
+      "options": {
+        "A": "True",
+        "B": "False"
+      },
+      "correct": "B",
+      "explanation": "The module explicitly notes that retrieved content can change over time, so repeated runs of the same query can produce different answers — the opposite of a guaranteed fixed snapshot."
+    }
+  },
+  {
+    "id": "656ddfa1-96cb-502a-bcbe-9a07bc2db405",
+    "type": "mcq",
+    "domain": "genai-agentic",
+    "topic": "Develop generative AI apps that use tools",
+    "difficulty": 1,
+    "source": "bank",
+    "tags": [
+      "genai-agentic",
+      "develop-generative-ai-apps-that-use-tools",
+      "level-1",
+      "order:4",
+      "module:use-generative-ai-tools",
+      "path:lp1",
+      "primary-path:lp1"
+    ],
+    "content": {
+      "question": "True or false? file_search retrieves passages by matching exact keywords from the query against your documents, so a question phrased differently from the source text will not find it.",
+      "options": {
+        "A": "True",
+        "B": "False"
+      },
+      "correct": "B",
+      "explanation": "file_search uses semantic retrieval: it matches on meaning rather than requiring exact keyword overlap, which is precisely what lets a differently-phrased question find the right passage. Reading it as plain keyword search is the common mistake."
+    }
+  },
+  {
+    "id": "d2cb172a-a7b4-55d7-bafa-f425054371a3",
+    "type": "mcq",
+    "domain": "genai-agentic",
+    "topic": "Develop generative AI apps that use tools",
+    "difficulty": 1,
+    "source": "bank",
+    "tags": [
+      "genai-agentic",
+      "develop-generative-ai-apps-that-use-tools",
+      "level-1",
+      "order:4",
+      "module:use-generative-ai-tools",
+      "path:lp1",
+      "primary-path:lp1"
+    ],
+    "content": {
+      "question": "True or false? Because the function tool returns structured calls that your own code executes, you never need to validate the function arguments the model provides — they're guaranteed correct.",
+      "options": {
+        "A": "True",
+        "B": "False"
+      },
+      "correct": "B",
+      "explanation": "Best practice explicitly warns: never trust tool arguments blindly in production — validate function inputs, since incorrect or unexpected arguments can occur."
+    }
+  },
+  {
+    "id": "d818fc89-c889-542a-9662-934e3e5d7e8c",
+    "type": "mcq",
+    "domain": "genai-agentic",
+    "topic": "Develop generative AI apps that use tools",
+    "difficulty": 1,
+    "source": "bank",
+    "tags": [
+      "genai-agentic",
+      "develop-generative-ai-apps-that-use-tools",
+      "level-1",
+      "order:4",
+      "module:use-generative-ai-tools",
+      "path:lp1",
+      "primary-path:lp1"
+    ],
+    "content": {
+      "question": "True or false? code_interpreter's sandboxed environment has common libraries like pandas, numpy, and matplotlib pre-installed. ---",
+      "options": {
+        "A": "True",
+        "B": "False"
+      },
+      "correct": "A",
+      "explanation": "Common packages like pandas, numpy, and matplotlib are pre-installed in the code_interpreter sandbox, per the module's best-practices list."
+    }
+  },
+  {
+    "id": "8a830b3c-b5c9-56d7-9303-5752c321abf2",
+    "type": "mcq",
+    "domain": "genai-agentic",
+    "topic": "Develop generative AI apps that use tools",
+    "difficulty": 2,
+    "source": "bank",
+    "tags": [
+      "genai-agentic",
+      "develop-generative-ai-apps-that-use-tools",
+      "level-2",
+      "order:4",
+      "module:use-generative-ai-tools",
+      "path:lp1",
+      "primary-path:lp1"
+    ],
+    "content": {
+      "question": "You're building an assistant that must answer \"What's our current PTO carryover policy?\" strictly from your company's official HR policy PDF, and you also need the ability to show which passage supported the answer. Which tool and configuration fits best?",
+      "options": {
+        "A": "web_search, since HR policy might change over time",
+        "B": "code_interpreter, to parse the PDF programmatically",
+        "C": "file_search, with the policy PDF uploaded to a vector store and include=[\"file_search_call.results\"] for traceability",
+        "D": "The function tool, calling a custom get_pto_policy() function"
+      },
+      "correct": "C",
+      "explanation": "This is squarely file_search's use case: grounding answers in your own uploaded documents, with include=[\"file_search_call.results\"] giving you the citation/traceability requirement. web_search (A) would pull from the public internet, not your internal PDF; code_interpreter (B) isn't designed for document retrieval/grounding; the function tool (D) would require you to build and maintain a custom function instead of using the built-in retrieval tool made for this exact job."
+    }
+  },
+  {
+    "id": "514e390c-360b-591f-801b-86c7f380828d",
+    "type": "mcq",
+    "domain": "genai-agentic",
+    "topic": "Develop generative AI apps that use tools",
+    "difficulty": 2,
+    "source": "bank",
+    "tags": [
+      "genai-agentic",
+      "develop-generative-ai-apps-that-use-tools",
+      "level-2",
+      "order:4",
+      "module:use-generative-ai-tools",
+      "path:lp1",
+      "primary-path:lp1"
+    ],
+    "content": {
+      "question": "A user asks your assistant: \"What's the current stock price of Contoso Corp, and can you check my personal order status for order #4521?\" Fully handling this requires combining two different tool types. Which pairing is correct?",
+      "options": {
+        "A": "code_interpreter (for the stock price) + file_search (for order status)",
+        "B": "Just use web_search for both — it can call any API",
+        "C": "file_search (for the stock price) + code_interpreter (for the order status)",
+        "D": "web_search (for the current, changing stock price) + the function tool (to call your internal order-status API)"
+      },
+      "correct": "D",
+      "explanation": "Stock price = fresh, publicly available, frequently changing data → web_search. Personal order status = a lookup against your own internal system → the function tool calling your custom API. file_search and code_interpreter aren't suited to either half of this request — file_search needs pre-indexed documents (not live stock prices or live order data), and code_interpreter has no external network or system access."
+    }
+  },
+  {
+    "id": "6d72cdb7-8db2-5e4b-a67c-fd220eac7290",
+    "type": "mcq",
+    "domain": "genai-agentic",
+    "topic": "Optimize generative AI model performance with Microsoft Foundry",
+    "difficulty": 1,
+    "source": "bank",
+    "tags": [
+      "genai-agentic",
+      "optimize-generative-ai-model-performance-with-microsoft-foundry",
+      "level-1",
+      "order:5",
+      "module:optimize-generative-ai-model-performance",
+      "path:lp1",
+      "primary-path:lp1"
+    ],
+    "content": {
+      "question": "Which four components typically make up a prompt for chat completion models?",
+      "options": {
+        "A": "System message, user message, assistant message, examples",
+        "B": "Temperature, top_p, max tokens, stop sequence",
+        "C": "Retrieval, augmentation, generation, evaluation",
+        "D": "Persona, format, chain-of-thought, few-shot"
+      },
+      "correct": "A",
+      "explanation": "System message, user message, assistant message, and examples are the four prompt components described. (B) lists model parameters, not prompt components; (C) describes RAG's steps (plus evaluation, which isn't a RAG step either); (D) lists prompt patterns, not components."
+    }
+  },
+  {
+    "id": "dd928bea-c867-541a-a5ee-916acc115981",
+    "type": "mcq",
+    "domain": "genai-agentic",
+    "topic": "Optimize generative AI model performance with Microsoft Foundry",
+    "difficulty": 1,
+    "source": "bank",
+    "tags": [
+      "genai-agentic",
+      "optimize-generative-ai-model-performance-with-microsoft-foundry",
+      "level-1",
+      "order:5",
+      "module:optimize-generative-ai-model-performance",
+      "path:lp1",
+      "primary-path:lp1"
+    ],
+    "content": {
+      "question": "Chain-of-thought prompting is described as a technique primarily intended for:",
+      "options": {
+        "A": "Reasoning models like the o-series, which need explicit step-by-step guidance",
+        "B": "Non-reasoning models — reasoning models handle step-by-step logic internally",
+        "C": "Embedding models only",
+        "D": "Fine-tuned models exclusively"
+      },
+      "correct": "B",
+      "explanation": "The module explicitly notes chain-of-thought prompting is a technique for non-reasoning models — reasoning models (o-series) already handle step-by-step logic internally, so explicitly prompting them to \"think step by step\" isn't the same kind of technique. This inverted expectation (you'd assume CoT is for reasoning models) is a strong exam trap."
+    }
+  },
+  {
+    "id": "5a9a3de8-6c8d-50b9-b316-e232f92533a2",
+    "type": "mcq",
+    "domain": "genai-agentic",
+    "topic": "Optimize generative AI model performance with Microsoft Foundry",
+    "difficulty": 1,
+    "source": "bank",
+    "tags": [
+      "genai-agentic",
+      "optimize-generative-ai-model-performance-with-microsoft-foundry",
+      "level-1",
+      "order:5",
+      "module:optimize-generative-ai-model-performance",
+      "path:lp1",
+      "primary-path:lp1"
+    ],
+    "content": {
+      "question": "What's the general recommendation regarding the temperature and top_p parameters?",
+      "options": {
+        "A": "Adjust one or the other, not both at the same time",
+        "B": "Always max out both for creative tasks",
+        "C": "Always set both to 0 for factual tasks",
+        "D": "They must always be set to the same value"
+      },
+      "correct": "A",
+      "explanation": "The general recommendation is to adjust temperature or top_p, not both simultaneously — changing both at once makes it harder to reason about the effect on output randomness."
+    }
+  },
+  {
+    "id": "897fa68c-af6d-5095-8572-66aa1f83fb94",
+    "type": "mcq",
+    "domain": "genai-agentic",
+    "topic": "Optimize generative AI model performance with Microsoft Foundry",
+    "difficulty": 1,
+    "source": "bank",
+    "tags": [
+      "genai-agentic",
+      "optimize-generative-ai-model-performance-with-microsoft-foundry",
+      "level-1",
+      "order:5",
+      "module:optimize-generative-ai-model-performance",
+      "path:lp1",
+      "primary-path:lp1"
+    ],
+    "content": {
+      "question": "What does \"recency bias\" refer to in prompt engineering?",
+      "options": {
+        "A": "The model only accepts prompts submitted within the last 5 minutes",
+        "B": "The model prefers the most recently released tools over older ones",
+        "C": "Older training data is weighted more heavily than recent data",
+        "D": "Text near the end of a prompt can have more influence than text at the beginning"
+      },
+      "correct": "D",
+      "explanation": "Recency bias means text near the end of a prompt can carry more influence than text near the beginning — which is why the module recommends repeating a key instruction at the end of a prompt if the model isn't following it consistently."
+    }
+  },
+  {
+    "id": "961feb3c-1ef2-54c1-a673-c87329aaa87c",
+    "type": "mcq",
+    "domain": "genai-agentic",
+    "topic": "Optimize generative AI model performance with Microsoft Foundry",
+    "difficulty": 1,
+    "source": "bank",
+    "tags": [
+      "genai-agentic",
+      "optimize-generative-ai-model-performance-with-microsoft-foundry",
+      "level-1",
+      "order:5",
+      "module:optimize-generative-ai-model-performance",
+      "path:lp1",
+      "primary-path:lp1"
+    ],
+    "content": {
+      "question": "What are the three steps of the RAG pattern, in order?",
+      "options": {
+        "A": "Generate, Augment, Retrieve",
+        "B": "Retrieve, Augment, Generate",
+        "C": "Retrieve, Generate, Augment",
+        "D": "Augment, Retrieve, Generate"
+      },
+      "correct": "B",
+      "explanation": "Retrieve (search for relevant info) → Augment (add it to the prompt as context) → Generate (send the augmented prompt to the model). Memorize this order — a question could ask you to sequence RAG steps or identify what happens at a given stage."
+    }
+  },
+  {
+    "id": "5481a0bc-0842-54ed-9079-0660528370ea",
+    "type": "mcq",
+    "domain": "genai-agentic",
+    "topic": "Optimize generative AI model performance with Microsoft Foundry",
+    "difficulty": 1,
+    "source": "bank",
+    "tags": [
+      "genai-agentic",
+      "optimize-generative-ai-model-performance-with-microsoft-foundry",
+      "level-1",
+      "order:5",
+      "module:optimize-generative-ai-model-performance",
+      "path:lp1",
+      "primary-path:lp1"
+    ],
+    "content": {
+      "question": "What does a cosine similarity value near 1 indicate when comparing two embeddings?",
+      "options": {
+        "A": "The vectors are very dissimilar",
+        "B": "The embedding model failed to process the input",
+        "C": "The vectors are very similar",
+        "D": "The two source documents use identical wording"
+      },
+      "correct": "C",
+      "explanation": "Cosine similarity measures the angle between two vectors; a value near 1 means the vectors — and therefore the underlying text's meaning — are very similar. This holds even when the exact wording differs, which is the whole point of semantic/vector search."
+    }
+  },
+  {
+    "id": "4269c86a-5a85-5904-9ac0-065b370340c8",
+    "type": "mcq",
+    "domain": "genai-agentic",
+    "topic": "Optimize generative AI model performance with Microsoft Foundry",
+    "difficulty": 1,
+    "source": "bank",
+    "tags": [
+      "genai-agentic",
+      "optimize-generative-ai-model-performance-with-microsoft-foundry",
+      "level-1",
+      "order:5",
+      "module:optimize-generative-ai-model-performance",
+      "path:lp1",
+      "primary-path:lp1"
+    ],
+    "content": {
+      "question": "Which Azure AI Search technique combines keyword, semantic, and vector search, and is recommended for generative AI applications?",
+      "options": {
+        "A": "Keyword search",
+        "B": "Semantic search",
+        "C": "Vector search",
+        "D": "Hybrid search"
+      },
+      "correct": "D",
+      "explanation": "Hybrid search combines keyword, semantic, and vector search and is explicitly called out as the recommended approach for generative AI applications — worth remembering over any single search type alone."
+    }
+  },
+  {
+    "id": "649a8814-71f5-5f3a-a725-f2b8921a67a6",
+    "type": "mcq",
+    "domain": "genai-agentic",
+    "topic": "Optimize generative AI model performance with Microsoft Foundry",
+    "difficulty": 1,
+    "source": "bank",
+    "tags": [
+      "genai-agentic",
+      "optimize-generative-ai-model-performance-with-microsoft-foundry",
+      "level-1",
+      "order:5",
+      "module:optimize-generative-ai-model-performance",
+      "path:lp1",
+      "primary-path:lp1"
+    ],
+    "content": {
+      "question": "What underlying technique does Foundry's fine-tuning use to make training faster and more cost-effective than retraining all of a model's parameters?",
+      "options": {
+        "A": "Chain-of-thought distillation",
+        "B": "LoRA (Low-Rank Adaptation)",
+        "C": "Hybrid search indexing",
+        "D": "Cosine similarity optimization"
+      },
+      "correct": "B",
+      "explanation": "LoRA (Low-Rank Adaptation) updates only a smaller subset of important parameters instead of retraining the whole model, which is what makes fine-tuning faster and more cost-effective while preserving quality."
+    }
+  },
+  {
+    "id": "3dd3e5ec-34d0-513b-ac7d-611bbda40527",
+    "type": "mcq",
+    "domain": "genai-agentic",
+    "topic": "Optimize generative AI model performance with Microsoft Foundry",
+    "difficulty": 1,
+    "source": "bank",
+    "tags": [
+      "genai-agentic",
+      "optimize-generative-ai-model-performance-with-microsoft-foundry",
+      "level-1",
+      "order:5",
+      "module:optimize-generative-ai-model-performance",
+      "path:lp1",
+      "primary-path:lp1"
+    ],
+    "content": {
+      "question": "Which fine-tuning type uses preferred/non-preferred response pairs and is computationally lighter than traditional reinforcement learning while being equally effective at alignment?",
+      "options": {
+        "A": "Supervised fine-tuning (SFT)",
+        "B": "Reinforcement fine-tuning (RFT)",
+        "C": "Direct Preference Optimization (DPO)",
+        "D": "Chain-of-thought fine-tuning"
+      },
+      "correct": "C",
+      "explanation": "DPO aligns the model using preferred/non-preferred response pairs and is explicitly described as computationally lighter than traditional RL while being equally effective. SFT (A) uses labeled prompt-response pairs for well-defined tasks; RFT (B) uses a grader for iterative reward-based feedback on complex/dynamic tasks — a good trio to keep distinct since the exam will likely test \"which fine-tuning type for which scenario.\""
+    }
+  },
+  {
+    "id": "cc5e6b16-3fef-5229-8cdc-4738580c5783",
+    "type": "mcq",
+    "domain": "genai-agentic",
+    "topic": "Optimize generative AI model performance with Microsoft Foundry",
+    "difficulty": 1,
+    "source": "bank",
+    "tags": [
+      "genai-agentic",
+      "optimize-generative-ai-model-performance-with-microsoft-foundry",
+      "level-1",
+      "order:5",
+      "module:optimize-generative-ai-model-performance",
+      "path:lp1",
+      "primary-path:lp1"
+    ],
+    "content": {
+      "question": "Per the module's decision framework, what should you do before considering fine-tuning?",
+      "options": {
+        "A": "Evaluate the baseline performance of a standard model against your requirements first",
+        "B": "Immediately fine-tune without testing anything else, since it's always the most accurate approach",
+        "C": "Disable prompt engineering entirely",
+        "D": "Set up Azure AI Search regardless of whether RAG is actually needed"
+      },
+      "correct": "A",
+      "explanation": "The module explicitly warns to always establish a baseline with a standard model first — without one, you can't tell whether fine-tuning actually improved or degraded performance."
+    }
+  },
+  {
+    "id": "8ba21f91-7024-5bda-8112-bcf7e6e30da1",
+    "type": "mcq",
+    "domain": "genai-agentic",
+    "topic": "Optimize generative AI model performance with Microsoft Foundry",
+    "difficulty": 1,
+    "source": "bank",
+    "tags": [
+      "genai-agentic",
+      "optimize-generative-ai-model-performance-with-microsoft-foundry",
+      "level-1",
+      "order:5",
+      "module:optimize-generative-ai-model-performance",
+      "path:lp1",
+      "primary-path:lp1"
+    ],
+    "content": {
+      "question": "True or false? A well-crafted system message guarantees the model will always comply with its instructions.",
+      "options": {
+        "A": "True",
+        "B": "False"
+      },
+      "correct": "B",
+      "explanation": "The module explicitly states a system message influences the model but doesn't guarantee compliance — you should test, iterate, and layer it with other mitigations like content filtering and evaluation."
+    }
+  },
+  {
+    "id": "8e730e87-3df4-5d7f-85d4-88a1de90ada1",
+    "type": "mcq",
+    "domain": "genai-agentic",
+    "topic": "Optimize generative AI model performance with Microsoft Foundry",
+    "difficulty": 1,
+    "source": "bank",
+    "tags": [
+      "genai-agentic",
+      "optimize-generative-ai-model-performance-with-microsoft-foundry",
+      "level-1",
+      "order:5",
+      "module:optimize-generative-ai-model-performance",
+      "path:lp1",
+      "primary-path:lp1"
+    ],
+    "content": {
+      "question": "True or false? Few-shot learning refers to providing one or more input/output examples in the prompt, while zero-shot means no examples are provided.",
+      "options": {
+        "A": "True",
+        "B": "False"
+      },
+      "correct": "A",
+      "explanation": "Few-shot (or one-shot for a single example) provides example input/output pairs in the prompt; zero-shot provides none. This terminology trio (zero-shot / one-shot / few-shot) is classic exam recall material."
+    }
+  },
+  {
+    "id": "3c1b3474-1ef7-52ae-ba91-06bf2b2f7f9b",
+    "type": "mcq",
+    "domain": "genai-agentic",
+    "topic": "Optimize generative AI model performance with Microsoft Foundry",
+    "difficulty": 1,
+    "source": "bank",
+    "tags": [
+      "genai-agentic",
+      "optimize-generative-ai-model-performance-with-microsoft-foundry",
+      "level-1",
+      "order:5",
+      "module:optimize-generative-ai-model-performance",
+      "path:lp1",
+      "primary-path:lp1"
+    ],
+    "content": {
+      "question": "True or false? RAG can give a model access to information published after its training cutoff date, since it retrieves current data at query time.",
+      "options": {
+        "A": "True",
+        "B": "False"
+      },
+      "correct": "A",
+      "explanation": "This is exactly why RAG exists as a complement to a model's static training data — it retrieves current information at query time, sidestepping the training cutoff limitation entirely."
+    }
+  },
+  {
+    "id": "55ff7db4-ca98-5f98-8db1-dcdbd9481d81",
+    "type": "mcq",
+    "domain": "genai-agentic",
+    "topic": "Optimize generative AI model performance with Microsoft Foundry",
+    "difficulty": 1,
+    "source": "bank",
+    "tags": [
+      "genai-agentic",
+      "optimize-generative-ai-model-performance-with-microsoft-foundry",
+      "level-1",
+      "order:5",
+      "module:optimize-generative-ai-model-performance",
+      "path:lp1",
+      "primary-path:lp1"
+    ],
+    "content": {
+      "question": "True or false? Fine-tuning with Foundry always requires retraining all of the model's parameters from scratch, which is why it's more expensive than RAG.",
+      "options": {
+        "A": "True",
+        "B": "False"
+      },
+      "correct": "B",
+      "explanation": "Fine-tuning in Foundry uses LoRA, which updates only a subset of parameters — not a full retrain from scratch. It's still more expensive than prompt engineering, but the reason given for fine-tuning's higher cost in the comparison table is training compute + model hosting, not \"retraining every parameter.\""
+    }
+  },
+  {
+    "id": "e1ad6062-8833-5cdd-8fe1-459b74a01e53",
+    "type": "mcq",
+    "domain": "genai-agentic",
+    "topic": "Optimize generative AI model performance with Microsoft Foundry",
+    "difficulty": 1,
+    "source": "bank",
+    "tags": [
+      "genai-agentic",
+      "optimize-generative-ai-model-performance-with-microsoft-foundry",
+      "level-1",
+      "order:5",
+      "module:optimize-generative-ai-model-performance",
+      "path:lp1",
+      "primary-path:lp1"
+    ],
+    "content": {
+      "question": "True or false? Leaving the system message blank in fine-tuning training data tends to produce lower-accuracy models, and you should use the same system message at inference time as you did during training.",
+      "options": {
+        "A": "True",
+        "B": "False"
+      },
+      "correct": "A",
+      "explanation": "The module explicitly calls out both points: a blank system message in training data tends to lower accuracy, and you should use the identical system message at inference time that you used during training — inconsistency between the two undermines the fine-tuning benefit."
+    }
+  },
+  {
+    "id": "82cdcebf-5491-5d8d-ab20-7d1910559281",
+    "type": "mcq",
+    "domain": "genai-agentic",
+    "topic": "Optimize generative AI model performance with Microsoft Foundry",
+    "difficulty": 1,
+    "source": "bank",
+    "tags": [
+      "genai-agentic",
+      "optimize-generative-ai-model-performance-with-microsoft-foundry",
+      "level-1",
+      "order:5",
+      "module:optimize-generative-ai-model-performance",
+      "path:lp1",
+      "primary-path:lp1"
+    ],
+    "content": {
+      "question": "True or false? According to the strategy comparison, RAG has the lowest implementation time, complexity, and cost of the three strategies, while prompt engineering has the highest of all three. ---",
+      "options": {
+        "A": "True",
+        "B": "False"
+      },
+      "correct": "B",
+      "explanation": "The ranking is inverted here. The comparison table puts prompt engineering at Low across time/complexity/cost, RAG at Medium across all three, and fine-tuning at High across all three — so prompt engineering is the cheapest and fastest of the three, not the most expensive."
+    }
+  },
+  {
+    "id": "93e81952-f8f6-5d85-83c5-1fac3689f88d",
+    "type": "mcq",
+    "domain": "genai-agentic",
+    "topic": "Optimize generative AI model performance with Microsoft Foundry",
+    "difficulty": 2,
+    "source": "bank",
+    "tags": [
+      "genai-agentic",
+      "optimize-generative-ai-model-performance-with-microsoft-foundry",
+      "level-2",
+      "order:5",
+      "module:optimize-generative-ai-model-performance",
+      "path:lp1",
+      "primary-path:lp1"
+    ],
+    "content": {
+      "question": "Your travel-agency chatbot needs to (a) always answer in a very specific, tightly controlled brand voice regardless of how the user phrases their question, and (b) always quote current, real hotel prices and availability from your live catalog. Which combination of strategies best satisfies both requirements?",
+      "options": {
+        "A": "Prompt engineering alone — a sufficiently detailed system message can achieve both",
+        "B": "Fine-tuning alone, since it embeds behavior into the model's weights",
+        "C": "Fine-tuning (for consistent brand voice) + RAG (for up-to-date pricing/availability data)",
+        "D": "RAG alone, since it can also enforce tone and style"
+      },
+      "correct": "C",
+      "explanation": "This scenario needs both dimensions the module explicitly separates: fine-tuning for consistent behavior/style (brand voice regardless of phrasing) and RAG for accurate, current factual grounding (real prices/availability). Prompt engineering alone (A) can't guarantee either at a \"always\" level of reliability, and neither fine-tuning alone (B) nor RAG alone (D) fully covers both requirements — RAG doesn't reliably enforce tone/style, and fine-tuning alone won't reflect live, frequently changing pricing data."
+    }
+  },
+  {
+    "id": "eefcae23-ab46-5b41-b94b-39ae91cffd99",
+    "type": "mcq",
+    "domain": "genai-agentic",
+    "topic": "Optimize generative AI model performance with Microsoft Foundry",
+    "difficulty": 2,
+    "source": "bank",
+    "tags": [
+      "genai-agentic",
+      "optimize-generative-ai-model-performance-with-microsoft-foundry",
+      "level-2",
+      "order:5",
+      "module:optimize-generative-ai-model-performance",
+      "path:lp1",
+      "primary-path:lp1"
+    ],
+    "content": {
+      "question": "You've written a detailed system message and several few-shot examples. The model now handles tone and format well, but it keeps inventing hotel names that don't exist in your actual inventory. Following the module's decision framework, what should you do next?",
+      "options": {
+        "A": "Immediately fine-tune the model on your brand voice, since consistency is the issue",
+        "B": "Nothing further is needed — this is expected behavior",
+        "C": "Increase the temperature parameter to reduce hallucination",
+        "D": "Add RAG so the model retrieves and is grounded in your actual hotel catalog data"
+      },
+      "correct": "D",
+      "explanation": "This is a textbook RAG trigger: the model already handles tone/format (prompt engineering is doing its job), but it lacks accurate domain-specific knowledge — its own training data doesn't include your actual hotel inventory, so it's fabricating plausible-sounding but false names. That's precisely the failure mode RAG is designed to fix by grounding responses in retrieved real data. Fine-tuning (A) addresses consistency of style, not lack of factual knowledge; raising temperature (C) would make fabrication worse, not better."
+    }
+  },
+  {
+    "id": "905b41ee-8313-5bef-bafc-4e0e0cc994a9",
+    "type": "mcq",
+    "domain": "plan-manage",
+    "topic": "Implement a responsible generative AI solution in Microsoft Foundry",
+    "difficulty": 1,
+    "source": "bank",
+    "tags": [
+      "plan-manage",
+      "implement-a-responsible-generative-ai-solution-in-microsoft-foundry",
+      "level-1",
+      "order:6",
+      "module:responsible-ai-studio",
+      "path:lp1",
+      "primary-path:lp1"
+    ],
+    "content": {
+      "question": "What are the four stages of Microsoft's responsible generative AI process, in order?",
+      "options": {
+        "A": "Map, Mitigate, Measure, Manage",
+        "B": "Map, Measure, Mitigate, Manage",
+        "C": "Measure, Map, Mitigate, Manage",
+        "D": "Manage, Map, Measure, Mitigate"
+      },
+      "correct": "B",
+      "explanation": "The order is Map, Measure, Mitigate, Manage. The gotcha is that you Measure before you Mitigate: you need a baseline to know whether a mitigation actually helped. (A) swaps the middle two stages, which is the most tempting wrong answer."
+    }
+  },
+  {
+    "id": "a8379bf6-bd0a-50a7-8477-db5793badfb4",
+    "type": "mcq",
+    "domain": "plan-manage",
+    "topic": "Implement a responsible generative AI solution in Microsoft Foundry",
+    "difficulty": 1,
+    "source": "bank",
+    "tags": [
+      "plan-manage",
+      "implement-a-responsible-generative-ai-solution-in-microsoft-foundry",
+      "level-1",
+      "order:6",
+      "module:responsible-ai-studio",
+      "path:lp1",
+      "primary-path:lp1"
+    ],
+    "content": {
+      "question": "The four stages of the responsible generative AI process correspond closely to the functions of which framework?",
+      "options": {
+        "A": "ISO/IEC 27001",
+        "B": "GDPR",
+        "C": "NIST AI Risk Management Framework",
+        "D": "OWASP Top 10 for LLM Applications"
+      },
+      "correct": "C",
+      "explanation": "The module notes these stages correspond closely to the NIST AI Risk Management Framework functions. The other options are real frameworks/regulations but aren't the one named."
+    }
+  },
+  {
+    "id": "86e15944-34ef-518b-ada1-6de22d40802c",
+    "type": "mcq",
+    "domain": "plan-manage",
+    "topic": "Implement a responsible generative AI solution in Microsoft Foundry",
+    "difficulty": 1,
+    "source": "bank",
+    "tags": [
+      "plan-manage",
+      "implement-a-responsible-generative-ai-solution-in-microsoft-foundry",
+      "level-1",
+      "order:6",
+      "module:responsible-ai-studio",
+      "path:lp1",
+      "primary-path:lp1"
+    ],
+    "content": {
+      "question": "Within the Map stage, what is the correct order of the four steps?",
+      "options": {
+        "A": "Prioritize, Identify, Test and verify, Document and share",
+        "B": "Identify, Test and verify, Prioritize, Document and share",
+        "C": "Identify, Prioritize, Document and share, Test and verify",
+        "D": "Identify, Prioritize, Test and verify, Document and share"
+      },
+      "correct": "D",
+      "explanation": "Identify, Prioritize, Test and verify, then Document and share. Testing (red teaming) comes after prioritization, and documenting/sharing is the final step."
+    }
+  },
+  {
+    "id": "d4882989-d1e8-51c4-93b2-f57aa94779f2",
+    "type": "mcq",
+    "domain": "plan-manage",
+    "topic": "Implement a responsible generative AI solution in Microsoft Foundry",
+    "difficulty": 1,
+    "source": "bank",
+    "tags": [
+      "plan-manage",
+      "implement-a-responsible-generative-ai-solution-in-microsoft-foundry",
+      "level-1",
+      "order:6",
+      "module:responsible-ai-studio",
+      "path:lp1",
+      "primary-path:lp1"
+    ],
+    "content": {
+      "question": "A smart kitchen copilot might give inaccurate cooking times (likely to occur often) or provide a lethal poison recipe when prompted (rare, but catastrophic). How does the module say harms should be prioritized?",
+      "options": {
+        "A": "Always rank by severity of impact alone, so the poison recipe is always first",
+        "B": "Always rank by frequency alone, so inaccurate cooking times are always first",
+        "C": "Assess both likelihood and impact, taking intended use and potential misuse into account; the final call can be subjective and involve policy or legal experts",
+        "D": "Prioritize whichever harm is cheapest to fix first"
+      },
+      "correct": "C",
+      "explanation": "Prioritization weighs both likelihood and impact, and considers intended use as well as potential misuse. The module's own example shows the tension: poison has higher impact, but inaccurate cooking times are far more frequent. The final determination is a team discussion, sometimes involving policy or legal experts, and can be subjective. (A) and (B) each use only one factor."
+    }
+  },
+  {
+    "id": "02f14f98-ae0c-5c59-b120-3f9043d15af9",
+    "type": "mcq",
+    "domain": "plan-manage",
+    "topic": "Implement a responsible generative AI solution in Microsoft Foundry",
+    "difficulty": 1,
+    "source": "bank",
+    "tags": [
+      "plan-manage",
+      "implement-a-responsible-generative-ai-solution-in-microsoft-foundry",
+      "level-1",
+      "order:6",
+      "module:responsible-ai-studio",
+      "path:lp1",
+      "primary-path:lp1"
+    ],
+    "content": {
+      "question": "What is the main purpose of the initial round of harm measurement in the Measure stage?",
+      "options": {
+        "A": "To create a baseline that quantifies harms so you can track improvements as you apply mitigations",
+        "B": "To permanently certify the solution as safe",
+        "C": "To replace the need for red teaming",
+        "D": "To decide which model to deploy"
+      },
+      "correct": "A",
+      "explanation": "The goal is an initial baseline that quantifies harms in given usage scenarios, so you can track improvement as you make iterative changes. Measurement doesn't certify safety (B) and complements red teaming rather than replacing it (C)."
+    }
+  },
+  {
+    "id": "dddda966-dae3-5573-af60-23efc4604f87",
+    "type": "mcq",
+    "domain": "plan-manage",
+    "topic": "Implement a responsible generative AI solution in Microsoft Foundry",
+    "difficulty": 1,
+    "source": "bank",
+    "tags": [
+      "plan-manage",
+      "implement-a-responsible-generative-ai-solution-in-microsoft-foundry",
+      "level-1",
+      "order:6",
+      "module:responsible-ai-studio",
+      "path:lp1",
+      "primary-path:lp1"
+    ],
+    "content": {
+      "question": "Which of the following is NOT one of the four layers at which harms are mitigated?",
+      "options": {
+        "A": "Model",
+        "B": "Safety system",
+        "C": "User experience",
+        "D": "Network perimeter"
+      },
+      "correct": "D",
+      "explanation": "The four layers are Model, Safety system, System message and grounding, and User experience. A network perimeter isn't one of them."
+    }
+  },
+  {
+    "id": "5fba2a88-7053-5f25-9589-194a88abc6b8",
+    "type": "mcq",
+    "domain": "plan-manage",
+    "topic": "Implement a responsible generative AI solution in Microsoft Foundry",
+    "difficulty": 1,
+    "source": "bank",
+    "tags": [
+      "plan-manage",
+      "implement-a-responsible-generative-ai-solution-in-microsoft-foundry",
+      "level-1",
+      "order:6",
+      "module:responsible-ai-studio",
+      "path:lp1",
+      "primary-path:lp1"
+    ],
+    "content": {
+      "question": "Which description of Foundry guardrail content filters matches the module?",
+      "options": {
+        "A": "Three severity levels (low, medium, high) across four categories",
+        "B": "Four severity levels (safe, low, medium, high) across five categories: hate and fairness, sexual, violence, self-harm, and task-adherence",
+        "C": "A binary pass/fail result across two categories",
+        "D": "Five severity levels across three categories"
+      },
+      "correct": "B",
+      "explanation": "Content filters classify content into four severity levels (safe, low, medium, high) across five categories (hate and fairness, sexual, violence, self-harm, task-adherence), per the module. Memorize the counts: 4 levels, 5 categories."
+    }
+  },
+  {
+    "id": "a778fe5a-0f34-5310-a68e-fb0610ca4c11",
+    "type": "mcq",
+    "domain": "plan-manage",
+    "topic": "Implement a responsible generative AI solution in Microsoft Foundry",
+    "difficulty": 1,
+    "source": "bank",
+    "tags": [
+      "plan-manage",
+      "implement-a-responsible-generative-ai-solution-in-microsoft-foundry",
+      "level-1",
+      "order:6",
+      "module:responsible-ai-studio",
+      "path:lp1",
+      "primary-path:lp1"
+    ],
+    "content": {
+      "question": "At which layers do fine-tuning and retrieval augmented generation (RAG) respectively sit as harm mitigations?",
+      "options": {
+        "A": "Fine-tuning: model layer; RAG: system message and grounding layer",
+        "B": "Fine-tuning: safety system layer; RAG: model layer",
+        "C": "Fine-tuning: user experience layer; RAG: safety system layer",
+        "D": "Both sit in the model layer"
+      },
+      "correct": "A",
+      "explanation": "Fine-tuning is a model layer mitigation (making responses more relevant and scoped to your scenario). RAG belongs to the system message and grounding layer (retrieving trusted contextual data and including it in prompts). Mixing these two up is a very testable trap."
+    }
+  },
+  {
+    "id": "0855b66d-6ae0-50e3-b520-126a58d13f1c",
+    "type": "mcq",
+    "domain": "plan-manage",
+    "topic": "Implement a responsible generative AI solution in Microsoft Foundry",
+    "difficulty": 1,
+    "source": "bank",
+    "tags": [
+      "plan-manage",
+      "implement-a-responsible-generative-ai-solution-in-microsoft-foundry",
+      "level-1",
+      "order:6",
+      "module:responsible-ai-studio",
+      "path:lp1",
+      "primary-path:lp1"
+    ],
+    "content": {
+      "question": "True or false? Red teaming is only useful for finding security vulnerabilities, so it doesn't apply to finding harmful content from generative AI.",
+      "options": {
+        "A": "True",
+        "B": "False"
+      },
+      "correct": "B",
+      "explanation": "The module says red teaming is often used for security vulnerabilities, but extending it to find harmful content from generative AI builds on and complements existing cybersecurity practices. Testers deliberately probe for weaknesses and try to produce harmful results."
+    }
+  },
+  {
+    "id": "66486c15-8bd7-5c3b-a029-bacb53a1f045",
+    "type": "mcq",
+    "domain": "plan-manage",
+    "topic": "Implement a responsible generative AI solution in Microsoft Foundry",
+    "difficulty": 1,
+    "source": "bank",
+    "tags": [
+      "plan-manage",
+      "implement-a-responsible-generative-ai-solution-in-microsoft-foundry",
+      "level-1",
+      "order:6",
+      "module:responsible-ai-studio",
+      "path:lp1",
+      "primary-path:lp1"
+    ],
+    "content": {
+      "question": "True or false? Once you've automated harm testing and measurement, you no longer need to do any manual testing.",
+      "options": {
+        "A": "True",
+        "B": "False"
+      },
+      "correct": "B",
+      "explanation": "Even with automated testing, you should periodically perform manual testing to validate new scenarios and confirm the automated solution is performing as expected."
+    }
+  },
+  {
+    "id": "2418ee9f-e0b1-5f0f-a1af-465056c61433",
+    "type": "mcq",
+    "domain": "plan-manage",
+    "topic": "Implement a responsible generative AI solution in Microsoft Foundry",
+    "difficulty": 1,
+    "source": "bank",
+    "tags": [
+      "plan-manage",
+      "implement-a-responsible-generative-ai-solution-in-microsoft-foundry",
+      "level-1",
+      "order:6",
+      "module:responsible-ai-studio",
+      "path:lp1",
+      "primary-path:lp1"
+    ],
+    "content": {
+      "question": "True or false? The module recommends starting with manual testing of a small set of inputs to confirm results are consistent and evaluation criteria are well defined, then automating for larger volumes.",
+      "options": {
+        "A": "True",
+        "B": "False"
+      },
+      "correct": "A",
+      "explanation": "Start manual on a small set, confirm consistent results and clear criteria, then automate (possibly with a classification model that evaluates output) for larger volumes."
+    }
+  },
+  {
+    "id": "6d27985e-2537-5adf-a957-51803c026eb8",
+    "type": "mcq",
+    "domain": "plan-manage",
+    "topic": "Implement a responsible generative AI solution in Microsoft Foundry",
+    "difficulty": 1,
+    "source": "bank",
+    "tags": [
+      "plan-manage",
+      "implement-a-responsible-generative-ai-solution-in-microsoft-foundry",
+      "level-1",
+      "order:6",
+      "module:responsible-ai-studio",
+      "path:lp1",
+      "primary-path:lp1"
+    ],
+    "content": {
+      "question": "True or false? Prompt shields in Foundry guardrails use abuse detection to identify attempts to systematically abuse the solution, such as a user trying to subvert the system prompt.",
+      "options": {
+        "A": "True",
+        "B": "False"
+      },
+      "correct": "A",
+      "explanation": "Prompt shields are a safety system layer feature in Foundry guardrails that use abuse detection algorithms to detect systematic abuse, for example attempts to subvert the system prompt."
+    }
+  },
+  {
+    "id": "698fb206-b31e-5883-b545-6f26e8fc140b",
+    "type": "mcq",
+    "domain": "plan-manage",
+    "topic": "Implement a responsible generative AI solution in Microsoft Foundry",
+    "difficulty": 1,
+    "source": "bank",
+    "tags": [
+      "plan-manage",
+      "implement-a-responsible-generative-ai-solution-in-microsoft-foundry",
+      "level-1",
+      "order:6",
+      "module:responsible-ai-studio",
+      "path:lp1",
+      "primary-path:lp1"
+    ],
+    "content": {
+      "question": "True or false? Before wide release, the module recommends a phased delivery plan that first releases the solution to a restricted group of users. ---",
+      "options": {
+        "A": "True",
+        "B": "False"
+      },
+      "correct": "A",
+      "explanation": "A phased delivery plan to a restricted group lets you gather feedback and find problems before a wider release."
+    }
+  },
+  {
+    "id": "a24425fb-425d-5ec5-9359-08cf1cbff11e",
+    "type": "mcq",
+    "domain": "plan-manage",
+    "topic": "Implement a responsible generative AI solution in Microsoft Foundry",
+    "difficulty": 2,
+    "source": "bank",
+    "tags": [
+      "plan-manage",
+      "implement-a-responsible-generative-ai-solution-in-microsoft-foundry",
+      "level-2",
+      "order:6",
+      "module:responsible-ai-studio",
+      "path:lp1",
+      "primary-path:lp1"
+    ],
+    "content": {
+      "question": "Testing of your HR assistant reveals two problems: (1) it sometimes states company policy details that are inaccurate, and (2) users can trick it with prompts that try to override its system prompt. Which pair of mitigations best addresses both, mapped to the correct layers?",
+      "options": {
+        "A": "Fine-tune the model (model layer) and add a disclaimer in the UI (user experience layer)",
+        "B": "Add RAG over trusted policy documents (system message and grounding layer) and enable prompt shields in guardrails (safety system layer)",
+        "C": "Switch to a larger model (model layer) and raise the temperature (model layer)",
+        "D": "Add RAG (grounding layer) and rely on the system message alone to stop prompt subversion, since system messages guarantee compliance"
+      },
+      "correct": "B",
+      "explanation": "Problem 1 (factual inaccuracy) is a grounding problem, so RAG over trusted policy documents at the system message and grounding layer. Problem 2 (prompt subversion) is what prompt shields in the safety system layer are for. (A) uses fine-tuning and a disclaimer, which don't directly stop prompt subversion. (C) raising temperature would increase randomness. (D) is wrong because a system message influences the model but doesn't guarantee compliance, so it shouldn't be the only defense."
+    }
+  },
+  {
+    "id": "97de3c7f-76c9-5823-b7b7-a6e86befbd16",
+    "type": "mcq",
+    "domain": "plan-manage",
+    "topic": "Implement a responsible generative AI solution in Microsoft Foundry",
+    "difficulty": 2,
+    "source": "bank",
+    "tags": [
+      "plan-manage",
+      "implement-a-responsible-generative-ai-solution-in-microsoft-foundry",
+      "level-2",
+      "order:6",
+      "module:responsible-ai-studio",
+      "path:lp1",
+      "primary-path:lp1"
+    ],
+    "content": {
+      "question": "Your team has mapped, measured, and mitigated harms, and the red-team results look good. A stakeholder wants to release to all users tomorrow. According to the Manage stage guidance, what is the best response?",
+      "options": {
+        "A": "Agree — good red-team results mean no further planning is needed",
+        "B": "Release to everyone, and only build the incident response plan if a problem occurs",
+        "C": "Skip reviews but add a disclaimer to the UI",
+        "D": "Complete legal, privacy, security, and accessibility reviews, then release in phases to a restricted group, with an incident response plan, a rollback plan, the ability to block harmful responses and abusive users, and a feedback channel"
+      },
+      "correct": "D",
+      "explanation": "The Manage stage calls for prerelease reviews (legal, privacy, security, accessibility), a phased delivery plan to a restricted group, an incident response plan, a rollback plan, the capability to immediately block harmful responses, the capability to block specific users/applications/IPs, a way for users to report content as inaccurate/incomplete/harmful/offensive, and privacy-compliant telemetry. Good red-team results (A) don't replace operational readiness, and building the incident plan only after a problem (B) is exactly what the guidance warns against."
+    }
+  }
+]
